@@ -1,0 +1,51 @@
+html{
+    font-size: max(16px, 1vw);
+}
+body {
+    margin: 0;
+    font-family: "Raleway", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Gentium Book Plus", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.cabecera{
+    padding: 2em ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    img{
+        width: 150px;
+    }
+}
+canvas{
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+.popup{
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1em;
+    padding: 4em;
+    margin: 10rem 4em 4em;
+    display: none;
+    &.active{
+        display: block;
+    }
+    .close-popup{
+        position: absolute;
+        font-size: 2em;
+        font-weight: bold;
+        top: 2rem;
+        right: 2rem;
+        cursor: pointer;
+    }
+}
