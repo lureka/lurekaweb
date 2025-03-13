@@ -173,7 +173,6 @@ function onMouseMove(event) {
                     resetHoveredObject(); // Restaurar el anterior objeto
                     hoveredObject = object;
                     document.body.style.cursor = "pointer"; // Cambiar cursor
-
                 }
                 found = true;
                 break;
