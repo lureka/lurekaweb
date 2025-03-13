@@ -42,6 +42,9 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     //         console.log("Mesh encontrado:", object.name);
     //     }
     // });
+    // ciudad.traverse((child) => {
+    //     console.log("Objeto encontrado:", child.name);
+    // });
 
     ciudad.scale.set(10, 10, 10);
     
@@ -53,16 +56,16 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     });
 
     // Obtener la cámara del modelo
-    const modelCamera = ciudad.getObjectByName("camera");
-    if (modelCamera && modelCamera.isCamera) {
-        // console.log("Cámara del modelo encontrada:", modelCamera);
-        camera = modelCamera.clone();
-        camera.position.set(camera.position.x, camera.position.y + 10, camera.position.z + 30);
-    } else {
-        console.warn("No se encontró la cámara en el modelo. Usando una por defecto.");
+    const modelCamera = ciudad.getObjectByName("Camera");
+    // if (modelCamera && modelCamera.isCamera) {
+    //     // console.log("Cámara del modelo encontrada:", modelCamera);
+    //     camera = modelCamera.clone();
+    //     camera.position.set(camera.position.x, camera.position.y + 10, camera.position.z + 30);
+    // } else {
+    //     console.warn("No se encontró la cámara en el modelo. Usando una por defecto.");
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
         camera.position.copy(INITIAL_CAMERA_POSITION); // Usar la constante
-    }
+    // }
 
     // Configurar controles de órbita
     controls = new OrbitControls(camera, renderer.domElement);
