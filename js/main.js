@@ -4,7 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import * as TWEEN from "@tweenjs/tween.js";
 
 // Posición inicial de la cámara
-const INITIAL_CAMERA_POSITION = new THREE.Vector3(61.06696691654651, 129.51717639587343, 338.1825616053002);
+const INITIAL_CAMERA_POSITION = new THREE.Vector3(0, 150, 250);
 
 
 // Crear escena y renderizador
@@ -57,21 +57,22 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
 
     // Obtener la cámara del modelo
     const modelCamera = ciudad.getObjectByName("Camera");
-    // if (modelCamera && modelCamera.isCamera) {
+    if (modelCamera && modelCamera.isCamera) {
     //     // console.log("Cámara del modelo encontrada:", modelCamera);
-    //     camera = modelCamera.clone();
-    //     camera.position.set(camera.position.x, camera.position.y + 10, camera.position.z + 30);
-    // } else {
-    //     console.warn("No se encontró la cámara en el modelo. Usando una por defecto.");
+        camera = modelCamera.clone();
+        camera.position.set(camera.position.x, camera.position.y + 10, camera.position.z + 30);
+        // console.warn("Cámara en el modelo cargada.");
+    } else {
+        console.warn("No se encontró la cámara en el modelo. Usando una por defecto.");
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
         camera.position.copy(INITIAL_CAMERA_POSITION); // Usar la constante
-    // }
+    }
 
     // Configurar controles de órbita
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.minDistance = 200;
-    controls.maxDistance = 500;
+    // controls.minDistance = 200;
+    // controls.maxDistance = 500;
     controls.screenSpacePanning = false;
     controls.maxPolarAngle = Math.PI / 2.5;
 
@@ -112,7 +113,7 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         luz1.shadow.camera.far = 200000;
     }
     if (luz3) {
-        luz2.intensity = 0;
+        luz2.intensity = 1;
         luz2.castShadow = false;
     }
 
@@ -281,7 +282,7 @@ function animateZoomOut() {
 }
 
 const fogColor = new THREE.Color("#87CEFA");
-scene.fog = new THREE.FogExp2(fogColor, 0.00032);
+scene.fog = new THREE.FogExp2(fogColor, 0.0004);
 renderer.setClearColor(fogColor);
 
 
