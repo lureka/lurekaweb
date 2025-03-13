@@ -4,7 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import * as TWEEN from "@tweenjs/tween.js";
 
 // Posición inicial de la cámara
-const INITIAL_CAMERA_POSITION = new THREE.Vector3(132, 484, 920);
+const INITIAL_CAMERA_POSITION = new THREE.Vector3(61.06696691654651, 129.51717639587343, 338.1825616053002);
 
 
 // Crear escena y renderizador
@@ -70,8 +70,8 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     // Configurar controles de órbita
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.minDistance = 600;
-    controls.maxDistance = 1050;
+    controls.minDistance = 200;
+    controls.maxDistance = 500;
     controls.screenSpacePanning = false;
     controls.maxPolarAngle = Math.PI / 2.5;
 
@@ -81,6 +81,7 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
 
     controls.addEventListener('end', () => {
         isOrbiting = false;
+        console.log(`Nueva posición de cámara: new THREE.Vector3(${camera.position.x}, ${camera.position.y}, ${camera.position.z})`);
     });
 
     // Obtener y modificar las luces del modelo
@@ -96,8 +97,8 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         luz1.shadow.bias = -0.00001; 
         luz1.shadow.normalBias = 0.05; 
         luz1.castShadow = true;
-        luz1.shadow.mapSize.width = 40096;
-        luz1.shadow.mapSize.height = 40096;
+        luz1.shadow.mapSize.width = 7000;
+        luz1.shadow.mapSize.height = 7000;
         luz1.shadow.camera.left = -4500;  
         luz1.shadow.camera.right = 4500;
         luz1.shadow.camera.top = 4500;
@@ -271,6 +272,7 @@ function animateZoom(target) {
         .start();
 }
 
+
 function animateZoomOut() {
     new TWEEN.Tween(camera.position, tweenGroup)
         .to(INITIAL_CAMERA_POSITION, 1000) // Usar la constante
@@ -279,7 +281,7 @@ function animateZoomOut() {
 }
 
 const fogColor = new THREE.Color("#87CEFA");
-scene.fog = new THREE.FogExp2(fogColor, 0.0003);
+scene.fog = new THREE.FogExp2(fogColor, 0.00032);
 renderer.setClearColor(fogColor);
 
 
