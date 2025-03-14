@@ -289,7 +289,7 @@ function animateZoomOut() {
 }
 
 const fogColor = new THREE.Color("#87e2fa");
-scene.fog = new THREE.FogExp2(fogColor, 0.0004);
+scene.fog = new THREE.FogExp2(fogColor, 0.00025);
 renderer.setClearColor(fogColor);
 
 
