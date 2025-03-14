@@ -45,6 +45,11 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     // ciudad.traverse((child) => {
     //     console.log("Objeto encontrado:", child.name);
     // });
+    // ciudad.traverse((object) => {
+    //     if (object.isLight) {
+    //         console.log(`Luz encontrada: ${object.name} - Tipo: ${object.type}`);
+    //     }
+    // });
 
     ciudad.scale.set(10, 10, 10);
     
@@ -57,22 +62,23 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
 
     // Obtener la cámara del modelo
     const modelCamera = ciudad.getObjectByName("Camera");
-    if (modelCamera && modelCamera.isCamera) {
+    // if (modelCamera && modelCamera.isCamera) {
     //     // console.log("Cámara del modelo encontrada:", modelCamera);
-        camera = modelCamera.clone();
-        camera.position.set(camera.position.x, camera.position.y + 10, camera.position.z + 30);
-        // console.warn("Cámara en el modelo cargada.");
-    } else {
-        console.warn("No se encontró la cámara en el modelo. Usando una por defecto.");
+    //     camera = modelCamera.clone();
+    //     camera.position.set(camera.position.x, camera.position.y + 10, camera.position.z + 30);
+    //     // console.warn("Cámara en el modelo cargada.");
+    // } else {
+        // console.warn("No se encontró la cámara en el modelo. Usando una por defecto.");
+        const fov = 39.6; // 50mm
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
         camera.position.copy(INITIAL_CAMERA_POSITION); // Usar la constante
-    }
+    // }
 
     // Configurar controles de órbita
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    // controls.minDistance = 200;
-    // controls.maxDistance = 500;
+    controls.minDistance = 200;
+    controls.maxDistance = 600;
     controls.screenSpacePanning = false;
     controls.maxPolarAngle = Math.PI / 2.5;
 
@@ -89,17 +95,18 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     const luz1 = ciudad.getObjectByName("luz1");
     const luz2 = ciudad.getObjectByName("luz2");
     const luz3 = ciudad.getObjectByName("luz3");
-    const ambientLight = new THREE.AmbientLight(0x696969, 10);
+    const ambientLight = new THREE.AmbientLight(0x777777, 10);
     
     scene.add(ambientLight);
 
     if (luz1 && luz1.isLight) {
-        luz1.intensity = 4;
+        luz1.color = new THREE.Color(0xefffff); // Color naranja
+        luz1.intensity = 6;
         luz1.shadow.bias = -0.00001; 
         luz1.shadow.normalBias = 0.05; 
         luz1.castShadow = true;
-        luz1.shadow.mapSize.width = 7000;
-        luz1.shadow.mapSize.height = 7000;
+        luz1.shadow.mapSize.width = 20000;
+        luz1.shadow.mapSize.height = 20000;
         luz1.shadow.camera.left = -4500;  
         luz1.shadow.camera.right = 4500;
         luz1.shadow.camera.top = 4500;
@@ -108,8 +115,8 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         luz1.shadow.camera.far = 200000;
     }
     if (luz2) {
-        luz2.intensity = 10;
-        luz2.castShadow = false;
+        luz2.intensity = 1;
+        luz2.castShadow = true;
         luz1.shadow.camera.far = 200000;
     }
     if (luz3) {
@@ -281,7 +288,7 @@ function animateZoomOut() {
         .start();
 }
 
-const fogColor = new THREE.Color("#87CEFA");
+const fogColor = new THREE.Color("#87e2fa");
 scene.fog = new THREE.FogExp2(fogColor, 0.0004);
 renderer.setClearColor(fogColor);
 
