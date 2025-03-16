@@ -88,7 +88,7 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
 
     controls.addEventListener('end', () => {
         isOrbiting = false;
-        console.log(`Nueva posición de cámara: new THREE.Vector3(${camera.position.x}, ${camera.position.y}, ${camera.position.z})`);
+        // console.log(`Nueva posición de cámara: new THREE.Vector3(${camera.position.x}, ${camera.position.y}, ${camera.position.z})`);
     });
 
     // Obtener y modificar las luces del modelo
