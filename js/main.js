@@ -22,7 +22,7 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     const ciudad = gltf.scene;
     scene.add(ciudad);
     ciudad.scale.set(10, 10, 10);
-    
+
     ciudad.traverse((child) => {
         if (child.isMesh) {
             child.receiveShadow = true;
@@ -35,40 +35,39 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
 
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.minDistance = 200;
-    controls.maxDistance = 600;
+    controls.minDistance = 100;
+    controls.maxDistance = 500;
     controls.screenSpacePanning = false;
     controls.maxPolarAngle = Math.PI / 2.5;
 
     const luz1 = ciudad.getObjectByName("luz1");
     const luz2 = ciudad.getObjectByName("luz2");
     const luz3 = ciudad.getObjectByName("luz3");
-    const ambientLight = new THREE.AmbientLight(0x777777, 2);
-    
+    const ambientLight = new THREE.AmbientLight(0x777777, 8); // Intensidad reducida
     scene.add(ambientLight);
 
     if (luz1 && luz1.isLight) {
         luz1.color = new THREE.Color(0xefffff);
-        luz1.intensity = 6;
-        luz1.shadow.bias = -0.00001;
-        luz1.shadow.normalBias = 0.05;
+        luz1.intensity = 5;
+        luz1.shadow.bias = -0.0001; // Ajusta este valor
+        luz1.shadow.normalBias = 0.05; // Ajusta este valor
         luz1.castShadow = true;
-        luz1.shadow.mapSize.width = 4000;
-        luz1.shadow.mapSize.height = 4000;
-        luz1.shadow.camera.left = -4500;
-        luz1.shadow.camera.right = 4500;
-        luz1.shadow.camera.top = 4500;
-        luz1.shadow.camera.bottom = -4500;
-        luz1.shadow.camera.near = 10;
-        luz1.shadow.camera.far = 200000;
+        luz1.shadow.mapSize.width = 32096; // Resolución reducida
+        luz1.shadow.mapSize.height = 32096; // Resolución reducida
+        luz1.shadow.camera.left = -1000; // Ajusta según el tamaño de la escena
+        luz1.shadow.camera.right = 1000;
+        luz1.shadow.camera.top = 1000;
+        luz1.shadow.camera.bottom = -1000;
+        luz1.shadow.camera.near = 1;
+        luz1.shadow.camera.far = 2000; // Ajusta según la distancia máxima
     }
     if (luz2) {
-        luz2.intensity = 1;
-        luz2.castShadow = true;
+        luz2.intensity = 2;
+        luz2.castShadow = false;
         luz2.shadow.camera.far = 200000;
     }
     if (luz3) {
-        luz3.intensity = 1;
+        luz3.intensity = 2;
         luz3.castShadow = false;
     }
 
@@ -83,6 +82,7 @@ function animate() {
     if (controls) controls.update();
     renderer.render(scene, camera);
 }
+
 const fogColor = new THREE.Color("#87e2fa");
 scene.fog = new THREE.FogExp2(fogColor, 0.00025);
 renderer.setClearColor(fogColor);
