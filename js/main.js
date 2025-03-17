@@ -31,7 +31,7 @@ const tweenGroup = new TWEEN.Group();
 
 // Cargar el modelo 3D
 const loader = new GLTFLoader();
-loader.load("./3d/modelo-osoco.glb", (gltf) => {
+loader.load("3d/modelo-osoco.glb", (gltf) => {
     const ciudad = gltf.scene;
     scene.add(ciudad);
     
