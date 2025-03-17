@@ -103,7 +103,7 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         luz1.color = new THREE.Color(0xefffff); // Color naranja
         luz1.intensity = 6;
         luz1.shadow.bias = -0.00001; 
-        luz1.shadow.normalBias = 0.5; 
+        luz1.shadow.normalBias = 0.05; 
         luz1.castShadow = true;
         luz1.shadow.mapSize.width = 20000;
         luz1.shadow.mapSize.height = 20000;
@@ -112,12 +112,12 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         luz1.shadow.camera.top = 4500;
         luz1.shadow.camera.bottom = -4500;
         luz1.shadow.camera.near = 10;
-        luz1.shadow.camera.far = 9000;
+        luz1.shadow.camera.far = 200000;
     }
     if (luz2) {
         luz2.intensity = 1;
         luz2.castShadow = true;
-        luz1.shadow.camera.far = 90000;
+        luz1.shadow.camera.far = 200000;
     }
     if (luz3) {
         luz2.intensity = 1;
