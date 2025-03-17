@@ -14,7 +14,7 @@ npm run dev
 # Build for production in the dist/ directory
 npm run build
 
-# Vercel
-vercel
-vercel --prod
+# Netlify
+netlify deploy 
+netlify deploy  --prod
 ```
