@@ -95,30 +95,26 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     const luz1 = ciudad.getObjectByName("luz1");
     const luz2 = ciudad.getObjectByName("luz2");
     const luz3 = ciudad.getObjectByName("luz3");
-    const ambientLight = new THREE.AmbientLight(0x777777, 10);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     
     scene.add(ambientLight);
 
     if (luz1 && luz1.isLight) {
-        luz1.color = new THREE.Color(0xefffff); // Color naranja
+        luz1.color = new THREE.Color(0xffffff);
         luz1.intensity = 6;
-        luz1.shadow.bias = -0.01; 
-        luz1.shadow.normalBias = .01; 
+        luz1.shadow.bias = -0.0001;
+        luz1.shadow.normalBias = 0.05; 
         luz1.castShadow = true;
-        luz1.shadow.mapSize.width = 15000;
-        luz1.shadow.mapSize.height = 15000;
-        luz1.shadow.camera.left = -3000;  
-        luz1.shadow.camera.right = 3000;
-        luz1.shadow.camera.top = 3000;
-        luz1.shadow.camera.bottom = -3000;
-        luz1.shadow.camera.near = 0.001;
-        luz1.shadow.camera.far = 200;
+        luz1.shadow.mapSize.width = 2048;
+        luz1.shadow.mapSize.height = 2048;
+        luz1.shadow.camera.left = -2000;
+        luz1.shadow.camera.right = 2000;
+        luz1.shadow.camera.top = 2000;
+        luz1.shadow.camera.bottom = -2000;
+        luz1.shadow.camera.near = 0.1;
+        luz1.shadow.camera.far = 25000;
     }
     if (luz2) {
-        luz2.intensity = 1;
-        luz2.castShadow = false;
-    }
-    if (luz3) {
         luz2.intensity = 1;
         luz2.castShadow = false;
     }
