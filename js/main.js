@@ -14,7 +14,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Configuración de sombras
-// renderer.shadowMap.enabled = true;
+renderer.shadowMap.enabled = true; // Activar sombras
+renderer.shadowMap.autoUpdate = true; // Desactivar actualización automática
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 // Variables globales
@@ -95,24 +96,24 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     const luz1 = ciudad.getObjectByName("luz1");
     const luz2 = ciudad.getObjectByName("luz2");
     const luz3 = ciudad.getObjectByName("luz3");
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
     
     scene.add(ambientLight);
 
     if (luz1 && luz1.isLight) {
         luz1.color = new THREE.Color(0xffffff);
-        luz1.intensity = 6;
-        luz1.shadow.bias = -0.001;
-        luz1.shadow.normalBias = 0.05; 
-        luz1.castShadow = false;
-        luz1.shadow.mapSize.width = 2048;
-        luz1.shadow.mapSize.height = 2048;
-        luz1.shadow.camera.left = -2000;
-        luz1.shadow.camera.right = 2000;
-        luz1.shadow.camera.top = 2000;
-        luz1.shadow.camera.bottom = -2000;
-        luz1.shadow.camera.near = 0.1;
-        luz1.shadow.camera.far = 200;
+        luz1.intensity = 7;
+        luz1.shadow.bias = -0.00005;
+        luz1.shadow.normalBias = 0.02; 
+        luz1.castShadow = true;
+        luz1.shadow.mapSize.width = 3000;
+        luz1.shadow.mapSize.height = 3000;
+        luz1.shadow.camera.left = -550;
+        luz1.shadow.camera.right = 550;
+        luz1.shadow.camera.top = 550;
+        luz1.shadow.camera.bottom = -550;
+        luz1.shadow.camera.near = 0.0001;
+        luz1.shadow.camera.far = 10000;
     }
     if (luz2) {
         luz2.intensity = 1;
