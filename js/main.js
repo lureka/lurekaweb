@@ -4,7 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import * as TWEEN from "@tweenjs/tween.js";
 
 // Posición inicial de la cámara
-const INITIAL_CAMERA_POSITION = new THREE.Vector3(0, 150, 250);
+const INITIAL_CAMERA_POSITION = new THREE.Vector3(10, 2, 15);
 
 
 // Crear escena y renderizador
@@ -79,8 +79,9 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.minDistance = 20;
-    controls.maxDistance = 40;
+    controls.maxDistance = 100;
     controls.screenSpacePanning = false;
+    controls.enablePan = false;
     controls.maxPolarAngle = Math.PI / 2.5;
 
     controls.addEventListener('start', () => {
@@ -142,14 +143,10 @@ function animateBuilding(building) {
     const tweenUp = new TWEEN.Tween(building.position, tweenGroup)
         .to({ y: targetPosition }, 2000)
         .easing(TWEEN.Easing.Quadratic.InOut)
-        // .onStart(() => console.log("Animación de subida iniciada"))
-        // .onComplete(() => console.log("Animación de subida completada"));
 
     const tweenDown = new TWEEN.Tween(building.position, tweenGroup)
         .to({ y: initialPosition }, 2000)
         .easing(TWEEN.Easing.Quadratic.InOut)
-        // .onStart(() => console.log("Animación de bajada iniciada"))
-        // .onComplete(() => console.log("Animación de bajada completada"));
 
     tweenUp.chain(tweenDown);
     tweenDown.chain(tweenUp);
@@ -227,12 +224,8 @@ function onMouseClick(event) {
             selectedObject = clickedObject;
 
             const buildingName = selectedObject.name.split("_")[0];
-            // console.log("Edificio seleccionado:", buildingName);
-
             updateActiveBuildingClass(buildingName);
-
             animateZoom(selectedObject);
-
             isPopupOpen = true;
         }
     }
@@ -242,15 +235,31 @@ function updateActiveBuildingClass(buildingName) {
     if (!buildingName) return;
 
     const buildingElements = document.querySelectorAll("[class*='edificio']");
+    const veloPopup = document.querySelector(".velo-popup"); 
+
+    let hasActive = false; // Variable para saber si algún edificio está activo
 
     buildingElements.forEach((element) => {
         if (element.classList.contains(buildingName)) {
             element.classList.add("active");
+            hasActive = true; // Hay al menos un edificio activo
         } else {
             element.classList.remove("active");
         }
     });
+
+    // Si hay un edificio activo, añadir la clase active al veloPopup, si no, quitarla
+    if (veloPopup) {
+        if (hasActive) {
+            veloPopup.classList.add("active");
+        } else {
+            veloPopup.classList.remove("active");
+        }
+    }
 }
+
+
+
 
 function closePopup() {
     const activeElements = document.querySelectorAll(".active");
@@ -269,9 +278,9 @@ document.addEventListener("click", (event) => {
 });
 
 function animateZoom(target) {
-    const targetPosition = target.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(100, 300, 300));
+    const targetPosition = target.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0, 0));
     new TWEEN.Tween(camera.position, tweenGroup)
-        .to(targetPosition, 1000)
+        .to(targetPosition, 5000)
         .easing(TWEEN.Easing.Quadratic.Out)
         .start();
 }
