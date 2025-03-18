@@ -14,7 +14,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Configuración de sombras
-renderer.shadowMap.enabled = true;
+// renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 // Variables globales
@@ -102,9 +102,9 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     if (luz1 && luz1.isLight) {
         luz1.color = new THREE.Color(0xffffff);
         luz1.intensity = 6;
-        luz1.shadow.bias = -0.0001;
+        luz1.shadow.bias = -0.001;
         luz1.shadow.normalBias = 0.05; 
-        luz1.castShadow = true;
+        luz1.castShadow = false;
         luz1.shadow.mapSize.width = 2048;
         luz1.shadow.mapSize.height = 2048;
         luz1.shadow.camera.left = -2000;
@@ -112,7 +112,7 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         luz1.shadow.camera.top = 2000;
         luz1.shadow.camera.bottom = -2000;
         luz1.shadow.camera.near = 0.1;
-        luz1.shadow.camera.far = 25000;
+        luz1.shadow.camera.far = 200;
     }
     if (luz2) {
         luz2.intensity = 1;
@@ -284,7 +284,7 @@ function animateZoomOut() {
 }
 
 const fogColor = new THREE.Color("#87e2fa");
-scene.fog = new THREE.FogExp2(fogColor, 0.00025);
+scene.fog = new THREE.FogExp2(fogColor, 0.0025);
 renderer.setClearColor(fogColor);
 
 
