@@ -278,9 +278,9 @@ document.addEventListener("click", (event) => {
 });
 
 function animateZoom(target) {
-    const targetPosition = target.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0, 0));
+    const targetPosition = target.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(10, 10, 10));
     new TWEEN.Tween(camera.position, tweenGroup)
-        .to(targetPosition, 5000)
+        .to(targetPosition, 1000)
         .easing(TWEEN.Easing.Quadratic.Out)
         .start();
 }
