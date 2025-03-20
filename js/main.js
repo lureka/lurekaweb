@@ -3,9 +3,11 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import * as TWEEN from "@tweenjs/tween.js";
 
+// Definir loader al principio
+const loader = new GLTFLoader();
+
 // Posición inicial de la cámara
 const INITIAL_CAMERA_POSITION = new THREE.Vector3(10, 2, 15);
-
 
 // Crear escena y renderizador
 const scene = new THREE.Scene();
@@ -30,30 +32,107 @@ let lastCameraPosition = new THREE.Vector3();
 // Crear un grupo de Tween
 const tweenGroup = new TWEEN.Group();
 
+// Array con los edificios
+const edificios = [];
+
+// Función para obtener las posiciones de los edificios
+const obtenerEdificios = () => {
+    scene.traverse((object) => {
+        if (object.name.toLowerCase().includes("edificio")) {
+            const boundingBox = new THREE.Box3().setFromObject(object);
+            const position = new THREE.Vector3();
+            boundingBox.getCenter(position); // Obtener el centro del edificio
+            position.y = boundingBox.max.y; // Usar el valor más alto en Y
+            edificios.push({ name: object.name, position });
+        }
+    });
+};
+
+// Función para actualizar la posición de los divs
+const MARGIN_THRESHOLD = 5; // Margen en píxeles para empezar a desvanecer
+
+const updateDivPositions = () => {
+    edificios.forEach((edificio) => {
+        const div = document.getElementById(edificio.name);
+        if (div) {
+            const vector = edificio.position.clone().project(camera);
+
+            // Si el objeto está detrás de la cámara, ocultarlo
+            if (vector.z > 1) {
+                div.style.display = "none";
+                return;
+            }
+
+            const x = (vector.x + 1) / 2 * window.innerWidth;
+            const y = (-vector.y + 1) / 2 * window.innerHeight;
+
+            const minX = MARGIN_THRESHOLD;
+            const maxX = window.innerWidth - MARGIN_THRESHOLD;
+            const minY = MARGIN_THRESHOLD;
+            const maxY = window.innerHeight - MARGIN_THRESHOLD;
+
+            let opacity = 1;
+            if (x < minX) opacity = Math.max(0, (x - minX + MARGIN_THRESHOLD) / MARGIN_THRESHOLD);
+            if (x > maxX) opacity = Math.max(0, (maxX - x + MARGIN_THRESHOLD) / MARGIN_THRESHOLD);
+            if (y < minY) opacity = Math.max(0, (y - minY + MARGIN_THRESHOLD) / MARGIN_THRESHOLD);
+            if (y > maxY) opacity = Math.max(0, (maxY - y + MARGIN_THRESHOLD) / MARGIN_THRESHOLD);
+
+            div.style.opacity = opacity;
+            div.style.display = opacity === 0 ? "none" : "block";
+
+            div.style.position = "absolute";
+            div.style.left = `${x}px`;
+            div.style.top = `${y}px`;
+            div.style.transition = "opacity 0.3s ease-out";
+        }
+    });
+};
+
+// Función para animar el globo
+function animateBuilding(building) {
+    // console.log("Animando edificio:", building.name);
+    const initialPosition = building.position.y;
+    const targetPosition = initialPosition + 1;
+
+    const tweenUp = new TWEEN.Tween(building.position, tweenGroup)
+        .to({ y: targetPosition }, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut);
+
+    const tweenDown = new TWEEN.Tween(building.position, tweenGroup)
+        .to({ y: initialPosition }, 2000)
+        .easing(TWEEN.Easing.Quadratic.InOut);
+
+    tweenUp.chain(tweenDown);
+    tweenDown.chain(tweenUp);
+
+    tweenUp.start();
+}
+
+// Función de animación principal
+function animate() {
+    requestAnimationFrame(animate);
+    tweenGroup.update();
+    if (controls) controls.update();
+    updateDivPositions(); // Actualizar posiciones de los divs
+    renderer.render(scene, camera);
+}
+
+// Configurar niebla y color de fondo
+const fogColor = new THREE.Color("#87e2fa");
+scene.fog = new THREE.FogExp2(fogColor, 0.0025);
+renderer.setClearColor(fogColor);
+
 // Cargar el modelo 3D
-const loader = new GLTFLoader();
 loader.load("./3d/modelo-osoco.glb", (gltf) => {
     const ciudad = gltf.scene;
     scene.add(ciudad);
-    
-    // console.log("Modelo cargado:", ciudad);
 
-    // ciudad.traverse((object) => {
-    //     if (object.isMesh) {
-    //         console.log("Mesh encontrado:", object.name);
-    //     }
-    // });
-    // ciudad.traverse((child) => {
-    //     console.log("Objeto encontrado:", child.name);
-    // });
-    // ciudad.traverse((object) => {
-    //     if (object.isLight) {
-    //         console.log(`Luz encontrada: ${object.name} - Tipo: ${object.type}`);
-    //     }
-    // });
+    // Obtener las posiciones de los edificios
+    obtenerEdificios();
 
+    // Código existente...
     ciudad.scale.set(1, 1, 1);
-    
+
     ciudad.traverse((child) => {
         if (child.isMesh) {
             child.receiveShadow = true;
@@ -61,19 +140,10 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         }
     });
 
-    // Obtener la cámara del modelo
-    const modelCamera = ciudad.getObjectByName("Camera");
-    // if (modelCamera && modelCamera.isCamera) {
-    //     // console.log("Cámara del modelo encontrada:", modelCamera);
-    //     camera = modelCamera.clone();
-    //     camera.position.set(camera.position.x, camera.position.y + 10, camera.position.z + 30);
-    //     // console.warn("Cámara en el modelo cargada.");
-    // } else {
-        // console.warn("No se encontró la cámara en el modelo. Usando una por defecto.");
-        const fov = 39.6; // 50mm
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
-        camera.position.copy(INITIAL_CAMERA_POSITION); // Usar la constante
-    // }
+    // Configurar cámara
+    const fov = 39.6; // 50mm
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
+    camera.position.copy(INITIAL_CAMERA_POSITION); // Usar la constante
 
     // Configurar controles de órbita
     controls = new OrbitControls(camera, renderer.domElement);
@@ -90,7 +160,6 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
 
     controls.addEventListener('end', () => {
         isOrbiting = false;
-        // console.log(`Nueva posición de cámara: new THREE.Vector3(${camera.position.x}, ${camera.position.y}, ${camera.position.z})`);
     });
 
     // Obtener y modificar las luces del modelo
@@ -98,14 +167,13 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     const luz2 = ciudad.getObjectByName("luz2");
     const luz3 = ciudad.getObjectByName("luz3");
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-    
     scene.add(ambientLight);
 
     if (luz1 && luz1.isLight) {
         luz1.color = new THREE.Color(0xffffff);
         luz1.intensity = 7;
         luz1.shadow.bias = -0.00005;
-        luz1.shadow.normalBias = 0.02; 
+        luz1.shadow.normalBias = 0.02;
         luz1.castShadow = true;
         luz1.shadow.mapSize.width = 3000;
         luz1.shadow.mapSize.height = 3000;
@@ -122,43 +190,25 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     }
 
     // Animación de todos los elementos con "globo" en su nombre
-ciudad.traverse((child) => {
-    if (child.name.toLowerCase().includes("globo")) {
-        animateBuilding(child);
-        //console.log("Posición inicial del", child.name, ":", child.position);
-    }
-});
+    ciudad.traverse((child) => {
+        if (child.name.toLowerCase().includes("globo")) {
+            animateBuilding(child);
+        }
+    });
 
-animate();
+    // Iniciar la animación
+    animate();
 }, undefined, (error) => {
     console.error("Error al cargar el modelo:", error);
 });
 
-// Función para animar el globo
-function animateBuilding(building) {
-    // console.log("Animando edificio:", building.name);
-    const initialPosition = building.position.y;
-    const targetPosition = initialPosition + 1;
-
-    const tweenUp = new TWEEN.Tween(building.position, tweenGroup)
-        .to({ y: targetPosition }, 2000)
-        .easing(TWEEN.Easing.Quadratic.InOut)
-
-    const tweenDown = new TWEEN.Tween(building.position, tweenGroup)
-        .to({ y: initialPosition }, 2000)
-        .easing(TWEEN.Easing.Quadratic.InOut)
-
-    tweenUp.chain(tweenDown);
-    tweenDown.chain(tweenUp);
-
-    tweenUp.start();
-}
 
 // Raycaster para detección de clics en edificios
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 let selectedObject = null;
 let hoveredObject = null;
+
 
 // Función para detectar si el ratón está sobre un objeto interactivo
 function onMouseMove(event) {
@@ -189,6 +239,25 @@ function onMouseMove(event) {
         resetHoveredObject();
     }
 }
+
+
+document.querySelectorAll(".tooltip-3d").forEach((box) => {
+    box.addEventListener("click", function (event) {
+        event.stopPropagation(); // Evita interferencias con otros eventos
+
+        // Obtener el nombre del edificio desde el ID del tooltip
+        let edificioId = this.id.replace("tooltip-", ""); 
+        let edificio = scene.getObjectByName(edificioId);
+
+        if (edificio) {
+            selectedObject = edificio;
+            const buildingName = selectedObject.name.split("_")[0];
+            updateActiveBuildingClass(buildingName);
+            animateZoom(selectedObject);
+            isPopupOpen = true;
+        }
+    });
+});
 
 // Función para restaurar el objeto cuando el ratón sale
 function resetHoveredObject() {
@@ -257,10 +326,6 @@ function updateActiveBuildingClass(buildingName) {
         }
     }
 }
-
-
-
-
 function closePopup() {
     const activeElements = document.querySelectorAll(".active");
     activeElements.forEach((element) => {
@@ -293,19 +358,15 @@ function animateZoomOut() {
         .start();
 }
 
-const fogColor = new THREE.Color("#87e2fa");
-scene.fog = new THREE.FogExp2(fogColor, 0.0025);
-renderer.setClearColor(fogColor);
+// Detectar el mouse sobre un edificio
+window.addEventListener("mousemove", (event) => {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-
-function animate() {
-    requestAnimationFrame(animate);
-    tweenGroup.update();
-    // console.log("TWEEN.update() ejecutado");
-    // console.log(camera.position);
-    if (controls) controls.update();
-    renderer.render(scene, camera);
-}
+    // Usa el raycaster existente
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(scene.children, true);
+});
 
 window.addEventListener("resize", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);

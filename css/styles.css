@@ -43,6 +43,7 @@ canvas {
   width: 100svw;
   height: 100svh;
   z-index: 5;
+  pointer-events: none;
 }
 .velo-popup.active {
   display: flex;
@@ -71,5 +72,13 @@ canvas {
   font-weight: bold;
   top: 2rem;
   right: 2rem;
+  cursor: pointer;
+}
+
+.tooltip-3d {
+  position: absolute;
+  transform: translate(-50%, -200%);
+  width: 1.5em;
+  height: 1.5em;
   cursor: pointer;
 }
