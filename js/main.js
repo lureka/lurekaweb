@@ -7,7 +7,7 @@ import * as TWEEN from "@tweenjs/tween.js";
 const loader = new GLTFLoader();
 
 // Posición inicial de la cámara
-const INITIAL_CAMERA_POSITION = new THREE.Vector3(10, 2, 15);
+const INITIAL_CAMERA_POSITION = new THREE.Vector3(15, 15, 25);
 
 // Crear escena y renderizador
 const scene = new THREE.Scene();
@@ -345,7 +345,7 @@ document.addEventListener("click", (event) => {
 function animateZoom(target) {
     const targetPosition = target.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(10, 10, 10));
     new TWEEN.Tween(camera.position, tweenGroup)
-        .to(targetPosition, 1000)
+        .to(targetPosition, 2000)
         .easing(TWEEN.Easing.Quadratic.Out)
         .start();
 }
