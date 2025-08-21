@@ -50,7 +50,7 @@ canvas {
   border-radius: 1vw;
   max-width: 40rem;
   padding: 4vw;
-  margin: 4vw auto;
+  margin: 0 auto 4vw auto;
   display: none;
 }
 .popup.active {
