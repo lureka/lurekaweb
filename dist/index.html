@@ -2,24 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Sitio personal de Emilio Rodriguez Vila - Lureka">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSOCO - Ciudad 3D</title>
+    <title>Lureka web - Emilio Rodriguez Vila Site</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300;400;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:wght@300;400;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     
-  <script type="module" crossorigin src="/assets/index-CNBfj7Zr.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-D0iWYemA.css">
+    
+  <script type="module" crossorigin src="/assets/index-Z3oLHGOn.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B2KEZqxm.css">
 </head>
 <body>
-    <div class="cabecera">
-        <img src="/assets/logo_osoco-BAudzyi7.svg" alt="">
-    </div>
+    <header class="header-svg">
+        <svg viewBox="0 0 1000 200" preserveAspectRatio="none" class="header-wave">
+          <path id="wavePath" fill="#4fa1f3"
+            d="M0,0 H1000 V150 
+               C600,180 400,180 0,150 
+               Z" />
+        </svg>
+    </header>
+    <div class="velo-popup"></div>
     <div class="popup edificio02">
         <div class="js-close-popup close-popup">X</div>
         <h1>Edificio02</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio harum, doloribus quas ea incidunt quos nemo architecto nesciunt dignissimos rerum accusantium aspernatur velit consequatur deleniti similique, delectus eius deserunt! Amet!</p>    
+    </div>
+    <div class="popup edificio03">
+        <div class="js-close-popup close-popup">X</div>
+        <h1>Edificio03</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio harum, doloribus quas ea incidunt quos nemo architecto nesciunt dignissimos rerum accusantium aspernatur velit consequatur deleniti similique, delectus eius deserunt! Amet!</p>    
+    </div>
+    <div class="popup edificio04">
+        <div class="js-close-popup close-popup">X</div>
+        <h1>Edificio04</h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio harum, doloribus quas ea incidunt quos nemo architecto nesciunt dignissimos rerum accusantium aspernatur velit consequatur deleniti similique, delectus eius deserunt! Amet!</p>    
     </div>
     <div class="popup edificio-faro">
@@ -38,7 +56,38 @@
     <div class="popup edificio-osoco">
         <div class="js-close-popup close-popup">X</div>
         <h1>Edificio OSOCO</h1>
+        <img src="/assets/logo_osoco-D5g0TwFw.svg" alt="Logotipo Osoco" class="logo">
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio harum, doloribus quas ea incidunt quos nemo architecto nesciunt dignissimos rerum accusantium aspernatur velit consequatur deleniti similique, delectus eius deserunt! Amet!</p>    
     </div>
+    <div class="pointers">
+        <div class="tooltip-3d" id="edificio-faro" role="button" aria-label="Faro"><img alt="" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Capa_2'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20179.17%20249.17'%3e%3cg%20id='Capa_1-2'%3e%3cpath%20d='M179.17,89.58c0,49.48-65.28,159.58-89.58,159.58S0,139.06,0,89.58,40.11,0,89.58,0s89.58,40.11,89.58,89.58Z'%20style='fill:%23444;'/%3e%3ccircle%20cx='89.58'%20cy='78.02'%20r='35.61'%20style='fill:%23fff;'/%3e%3c/g%3e%3c/svg%3e"/></div>
+        <div class="tooltip-3d" id="edificio-osoco" role="button" aria-label="Osoco"><img alt="" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Capa_2'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20179.17%20249.17'%3e%3cg%20id='Capa_1-2'%3e%3cpath%20d='M179.17,89.58c0,49.48-65.28,159.58-89.58,159.58S0,139.06,0,89.58,40.11,0,89.58,0s89.58,40.11,89.58,89.58Z'%20style='fill:%23444;'/%3e%3ccircle%20cx='89.58'%20cy='78.02'%20r='35.61'%20style='fill:%23fff;'/%3e%3c/g%3e%3c/svg%3e"/></div>
+        <div class="tooltip-3d" id="edificio02" role="button" aria-label="Edificio 2"><img alt="" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Capa_2'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20179.17%20249.17'%3e%3cg%20id='Capa_1-2'%3e%3cpath%20d='M179.17,89.58c0,49.48-65.28,159.58-89.58,159.58S0,139.06,0,89.58,40.11,0,89.58,0s89.58,40.11,89.58,89.58Z'%20style='fill:%23444;'/%3e%3ccircle%20cx='89.58'%20cy='78.02'%20r='35.61'%20style='fill:%23fff;'/%3e%3c/g%3e%3c/svg%3e"/></div>
+        <div class="tooltip-3d" id="edificio03" role="button" aria-label="Edificio 3"><img alt="" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Capa_2'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20179.17%20249.17'%3e%3cg%20id='Capa_1-2'%3e%3cpath%20d='M179.17,89.58c0,49.48-65.28,159.58-89.58,159.58S0,139.06,0,89.58,40.11,0,89.58,0s89.58,40.11,89.58,89.58Z'%20style='fill:%23444;'/%3e%3ccircle%20cx='89.58'%20cy='78.02'%20r='35.61'%20style='fill:%23fff;'/%3e%3c/g%3e%3c/svg%3e"/></div>
+        <div class="tooltip-3d" id="edificio04" role="button" aria-label="Edificio 4"><img alt="" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Capa_2'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20179.17%20249.17'%3e%3cg%20id='Capa_1-2'%3e%3cpath%20d='M179.17,89.58c0,49.48-65.28,159.58-89.58,159.58S0,139.06,0,89.58,40.11,0,89.58,0s89.58,40.11,89.58,89.58Z'%20style='fill:%23444;'/%3e%3ccircle%20cx='89.58'%20cy='78.02'%20r='35.61'%20style='fill:%23fff;'/%3e%3c/g%3e%3c/svg%3e"/></div>
+        <div class="tooltip-3d" id="edificio-globo" role="button" aria-label="Globo"><img alt="" src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Capa_2'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20179.17%20249.17'%3e%3cg%20id='Capa_1-2'%3e%3cpath%20d='M179.17,89.58c0,49.48-65.28,159.58-89.58,159.58S0,139.06,0,89.58,40.11,0,89.58,0s89.58,40.11,89.58,89.58Z'%20style='fill:%23444;'/%3e%3ccircle%20cx='89.58'%20cy='78.02'%20r='35.61'%20style='fill:%23fff;'/%3e%3c/g%3e%3c/svg%3e"/></div>
+    </div>
 </body>
+<script>
+    const path = document.getElementById("wavePath");
+    let tick = 0;
+  
+    function animateWave() {
+      // Mover el punto de control entre 300 y 700
+      const cp1 = 500 + Math.sin(tick) * 200;
+      const cp2 = 500 - Math.sin(tick) * 200;
+  
+      // Modificamos el atributo d del path
+      path.setAttribute("d", `
+        M0,0 H1000 V150 
+        C${cp1},180 ${cp2},180 0,150 
+        Z
+      `);
+  
+      tick += 0.02;
+      requestAnimationFrame(animateWave);
+    }
+  
+    animateWave();
+  </script>
 </html>

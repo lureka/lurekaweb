@@ -14,7 +14,13 @@ npm run dev
 # Build for production in the dist/ directory
 npm run build
 
-# Netlify
+# Netlify (login with github)
 netlify deploy 
 netlify deploy  --prod
+
+https://app.netlify.com/teams/lureka/sites
+https://app.netlify.com/projects/lureka/overview
+
+
+
 ```
