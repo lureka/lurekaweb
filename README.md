@@ -15,6 +15,7 @@ npm run dev
 npm run build
 
 # Netlify (login with github)
+Push to main branch (Sourcetree) and deploy to netlify
 netlify deploy 
 netlify deploy  --prod
 
