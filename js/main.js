@@ -166,12 +166,12 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
     const luz1 = ciudad.getObjectByName("luz1");
     const luz2 = ciudad.getObjectByName("luz2");
     const luz3 = ciudad.getObjectByName("luz3");
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
     if (luz1 && luz1.isLight) {
         luz1.color = new THREE.Color(0xffffff);
-        luz1.intensity = 7;
+        luz1.intensity = 5;
         luz1.shadow.bias = -0.00005;
         luz1.shadow.normalBias = 0.02;
         luz1.castShadow = true;
@@ -185,7 +185,7 @@ loader.load("./3d/modelo-osoco.glb", (gltf) => {
         luz1.shadow.camera.far = 10000;
     }
     if (luz2) {
-        luz2.intensity = 1;
+        luz2.intensity = 0.6;
         luz2.castShadow = false;
     }
 
