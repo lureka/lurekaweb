@@ -1,5 +1,14 @@
+:root{
+    --color-bg:                 #fff;
+    --color-text:               #343434;
+    --color-text-off:           #444;
+    --color-gray:               #afafaf;
+    --color-link:               #ff6600;
+}
 html{
     font-size: max(16px, 1vw);
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 body {
     margin: 0;
@@ -9,16 +18,24 @@ body {
     font-style: normal;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Gentium Book Plus", serif;
+    font-family: "Exo", serif;
     font-weight: 700;
     font-style: normal;
 }
-.cabecera{
+a{
+    color: var(--color-link);
+    &:active, &:focus, &:focus-visible, &:hover{
+        border: none;
+    }
+}
+img{max-width: 100%;}
+.main-header{
     padding: 2em ;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
+    h1{ color: #fff;}
     img{
         width: 150px;
     }
@@ -38,9 +55,26 @@ canvas{
     width: 100svw;
     height: 100svh;
     z-index: 5;
-    pointer-events: none;
     &.active{
         display: flex;
+    }
+}
+.info-popup{
+    vertical-align: middle;
+    display: none;
+    padding: 2em 1em;
+    background-color: var(--color-bg);
+    border-radius: 10px;
+    z-index: 1000;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 5em;
+    left: calc(50% - 160px);
+    top: calc(50% - 2.5em);
+    img{
+        vertical-align: middle;
     }
 }
 .popup{
@@ -51,27 +85,210 @@ canvas{
     padding: 4vw;
     margin: 4vw;
     display: none;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    // font-size: max(16px, 1.25vw);
+    h1{margin-top: 0;}
     &.active{
         display: block;
+        cursor: default;
+    }
+    h1{
+        margin-top: 0;
+        margin-bottom: .3em;
+        font-size: max(32px, 5vw);
     }
     .logo{
         width: 100%;
         max-width: 10em;
         margin: 0 auto;
     }
+    .columns2{
+        display: grid;
+        grid-template-columns: 20vw auto;
+        gap: 2em;
+        .decor{
+            img{
+                display: block;
+                object-fit: cover;
+            }
+            &.avatar{
+                img{
+                    width: 20vw;
+                    max-width: 100%;
+                    aspect-ratio: 1;
+                    background-color: #d39700;
+                    border-radius: 50%;
+                }
+            }
+    }
+
+    }
     .close-popup{
         position: absolute;
-        font-size: 2em;
-        font-weight: bold;
         top: 2rem;
         right: 2rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
+        background-color: transparent;
+        border: none;
+        font-size: 2em;
+        /* Aumenta la zona clicable para accesibilidad (≈44px) */
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+        padding: .25rem;
+        border-radius: .5rem;
+        
+        /* Anillo de foco visible (AAA) */
+        &:focus-visible{
+            outline: 3px solid var(--color-link);
+            outline-offset: 2px;
+        }
+        /* Si el icono es un <img> o <svg> dentro */
+        img, svg{
+            width: 1em;
+            height: 1em;
+            display: block;
+            pointer-events: none;
+        }
     }
+    .main-menu{
+        border-top: 1px solid var(--color-gray);
+        padding-top: 1em;
+        margin-top: 2em;
+        ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1em;
+            list-style: none;
+            font-size: 12px;
+            a{
+                color: var(--color-text-off);
+                text-decoration: none;
+                padding: .25em .4em;
+                border-radius: .25rem;
+                &:hover{
+                    text-decoration: underline;
+                }
+                &:focus-visible{
+                    outline: 3px solid var(--color-link);
+                    outline-offset: 2px;
+                }
+                &.active{
+                    color: var(--color-text);
+                    cursor: default;
+                    pointer-events: none;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1em;
+}
+.btn-primary{
+    padding: .5em 1em;
+    border: 1px solid var(--color-text);
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    border-radius: 10px;
+    font-size: max(19px, 1vw);
+    cursor: pointer;
 }
 .tooltip-3d {
     position: absolute;
     transform: translate(-50%, -200%);
-    width: 1.5em;
-    height: 1.5em;
+    width: 2em;
+    height: 2em;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    &:focus{
+        outline: none;
+    }
+    &:focus-visible{
+        outline: 3px solid var(--color-link);
+        outline-offset: 2px;
+        border-radius: .25rem;
+    }
 }
+
+.hover-tooltip{
+    position: fixed;
+    z-index: 20;
+    pointer-events: none;
+    display: none;
+    background-color: rgba(0,0,0,.85);
+    color: #fff;
+    font-size: 12px;
+    padding: .4em .6em;
+    border-radius: .35rem;
+    transform: translate(8px, -8px);
+    &[data-visible="true"], &.visible{
+        display: block;
+    }
+}
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #fff;
+    padding: .5em 1em;
+    z-index: 100;
+    text-decoration: none;
+    /* lo ocultamos visualmente pero sigue siendo accesible */
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .skip-link:focus {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    width: auto;
+    top: 0;
+  }
+
+  .edificio-faro{
+    .pilares{
+        background-color: var(--color-bg);
+        border-radius: 1em;
+        padding: 2em;
+    }
+    .cursos{
+        padding-top: 2em;
+        margin-top: 2em;
+        border-top: 1px dashed var(--color-text-off);
+        > div{
+            + div{
+                padding-top: 2em;
+                margin-top: 2em;
+                border-top: 1px dashed var(--color-text-off);
+            }
+        }
+    }
+    h2{
+        padding-top: 1em;
+        margin-top: 2em;
+        border-top: 1px solid var(--color-gray);
+    }
+    .columns2{
+        img{
+            border-radius: 1em;
+        }
+    }
+  }

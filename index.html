@@ -14,56 +14,156 @@
     
 </head>
 <body>
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
     <header class="main-header">
         <h1>Lureka</h1>
     </header>
     <div class="velo-popup"></div>
-    <main>
-    <section class="popup edificio02">
-        <div class="js-close-popup close-popup">X</div>
-        <h1>Freelance</h1>
-        <p>De 2011 a 2018 trabajé como freelance, creando sitios web basados en WordPress y otros CMS, desarrollando tiendas online y colaborando en proyectos de diseño gráfico, branding e incluso visitas virtuales con fotografía panorámica. Fue una etapa de creatividad y versatilidad, trabajando mano a mano con pequeñas empresas y emprendedores.</p>
+    <div class="info-popup" role="status" aria-live="polite" aria-hidden="true">
+        <div class="info-content" aria-label="Ayuda de navegación 3D">
+            <p class="text"><img src="src/images/hand-cursor.svg" alt=""> Para <strong>Orbitar</strong> haz clic y arrastra.</p>
+            <p class="text"><img src="src/images/mouse.svg" alt=""> Haz <strong>Zoom</strong> con la rueda del ratón</p>
+        </div>
+    </div>
+    <div class="hover-tooltip" role="tooltip" aria-hidden="true"></div>
+    <main id="main">
+    <section class="popup edificio-globo" role="dialog" aria-modal="true" aria-labelledby="heading-edificio-globo" tabindex="-1" aria-hidden="true">
+        <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
+        <div class="columns2">
+            <div class="avatar decor"><img src="src/images/cara.png" alt=""></div>
+            <div>
+                <h1 id="heading-edificio-globo">¡Hola!</h1>
+                <p>Soy <strong>Emilio Rodríguez Vila</strong>, diseñador web y especialista en UX, accesibilidad y diseño visual, con más de dos décadas de experiencia.</p>
+                <p>Desde mis primeros proyectos he buscado unir <strong>creatividad y tecnología</strong> para diseñar interfaces que no solo se vean bien, sino que también sean <strong>inclusivas, funcionales y fáciles de usar</strong>.</p>
+                <p>Mi experiencia abarca<strong> maquetación web con HTML, SCSS/Sass y JavaScript</strong>, así como el diseño de interfaces <strong>accesibles</strong> y centradas en la <strong>experiencia de usuario</strong>.</p>
+                <p>Además, cuento con habilidades en <strong>ilustración, diseño gráfico, imprenta, fotografía, 3D y edición de vídeo</strong>, que me permiten aportar una visión global y multidisciplinar a cada proyecto.</p>
+                <p>Como siempre me ha motivado investigar las últimas tendencias y aprovechar las nuevas herramientas que van apareciendo, últimamente me he metido de lleno en el estudio de cómo aplicar la <strong>IA</strong> en mi día a día, integrándola en mis procesos creativos y de desarrollo.</p>
+                <div class="buttons"><button class="btn-primary js-close-popup" aria-label="Cerrar">Saber más</button></div>
+            </div>
+        </div>
+        <nav class="main-menu"><ul></ul></nav>
     </section>
-    <section class="popup edificio03">
-        <div class="js-close-popup close-popup">X</div>
-        <h1>Telefónica</h1>
+    <section class="popup edificio-faro" role="dialog" aria-modal="true" aria-labelledby="heading-edificio-faro" tabindex="-1" aria-hidden="true">
+        <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
+        <h1 id="heading-edificio-faro">Formación</h1>
+        <div class="pilares">
+            Los pilares de mi formación se encuentran en la formación universitaria:
+            <ul>
+                    <li><strong>1995 – 1999:</strong> Estudios de <strong>Infografía en Arquitectura</strong> en la <strong>E.T.S.A.M. Universidad Politécnia</strong> </li>
+                    <li><strong>2009 – 2010:</strong> Curso de <strong>Experto en Accesibilidad y Usabilidad de Contenidos Web</strong> en la <strong>Universidad de Alcalá</strong></li>
+                </ul>
+        </div>
+        <p>Desde entonces no he dejado de aprender, combinando formación online y presencial en distintas disciplinas: técnicas de diseño e ilustración, lenguajes de programación, edición de vídeo e imagen, modelado 3D, entre otras.</p>
+        <p>A continuación, detallo los que considero más relevantes dentro de mi proceso de formación continua:</p>
+
+        <h2>Máster Online de IA Generativa para Creativos</h2>
+        <div class="columns2">
+            <img src="src/images/proy/formacion/founderz.jpg" alt="">
+            <div>
+                <p><strong>Actualmente</strong> estoy finalizando el Máster Online de IA Generativa para Creativos en <a href="https://founderz.com/" target="_blank">Founderz</a>, donde estoy aprendiendo a</p>
+                <ul>
+                    <li>Trabajar con herramientas de <strong>generación de imágenes</strong> como DALL·E 3, MidJourney, Microsoft Designer o Freepik.</li>
+                    <li>Crear <strong>contenido multimedia</strong> con vídeo, locución, sonido, música y animaciones</li>
+                    <li>Aplicar <strong>Prompt Engineering</strong> para obtener los mejores resultados en ChatGPT o Copilot Web</li>
+                    <li>Retocar imágenes y vídeos orientados a redes sociales</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Cursos en distintas plataformas</h2>
+        <p>A veces pienso que se me ha ido un poco de las manos lo de dedicar tanto tiempo libre a hacer cursos en diferentes plataformas, pero estoy convencido de que es la mejor forma de mantener una visión global —y en muchos casos muy completa— de nuevas tecnologías y herramientas. Además, con la llegada de la IA el aprendizaje se ha vuelto más accesible y motivador: ahora podemos disfrutar del proceso y alcanzar niveles que antes parecían inalcanzables.</p>
+        <p>He aprendido mucho en estas plataformas, y entre todos los cursos realizados, mis favoritos han sido:</p>
+        <div class="cursos">
+            <div class="columns2">
+                <img src="src/images/proy/formacion/udemy.png" alt="">
+                <div>
+                    <p>Entre otros destaco estos dos por su calidad y contenido:</p>
+                    <ul>
+                        <li><strong>React: De cero a experto - Edición 2025.</strong> Este curso tiene por objetivo llevarte de cero conocimiento de React hasta un nivel competitivo en el ambiente laboral de hoy en día. Este curso está construido 100% en Hooks y functional components.</li>
+                        <li><strong>JavaScript Moderno: Guía para dominar el lenguaje. </strong>  El objetivo principal del curso es enseñarte JavaScript actual, empezando de cero conocimiento en JavaScript hasta llevarte a un nivel avanzado y competitivo en el mercado laboral actual.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="columns2">
+                <img src="src/images/proy/formacion/domestika.png" alt="">
+                <div>
+                    <p>En domestika he seguido una gran variedad de cursos. A continuación destaco los que considero más relevantes, pero puedes ver la totalidad en <a href="https://www.domestika.org/es/lureka/courses" target="_blank">mi perfil de Domestika</a>.</p>
+                    <ul>
+                        
+                        <li><a href="https://www.domestika.org/es/courses/1157-introduccion-a-design-systems-con-figma" target="_blank">Introducción a Design Systems con Figma</a></li>
+                        <li><a href="https://www.domestika.org/es/courses/2135-teoria-del-color-aplicada-a-proyectos-online" target="_blank">Teoría del color aplicada a proyectos online</a></li>
+                        <li><a href="https://www.domestika.org/es/courses/7-caligrafia-y-rock-n-roll" target="_blank">Caligrafía y Rock n Roll</a></li>
+                        <li><a href="https://www.domestika.org/es/courses/169-graficos-vectoriales-svg-ilustrar-y-animar-con-codigo" target="_blank">Gráficos vectoriales SVG: ilustrar y animar con código</a></li>
+                        <li><a href="https://www.domestika.org/es/courses/904-ilustracion-digital-aplicada-a-productos" target="_blank">Ilustración digital aplicada a productos</a></li>
+                        <li><a href="https://www.domestika.org/es/courses/949-retrato-artistico-en-acuarela" target="_blank">Retrato artístico en acuarela</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="columns2">
+                <img src="src/images/proy/formacion/crehana-logo.png" alt="">
+                <div>
+                    <p>En <a href="https://www.crehana.com/es/cursos-online/" target="_blank">Crehana</a> he realizado menos cursos, pero tres de ellos me han parecido muy interesantes:</p>
+                    <ul>
+                        <li>Blender: De cero a experto en Modelado 3D</li>
+                        <li>Ilustración Vectorial Avanzada en Adobe Illustrator</li>
+                        <li>Introducción a la Ilustración Infantil</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h2>Otros cursos y aprendizajes</h2>
+        <p>Ordenados de más recientes a más antiguos, he completado otros cursos —online y presenciales— que considero relevantes para entender mejor mi trayectoria y formación.</p>
+        <ul>
+            <li>2018 -2019 - Academia de arte <a href="https://www.elsombrerodegoya.com/" target="_blank">El Sombrero de Goya</a>: Durante dos años acudí para formarme en técnicas de dibujo y pintura.</li>
+            <li>2021 - 2022 - Cursos de anatomía humana masculina y femenina de <a href="https://abrilbarrado.com/index.php/cursos/" target="_blank">Abril Barrado</a></li>
+            <li>2010 -Gestión de requisitos – Nivel 2. Fundación Tripartita para la formación en el empleo</li>
+            <li>2010 - Equipos de alto rendimiento. Fundación Confemental</li>
+            <li>2010 - Gestión de proyectos. People Exellence</li> 
+            <li>2010 - Fotografía: Curso intensivo Flash de Mano. Canonistas</li>
+        </ul>
+        
+        <nav class="main-menu"><ul></ul></nav>
+    </section> 
+    <section class="popup edificio03" role="dialog" aria-modal="true" aria-labelledby="heading-edificio03" tabindex="-1" aria-hidden="true">
+        <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>    
+        <h1 id="heading-edificio03">En Telefónica</h1>
         <p>Durante diez años formé parte de Telefónica Soluciones (2000–2010), donde me especialicé en UX, UI, accesibilidad y maquetación web en proyectos de gran envergadura. Los dos últimos años los dediqué a la jefatura de proyectos de formación, coordinando equipos y asegurando calidad y consistencia en cada entrega.</p>
+        <nav class="main-menu"><ul></ul></nav>
     </section>
-    <section class="popup edificio04">
-        <div class="js-close-popup close-popup">X</div>
-        <h1>Store</h1>
+    <section class="popup edificio02" role="dialog" aria-modal="true" aria-labelledby="heading-edificio02" tabindex="-1" aria-hidden="true">
+        <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
+        <h1 id="heading-edificio02">Como Freelance</h1>
+        <p>De 2011 a 2018 trabajé como freelance, creando sitios web basados en WordPress y otros CMS, desarrollando tiendas online y colaborando en proyectos de diseño gráfico, branding e incluso visitas virtuales con fotografía panorámica. Fue una etapa de creatividad y versatilidad, trabajando mano a mano con pequeñas empresas y emprendedores.</p>
+        <nav class="main-menu"><ul></ul></nav>
+    </section>
+    <section class="popup edificio-osoco" role="dialog" aria-modal="true" aria-labelledby="heading-edificio-osoco" tabindex="-1" aria-hidden="true">
+        <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
+        <h1 id="heading-edificio-osoco">En OSOCO</h1>
+        <img src="src/images/logo_osoco.svg" alt="Logotipo Osoco" class="logo">
+        <p>Entre 2018 y 2025 formé parte de OSOCO, una empresa de desarrollo de software donde reforcé mi perfil como experto en diseño, UX, accesibilidad y maquetación. Allí colaboré estrechamente con equipos técnicos y creativos en proyectos de alto impacto, aplicando metodologías ágiles y un fuerte enfoque en la experiencia de usuario.</p>    
+        <nav class="main-menu"><ul></ul></nav>
+    </section>
+    <section class="popup edificio04" role="dialog" aria-modal="true" aria-labelledby="heading-edificio04" tabindex="-1" aria-hidden="true">
+        <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
+        <h1 id="heading-edificio04">Lab</h1>
         <p>Este edificio está dedicado a mis proyectos personales:</p>
         <ul>
             <li>Ilustraciones y diseños para camisetas.</li>
             <li>La serie “A hombros de gigantas”, una iniciativa de divulgación y reconocimiento.</li>
+            <li>Ilustraciones Instagram</li>
+            <li>Animaciones o Xmas</li>
         </ul>
+        <div><img src="src/images/proy/gigantas/hopper.jpg" alt=""></div>
         <p>Mi espacio donde la creatividad y la tecnología se encuentran para dar forma a nuevas ideas.</p>
-
-    </section>
-    <section class="popup edificio-faro">
-        <div class="js-close-popup close-popup">X</div>
-        <h1>Formación continua</h1>
-        <p>A lo largo de mi carrera he apostado por la formación continua, tanto como estudiante como formador. Desde la Universidad de Alcalá, donde me especialicé en accesibilidad y UX, hasta cursos y talleres en diseño, desarrollo y creatividad digital. Mi filosofía: aprender para compartir.</p>
-    </section>
-    <section class="popup edificio-globo">
-        <div class="js-close-popup close-popup">X</div>
-        <h1>Mi viaje</h1>
-        <p>Soy Emilio Rodríguez, diseñador web y especialista en UX, accesibilidad y diseño visual, con más de 20 años de experiencia. Me apasiona el diseño centrado en las personas, la tecnología creativa y la innovación digital.</p>
-        <p>Este viaje, como el globo, sigue en ascenso: siempre explorando nuevas ideas y horizontes.</p>
-    </section>
-    <section class="popup edificio-osoco">
-        <div class="js-close-popup close-popup">X</div>
-        <h1>Edificio OSOCO</h1>
-        <img src="src/images/logo_osoco.svg" alt="Logotipo Osoco" class="logo">
-        <p>Entre 2018 y 2025 formé parte de OSOCO, una empresa de desarrollo de software donde reforcé mi perfil como experto en diseño, UX, accesibilidad y maquetación. Allí colaboré estrechamente con equipos técnicos y creativos en proyectos de alto impacto, aplicando metodologías ágiles y un fuerte enfoque en la experiencia de usuario.</p>    
+        <nav class="main-menu"><ul></ul></nav>
     </section>
     <section class="pointers">
-        <div class="tooltip-3d" id="edificio-faro" role="button" aria-label="Faro"><img alt="" src="src/images/point.svg"/></div>
-        <div class="tooltip-3d" id="edificio-osoco" role="button" aria-label="Osoco"><img alt="" src="src/images/point.svg"/></div>
-        <div class="tooltip-3d" id="edificio02" role="button" aria-label="Edificio 2"><img alt="" src="src/images/point.svg"/></div>
-        <div class="tooltip-3d" id="edificio03" role="button" aria-label="Edificio 3"><img alt="" src="src/images/point.svg"/></div>
-        <div class="tooltip-3d" id="edificio04" role="button" aria-label="Edificio 4"><img alt="" src="src/images/point.svg"/></div>
-        <div class="tooltip-3d" id="edificio-globo" role="button" aria-label="Globo"><img alt="" src="src/images/point.svg"/></div>
+        <button class="tooltip-3d" id="edificio-faro" type="button" aria-label="Faro" aria-expanded="false"><img alt="" src="src/images/point.svg"/></button>
+        <button class="tooltip-3d" id="edificio-osoco" type="button" aria-label="Osoco" aria-expanded="false"><img alt="" src="src/images/point.svg"/></button>
+        <button class="tooltip-3d" id="edificio02" type="button" aria-label="Edificio 2" aria-expanded="false"><img alt="" src="src/images/point.svg"/></button>
+        <button class="tooltip-3d" id="edificio03" type="button" aria-label="Edificio 3" aria-expanded="false"><img alt="" src="src/images/point.svg"/></button>
+        <button class="tooltip-3d" id="edificio04" type="button" aria-label="Edificio 4" aria-expanded="false"><img alt="" src="src/images/point.svg"/></button>
+        <button class="tooltip-3d" id="edificio-globo" type="button" aria-label="Globo" aria-expanded="false"><img alt="" src="src/images/point.svg"/></button>
     </section>
 </main>
 </body>
