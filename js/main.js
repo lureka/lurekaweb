@@ -424,6 +424,9 @@ function attachMenuLinkHandlers() {
         e.preventDefault();
         const buildingClass = link.dataset.building;
 
+        // Scroll al principio de la página
+        window.scrollTo(0, 0);
+
         // Activa la section y velo
         updateActiveBuildingClass(buildingClass);
 
