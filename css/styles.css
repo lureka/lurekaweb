@@ -1,10 +1,50 @@
 @charset "UTF-8";
+/*
+ * STYLES INDEX - LUREKA WEB
+ * =========================
+ * 
+ * 1. CSS VARIABLES AND BASE CONFIGURATION
+ *    1-1. Variables
+ *    1-2. Base styles
+ *    1-3. Typography
+ *    1-4. Links
+ *    1-5. Lists
+ *    1-6. Images
+ * 
+ * 2. MAIN LAYOUT
+ *    2-1. Main header
+ *    2-2. Canvas 3D
+ * 
+ * 3. POPUP COMPONENTS
+ *    3-1. Background overlay
+ *    3-2. Info popup
+ *    3-3. Main popups
+ *    3-4. Close buttons
+ *    3-5. Navigation menus
+ * 
+ * 4. INTERACTIVE ELEMENTS
+ *    4-1. Button containers
+ *    4-2. Primary buttons
+ *    4-3. 3D tooltips
+ *    4-4. Hover tooltips
+ * 
+ * 5. ACCESSIBILITY
+ *    5-1. Skip links
+ * 
+ * 6. SPECIFIC SECTIONS
+ *    6-1. Formation section (edificio-faro)
+ * 
+ * 7. RESPONSIVE AND MEDIA QUERIES
+ *    - Mobile and desktop adaptations
+ */
 :root {
   --color-bg: #fff;
   --color-text: #343434;
   --color-text-off: #444;
   --color-gray: #afafaf;
+  --color-bg-blue: #d5effc;
   --color-link: #ff6600;
+  --size-l: 2em;
 }
 
 html {
@@ -14,6 +54,8 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   margin: 0;
   font-family: "Raleway", serif;
   font-optical-sizing: auto;
@@ -28,11 +70,25 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal;
 }
 
+.big-size {
+  font-size: var(--size-l);
+}
+
+.orange {
+  color: var(--color-link);
+}
+
 a {
   color: var(--color-link);
+  text-decoration: none;
 }
 a:active, a:focus, a:focus-visible, a:hover {
   border: none;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 1.5em;
 }
 
 img {
@@ -94,21 +150,12 @@ canvas {
 .popup {
   position: relative;
   z-index: 10;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 1vw;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 0.5em;
   padding: 4vw;
   margin: 4vw;
   display: none;
-}
-@media screen and (min-width: 768px) {
-  .popup {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-.popup h1 {
-  margin-top: 0;
+  max-width: 1280px;
 }
 .popup.active {
   display: block;
@@ -117,35 +164,61 @@ canvas {
 .popup h1 {
   margin-top: 0;
   margin-bottom: 0.3em;
-  font-size: max(32px, 5vw);
+  font-size: max(60px, 5vw);
+  line-height: 1;
 }
 .popup .logo {
   width: 100%;
   max-width: 10em;
   margin: 0 auto;
 }
+.popup .columns-wrapper {
+  padding-top: 2em;
+  margin-top: 2em;
+}
+.popup .columns-wrapper > div + div {
+  padding-top: 2em;
+  margin-top: 2em;
+}
 .popup .columns2 {
   display: grid;
   gap: 2em;
+  background-color: var(--color-bg);
+  padding: 1em;
+  border-radius: 0.5em;
 }
 @media screen and (min-width: 768px) {
   .popup .columns2 {
-    grid-template-columns: 20vw auto;
+    grid-template-columns: repeat(5, 1fr);
   }
 }
-.popup .columns2 .decor img {
+.popup .columns2 img {
   display: block;
   object-fit: cover;
-}
-.popup .columns2 .decor.avatar img {
-  max-width: 100%;
-  aspect-ratio: 1;
-  background-color: #d39700;
-  border-radius: 50%;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .popup .columns2 .decor.avatar img {
-    width: 20vw;
+  .popup .columns2 img {
+    grid-column: 1/2;
+  }
+}
+@media screen and (min-width: 768px) {
+  .popup .columns2 > div {
+    grid-column: 2/6;
+  }
+}
+.popup .avatar {
+  margin: 0 1rem 1rem 0;
+  border-radius: 50%;
+  background-color: var(--color-bg-blue);
+}
+@media screen and (min-width: 768px) {
+  .popup .avatar {
+    float: left;
+    shape-outside: url(../src/images/cara-shape.png);
+    -webkit-shape-outside: url(../src/images/cara-shape.png);
+    shape-image-threshold: 0.5;
+    shape-margin: 1.5em;
   }
 }
 .popup .close-popup {
@@ -158,14 +231,14 @@ canvas {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  font-size: 2em;
-  /* Aumenta la zona clicable para accesibilidad (≈44px) */
+  font-size: 1.5em;
+  /* Increases clickable area for accessibility (≈44px) */
   min-width: 2.75rem;
   min-height: 2.75rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  /* Anillo de foco visible (AAA) */
-  /* Si el icono es un <img> o <svg> dentro */
+  /* Visible focus ring (AAA) */
+  /* If icon is <img> or <svg> inside */
 }
 .popup .close-popup:focus-visible {
   outline: 3px solid var(--color-link);
@@ -273,7 +346,7 @@ canvas {
   padding: 0.5em 1em;
   z-index: 100;
   text-decoration: none;
-  /* lo ocultamos visualmente pero sigue siendo accesible */
+  /* Hidden visually but still accessible */
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   height: 1px;
@@ -292,18 +365,8 @@ canvas {
 
 .edificio-faro .pilares {
   background-color: var(--color-bg);
-  border-radius: 1em;
+  border-radius: 0.5em;
   padding: 2em;
-}
-.edificio-faro .cursos {
-  padding-top: 2em;
-  margin-top: 2em;
-  border-top: 1px dashed var(--color-text-off);
-}
-.edificio-faro .cursos > div + div {
-  padding-top: 2em;
-  margin-top: 2em;
-  border-top: 1px dashed var(--color-text-off);
 }
 .edificio-faro h2 {
   padding-top: 1em;
