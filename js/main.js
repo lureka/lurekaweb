@@ -253,17 +253,19 @@ loader.load("./3d/modelo.glb", (gltf) => {
         carPath1 = buildRoundedRectPath(left1, right1, near1, far1, y, radius1);
         carPath2 = buildRoundedRectPath(left2, right2, near2, far2, y, radius2);
 
-        // Crear 4 coches para carril 1 (duplicando car original)
+        // Crear 6 coches para carril 1 (duplicando car original)
         if (carOriginal) {
             carObjects = [];
-            for (let i = 0; i < 4; i++) {
+            const carOffsets = [0, 0.18, 0.35, 0.52, 0.69, 0.86]; // Distancias aleatorias pero separadas
+            
+            for (let i = 0; i < 6; i++) {
                 const carClone = carOriginal.clone();
                 carClone.name = `car_${i}`;
                 ciudad.add(carClone);
                 carObjects.push(carClone);
                 
-                // Distribuir equidistantemente (desfase de 0.25 = 90°)
-                const startT = (i * 0.25) % 1;
+                // Distribuir con distancias aleatorias
+                const startT = carOffsets[i] % 1;
                 const initPos = carPath1.getPointAt(startT);
                 const initTan = carPath1.getTangentAt(startT).normalize();
                 carClone.position.copy(initPos);
@@ -271,22 +273,25 @@ loader.load("./3d/modelo.glb", (gltf) => {
                 carClone.rotateY(carOrientationOffsetY);
                 carClone.userData.ignoreRaycast = true;
                 carClone.userData.carIndex = i;
+                carClone.userData.offset = carOffsets[i];
             }
             // Ocultar el original
             carOriginal.visible = false;
         }
 
-        // Crear 4 coches para carril 2 (duplicando car2 original)
+        // Crear 6 coches para carril 2 (duplicando car2 original)
         if (car2Original) {
             car2Objects = [];
-            for (let i = 0; i < 4; i++) {
+            const car2Offsets = [0.12, 0.29, 0.46, 0.63, 0.80, 0.97]; // Distancias aleatorias pero separadas
+            
+            for (let i = 0; i < 6; i++) {
                 const car2Clone = car2Original.clone();
                 car2Clone.name = `car2_${i}`;
                 ciudad.add(car2Clone);
                 car2Objects.push(car2Clone);
                 
-                // Distribuir equidistantemente en sentido contrario
-                const startT2 = (i * 0.25 + 0.5) % 1; // +0.5 para sentido contrario
+                // Distribuir con distancias aleatorias en sentido contrario
+                const startT2 = (car2Offsets[i] + 0.5) % 1; // +0.5 para sentido contrario
                 const initPos2 = carPath2.getPointAt(startT2);
                 const initTan2 = carPath2.getTangentAt(startT2).normalize().negate();
                 car2Clone.position.copy(initPos2);
@@ -294,6 +299,7 @@ loader.load("./3d/modelo.glb", (gltf) => {
                 car2Clone.rotateY(carOrientationOffsetY);
                 car2Clone.userData.ignoreRaycast = true;
                 car2Clone.userData.carIndex = i;
+                car2Clone.userData.offset = car2Offsets[i];
             }
             // Ocultar el original
             car2Original.visible = false;
@@ -308,6 +314,7 @@ loader.load("./3d/modelo.glb", (gltf) => {
     // Construir menús dinámicos y activar sección por defecto
     buildMainMenus();
     attachMenuLinkHandlers();
+    attachMainNavigationHandlers();
     // En primera carga enfocamos el section, no el botón de cierre
     updateActiveBuildingClass("edificio-globo", false);
 }, undefined, (error) => {
@@ -380,7 +387,7 @@ function onMouseMove(event) {
     }
 }
 
-// Construye los menús de navegación en cada section.popup según el orden del DOM
+// Construye el menú de navegación principal según el orden del DOM
 function buildMainMenus() {
     const allBuildingSections = Array.from(document.querySelectorAll('section.popup'));
     const menuItems = allBuildingSections.map((section) => {
@@ -391,27 +398,29 @@ function buildMainMenus() {
         return { buildingClass, title };
     }).filter(item => item.buildingClass);
 
-    allBuildingSections.forEach((section) => {
-        const nav = section.querySelector('nav.main-menu');
-        if (!nav) return;
-        const ul = nav.querySelector('ul');
-        if (!ul) return;
-
+    // Genera el menú hamburguesa
+    const navMenu = document.querySelector('#nav-menu');
+    if (navMenu) {
         // Limpia contenido previo
-        ul.innerHTML = '';
+        navMenu.innerHTML = '';
 
         menuItems.forEach(({ buildingClass, title }) => {
             const li = document.createElement('li');
+            li.setAttribute('role', 'none');
+            
             const a = document.createElement('a');
             a.href = '#';
+            a.setAttribute('role', 'menuitem');
             a.dataset.building = buildingClass;
             a.textContent = title;
+            a.setAttribute('aria-label', `Ver ${title.toLowerCase()}`);
+            
             li.appendChild(a);
-            ul.appendChild(li);
+            navMenu.appendChild(li);
         });
-    });
+    }
 
-    // Refleja la sección activa en los menús
+    // Refleja la sección activa en el menú
     const activeBuilding = getActiveBuildingClass();
     setMenuActiveFor(activeBuilding);
 }
@@ -419,7 +428,7 @@ function buildMainMenus() {
 // Maneja los clics en los enlaces del menú para activar la sección y zoom si existe el objeto 3D
 function attachMenuLinkHandlers() {
     document.addEventListener('click', (e) => {
-        const link = e.target.closest('nav.main-menu a[data-building]');
+        const link = e.target.closest('nav.main-navigation a[data-building]');
         if (!link) return;
         e.preventDefault();
         const buildingClass = link.dataset.building;
@@ -437,7 +446,49 @@ function attachMenuLinkHandlers() {
             animateZoom(edificio);
             isPopupOpen = true;
         }
+        
+        // Cierra el menú móvil si está abierto
+        closeMobileMenu();
     });
+}
+
+// Maneja el menú móvil principal
+function attachMainNavigationHandlers() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.setAttribute('aria-hidden', isExpanded);
+        });
+        
+        // Cierra el menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Cierra el menú con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    }
+}
+
+// Cierra el menú móvil
+function closeMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.setAttribute('aria-hidden', 'true');
+    }
 }
 
 // Obtiene la clase del edificio actualmente activo (por ejemplo "edificio-globo")
@@ -450,7 +501,7 @@ function getActiveBuildingClass() {
 
 // Marca como active el enlace del menú correspondiente y limpia el resto
 function setMenuActiveFor(buildingClass) {
-    const allMenuLinks = document.querySelectorAll('nav.main-menu a[data-building]');
+    const allMenuLinks = document.querySelectorAll('nav.main-navigation a[data-building]');
     allMenuLinks.forEach((a) => {
         if (buildingClass && a.dataset.building === buildingClass) {
             a.classList.add('active');
@@ -812,7 +863,8 @@ function updateCarAlongPath() {
         if (updateCarAlongPath.t > 1) updateCarAlongPath.t -= 1;
         
         carObjects.forEach((car, index) => {
-            const t1 = (updateCarAlongPath.t + index * 0.25) % 1; // Desfase de 90° por coche
+            const offset = car.userData.offset || 0;
+            const t1 = (updateCarAlongPath.t + offset) % 1;
             const pos1 = carPath1.getPointAt(t1);
             const tan1 = carPath1.getTangentAt(t1).normalize();
             car.position.copy(pos1);
@@ -829,7 +881,8 @@ function updateCarAlongPath() {
         if (updateCarAlongPath.t2 < 0) updateCarAlongPath.t2 += 1;
         
         car2Objects.forEach((car2, index) => {
-            const t2 = (updateCarAlongPath.t2 + index * 0.25) % 1; // Desfase de 90° por coche
+            const offset = car2.userData.offset || 0;
+            const t2 = (updateCarAlongPath.t2 + offset) % 1;
             const pos2 = carPath2.getPointAt(t2);
             const tan2 = carPath2.getTangentAt(t2).normalize().negate();
             car2.position.copy(pos2);

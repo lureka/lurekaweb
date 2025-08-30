@@ -15,14 +15,31 @@
 </head>
 <body>
     <a href="#main" class="skip-link">Saltar al contenido principal</a>
+    <a href="#main-navigation" class="skip-link">Saltar al menú de navegación</a>
     <header class="main-header">
         <h1>Lureka</h1>
+        <nav id="main-navigation" class="main-navigation" role="navigation" aria-label="Navegación principal">
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+                <span class="nav-toggle-icon"></span>
+                <span class="sr-only">Menú</span>
+            </button>
+            <ul id="nav-menu" class="nav-menu" role="menubar" aria-hidden="true">
+                <li role="none"><a href="#" role="menuitem" data-building="edificio-globo" aria-label="Ver información personal">¡Hola!</a></li>
+                <li role="none"><a href="#" role="menuitem" data-building="edificio-faro" aria-label="Ver formación académica">Formación</a></li>
+                <li role="none"><a href="#" role="menuitem" data-building="edificio03" aria-label="Ver experiencia en Telefónica">En Telefónica</a></li>
+                <li role="none"><a href="#" role="menuitem" data-building="edificio02" aria-label="Ver experiencia como freelance">Como Freelance</a></li>
+                <li role="none"><a href="#" role="menuitem" data-building="edificio-osoco" aria-label="Ver experiencia en OSOCO">En OSOCO</a></li>
+                <li role="none"><a href="#" role="menuitem" data-building="edificio04" aria-label="Ver proyectos personales">Lab</a></li>
+            </ul>
+        </nav>
     </header>
     <div class="velo-popup"></div>
     <div class="info-popup" role="status" aria-live="polite" aria-hidden="true">
         <div class="info-content" aria-label="Ayuda de navegación 3D">
             <p class="text"><img src="src/images/hand-cursor.svg" alt=""> Para <strong>Orbitar</strong> haz clic y arrastra.</p>
-            <p class="text"><img src="src/images/mouse.svg" alt=""> Haz <strong>Zoom</strong> con la rueda del ratón</p>
+            <p class="text view-screen"><img src="src/images/mouse.svg" alt=""> Haz <strong>Zoom</strong> con la rueda del ratón.</p>
+            <p class="text view-mobile"><img src="src/images/hand-zoom.svg" alt=""> Haz <strong>Zoom</strong> con los dedos.</p>
+            <p class="text"><img src="src/images/point.svg" alt=""> <strong>Visita</strong> los edificios.</p>
         </div>
     </div>
     <div class="hover-tooltip" role="tooltip" aria-hidden="true"></div>
@@ -37,7 +54,6 @@
         <p>Además, cuento con habilidades en <strong class="big-size">ilustración</strong>,<strong> diseño gráfico, imprenta, fotografía, 3D y edición de vídeo</strong>, que me permiten aportar una visión global y multidisciplinar a cada proyecto.</p>
         <p>Como siempre me ha motivado investigar las últimas tendencias y aprovechar las nuevas herramientas que van apareciendo, últimamente me he metido de lleno en el estudio de cómo aplicar la <strong class="big-size">IA</strong> en mi día a día, integrándola en mis procesos creativos y de desarrollo.</p>
         <div class="buttons"><button class="btn-primary js-close-popup" aria-label="Cerrar">Saber más</button></div>
-        <nav class="main-menu"><ul></ul></nav>
     </section>
     <section class="popup edificio-faro" role="dialog" aria-modal="true" aria-labelledby="heading-edificio-faro" tabindex="-1" aria-hidden="true">
         <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
@@ -197,7 +213,6 @@
                 </div>
             </div>
         </div>
-        <nav class="main-menu"><ul></ul></nav>
     </section>
     <section class="popup edificio02" role="dialog" aria-modal="true" aria-labelledby="heading-edificio02" tabindex="-1" aria-hidden="true">
         <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
@@ -295,7 +310,7 @@
         <div class="columns-wrapper">
             <h2>Proyectos destacados en los que he participado</h2>
             <div class="columns2">
-                <img src="src/images/osoco/contestia.jpg" alt="">
+                <img src="src/images/osoco/contestia.png" alt="">
                 <div>
                     <h3>2025 Contestia Web Pública</h3>
                     <p>Contestia es una plataforma SaaS para la gestión de innovación y concursos complejos, desarrollada por OSOCO. Permite lanzar convocatorias, recibir y organizar candidaturas, invitar evaluadores y automatizar criterios de selección, todo ello mediante una interfaz intuitiva y paneles de control en tiempo real.</p>
@@ -336,25 +351,17 @@
                 </div>
             </div>
         </div>
-        
-        <nav class="main-menu"><ul></ul></nav>
     </section>
     <section class="popup edificio04" role="dialog" aria-modal="true" aria-labelledby="heading-edificio04" tabindex="-1" aria-hidden="true">
         <button type="button" class="js-close-popup close-popup" aria-label="Cerrar"><img src="src/images/close.svg" alt=""></button>
         <h1 id="heading-edificio04">Lab</h1>
-        <p>Este edificio está dedicado a mis proyectos personales:</p>
-        <ul>
-            <li>Ilustraciones y diseños para camisetas.</li>
-            <li>La serie “A hombros de gigantas”, una iniciativa de divulgación y reconocimiento.</li>
-            <li>Ilustraciones Instagram</li>
-            <li>Animaciones o Xmas</li>
-        </ul>
+        <p>En este edificio incluyo mis proyectos personales, pruebas de concepto y experimentos.</p>
         <div class="columns-wrapper">
             <div class="columns2">
                 <img src="src/images/lab/lurekaweb.png" alt="">
                 <div>
-                    <h2>Mi sitio personal</h2>
-                    <p>Llevaba mucho tiempo sin actualizar si sitio personal, el primero lo hice en el año 1998 maqueta con tablas, gif animados y Macromedia Flash. Por entonces estaba en La Escuela (ETSAM) terminando el último curso de Infografía en Arquitectura.</p>
+                    <h2>Este, mi sitio personal</h2>
+                    <p>Llevaba mucho tiempo sin actualizar si sitio personal. El primero lo hice en el año 1998 maqueta con tablas y gif animados creados haciendo rotoscopia en fotos que hacía con mi primera cámara digital. Por entonces estaba en "<strong>La Escuela</strong>" terminando el último curso de <strong>Infografía en Arquitectura</strong>. La Escuela Técnica Superior de <strong>Arquitectura</strong> de Madrid.</p>
                 </div>
             </div>
             <div class="columns2">
@@ -384,7 +391,6 @@
             </div>
         
         <p>Mi espacio donde la creatividad y la tecnología se encuentran para dar forma a nuevas ideas.</p>
-        <nav class="main-menu"><ul></ul></nav>
     </section>
     <section class="pointers">
         <button class="tooltip-3d" id="edificio-faro" type="button" aria-label="Faro" aria-expanded="false"><img alt="" src="src/images/point.svg"/></button>
