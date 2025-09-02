@@ -315,6 +315,7 @@ loader.load("./3d/modelo.glb", (gltf) => {
     buildMainMenus();
     attachMenuLinkHandlers();
     attachMainNavigationHandlers();
+    
     // En primera carga enfocamos el section, no el botón de cierre
     updateActiveBuildingClass("edificio-globo", false);
 }, undefined, (error) => {
@@ -673,11 +674,14 @@ function showInfoPopupOnce() {
     info.style.display = 'flex';
     info.setAttribute('aria-hidden', 'false');
     
-    // Aplicar blur al canvas y pointers
+    // Aplicar blur al canvas y a los tooltip-3d
     const canvas = renderer.domElement;
-    const pointers = document.querySelector('.pointers');
+    const tooltips = document.querySelectorAll('.tooltip-3d');
+    
     if (canvas) canvas.style.filter = 'blur(4px)';
-    if (pointers) pointers.style.filter = 'blur(4px)';
+    tooltips.forEach(tooltip => {
+        tooltip.style.filter = 'blur(4px)';
+    });
     
     // Cerrar al primer clic en cualquier parte del documento
     if (!infoPopupClickHandlerAttached) {
@@ -699,23 +703,26 @@ function hideInfoPopup() {
     info.style.display = 'none';
     info.setAttribute('aria-hidden', 'true');
     
-    // Quitar blur progresivamente del canvas y pointers
+    // Quitar blur progresivamente del canvas y tooltip-3d
     const canvas = renderer.domElement;
-    const pointers = document.querySelector('.pointers');
+    const tooltips = document.querySelectorAll('.tooltip-3d');
     
     if (canvas) {
         canvas.style.transition = 'filter 0.5s ease-out';
         canvas.style.filter = '';
     }
-    if (pointers) {
-        pointers.style.transition = 'filter 0.5s ease-out';
-        pointers.style.filter = '';
-    }
+    
+    tooltips.forEach(tooltip => {
+        tooltip.style.transition = 'filter 0.5s ease-out';
+        tooltip.style.filter = '';
+    });
     
     // Limpiar la transición después de que termine
     setTimeout(() => {
         if (canvas) canvas.style.transition = '';
-        if (pointers) pointers.style.transition = '';
+        tooltips.forEach(tooltip => {
+            tooltip.style.transition = '';
+        });
     }, 500);
 }
 

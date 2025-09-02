@@ -395,7 +395,7 @@ canvas {
         }
     }
     // Gallery layout
-    .gallery-2 {
+    .gallery-2, .gallery-4 {
         display: grid;
         gap: 1em;
         grid-template-columns: 1fr 1fr;
@@ -404,6 +404,12 @@ canvas {
             border-radius: .5em;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             object-fit: cover;
+        }
+    }
+    .gallery-4 {
+        grid-template-columns: repeat(2, 1fr);
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(4, 1fr);
         }
     }
     // 3-4. Close buttons
