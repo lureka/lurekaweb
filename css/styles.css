@@ -114,15 +114,24 @@ video {
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   width: calc(100% - 4em);
 }
 .main-header h1 {
   margin: 0;
   font-weight: normal;
+  font-size: max(24px, 2vw);
+}
+.main-header p {
+  margin: 0;
 }
 .main-header img {
   width: 150px;
+}
+.main-header > div {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  border-radius: 0.5em;
 }
 
 .view-screen {
@@ -321,6 +330,10 @@ canvas {
   background-color: var(--color-bg);
   padding: 2em;
   border-radius: 0.5em;
+}
+.popup .columns2 .columns2 {
+  padding-left: 0;
+  padding-right: 0;
 }
 @media screen and (min-width: 768px) {
   .popup .columns2 {

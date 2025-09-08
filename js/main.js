@@ -516,6 +516,10 @@ function setMenuActiveFor(buildingClass) {
 document.querySelectorAll(".tooltip-3d").forEach((box) => {
     box.addEventListener("click", function (event) {
         event.stopPropagation(); // Evita interferencias con otros eventos
+        
+        // No permitir clicks en tooltip-3d si el info-popup está visible
+        const infoPopup = document.querySelector('.info-popup');
+        if (infoPopup && infoPopup.style.display === 'flex') return;
 
         // Obtener el nombre del edificio desde el ID del tooltip
         let edificioId = this.id.replace("tooltip-", ""); 
@@ -544,6 +548,10 @@ function resetHoveredObject() {
 
 function onMouseClick(event) {
     if (isOrbiting || isPopupOpen) return;
+    
+    // No permitir clicks en edificios si el info-popup está visible
+    const infoPopup = document.querySelector('.info-popup');
+    if (infoPopup && infoPopup.style.display === 'flex') return;
 
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
