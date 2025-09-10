@@ -497,7 +497,7 @@ canvas {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5em;
+    justify-content: center;
     
     &:focus {
         outline: none;
@@ -507,6 +507,12 @@ canvas {
         outline: 3px solid var(--color-link);
         outline-offset: 2px;
         border-radius: .25rem;
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
     
     .building-name {
@@ -521,7 +527,10 @@ canvas {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         pointer-events: none;
         position: absolute;
-        bottom: -3.5em;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0.5em;
     }
     
     // Mostrar nombre solo en móvil
