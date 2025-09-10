@@ -494,6 +494,10 @@ canvas {
     border: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
     
     &:focus {
         outline: none;
@@ -503,6 +507,28 @@ canvas {
         outline: 3px solid var(--color-link);
         outline-offset: 2px;
         border-radius: .25rem;
+    }
+    
+    .building-name {
+        display: none !important;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--color-text);
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 0.25em 0.5em;
+        border-radius: 0.5em;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        pointer-events: none;
+        position: absolute;
+        bottom: -3.5em;
+    }
+    
+    // Mostrar nombre solo en móvil
+    @media (max-width: 768px) {
+        .building-name {
+            display: block !important;
+        }
     }
 }
 

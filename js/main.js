@@ -421,6 +421,9 @@ function buildMainMenus() {
         });
     }
 
+    // Actualiza los nombres en los tooltip-3d
+    updateTooltipNames(menuItems);
+
     // Refleja la sección activa en el menú
     const activeBuilding = getActiveBuildingClass();
     setMenuActiveFor(activeBuilding);
@@ -508,6 +511,19 @@ function setMenuActiveFor(buildingClass) {
             a.classList.add('active');
         } else {
             a.classList.remove('active');
+        }
+    });
+}
+
+// Actualiza los nombres de los edificios en los tooltip-3d
+function updateTooltipNames(menuItems) {
+    menuItems.forEach(({ buildingClass, title }) => {
+        const tooltip = document.querySelector(`#${buildingClass}`);
+        if (tooltip) {
+            const nameSpan = tooltip.querySelector('.building-name');
+            if (nameSpan) {
+                nameSpan.textContent = title;
+            }
         }
     });
 }
