@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje enviado - Emilio</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="contact">
+    <div class="form-container">
+        <h1>¡Mensaje enviado!</h1>
+        <p>Gracias por contactarme. Te responderé lo antes posible.</p>
+        <div class="form-actions">
+            <button type="button" class="btn btn-primary" onclick="goHome()">Volver al inicio</button>
+        </div>
+    </div>
+    <script>
+        function goHome() {
+            // Redirigir a index.html sin activar la sección "Hola"
+            // Usar sessionStorage para indicar que no se debe activar "Hola"
+            sessionStorage.setItem('skipHola', 'true');
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
