@@ -432,7 +432,7 @@ function buildMainMenus() {
         contactoLi.setAttribute('role', 'none');
         
         const contactoA = document.createElement('a');
-        contactoA.href = 'contact.html';
+        contactoA.href = '/contact.html';
         contactoA.setAttribute('role', 'menuitem');
         contactoA.textContent = 'Contacto';
         contactoA.setAttribute('aria-label', 'Ir a página de contacto');
