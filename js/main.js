@@ -317,7 +317,14 @@ loader.load("./3d/modelo.glb", (gltf) => {
     attachMainNavigationHandlers();
     
     // En primera carga enfocamos el section, no el botón de cierre
-    updateActiveBuildingClass("edificio-globo", false);
+    // Solo activar "Hola" si no venimos del formulario de contacto
+    const skipHola = sessionStorage.getItem('skipHola');
+    if (!skipHola) {
+        updateActiveBuildingClass("edificio-globo", false);
+    } else {
+        // Limpiar el flag para futuras visitas
+        sessionStorage.removeItem('skipHola');
+    }
 }, undefined, (error) => {
     console.error("Error al cargar el modelo:", error);
 });
@@ -419,6 +426,19 @@ function buildMainMenus() {
             li.appendChild(a);
             navMenu.appendChild(li);
         });
+
+        // Agregar opción "Contacto"
+        const contactoLi = document.createElement('li');
+        contactoLi.setAttribute('role', 'none');
+        
+        const contactoA = document.createElement('a');
+        contactoA.href = 'contact.html';
+        contactoA.setAttribute('role', 'menuitem');
+        contactoA.textContent = 'Contacto';
+        contactoA.setAttribute('aria-label', 'Ir a página de contacto');
+        
+        contactoLi.appendChild(contactoA);
+        navMenu.appendChild(contactoLi);
     }
 
     // Actualiza los nombres en los tooltip-3d
