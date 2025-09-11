@@ -9,8 +9,11 @@
 <body class="contact">
     <div class="form-container">
         <h1>Contacto</h1>
-        <form name="contacto" method="POST" data-netlify="true" action="/success.html">
+        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="success.html">
             <input type="hidden" name="form-name" value="contacto" />
+            <p style="display: none;">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
             <div class="form-group">
               <label for="nombre">Tu nombre:</label>
               <input type="text" id="nombre" name="nombre" required />
