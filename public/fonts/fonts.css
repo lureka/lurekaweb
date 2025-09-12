@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./raleway-regular.woff2') format('truetype');
+}
+
+@font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./exo-bold.woff2') format('truetype');
+}

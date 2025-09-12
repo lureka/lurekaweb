@@ -401,8 +401,8 @@ canvas {
         background-color: var(--color-bg-blue);
         @media screen and (min-width: 768px) {   
             float: left;
-            shape-outside: url(../src/images/cara-shape.png);
-            -webkit-shape-outside: url(../src/images/cara-shape.png);
+            shape-outside: url(/images/cara-shape.png);
+            -webkit-shape-outside: url(/images/cara-shape.png);
             shape-image-threshold: 0.5;
             shape-margin: 1.5em;
         }
@@ -411,7 +411,9 @@ canvas {
     .gallery-2, .gallery-4 {
         display: grid;
         gap: 1em;
-        grid-template-columns: 1fr 1fr;
+        @media screen and (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
         img {
             width: 100%;
             border-radius: .5em;
@@ -612,12 +614,12 @@ canvas {
 // 5. CONTACT PAGE STYLES
 // 5-1. Contact page body
 body.contact {
-    background-image: url(../src/images/contactBackgroundXS.png);
+    background-image: url(/images/contact/contactBackgroundXS.png);
     @media (min-width: 768px) {
-        background-image: url(../src/images/contactBackgroundS.png);
+        background-image: url(/images/contact/contactBackgroundS.png);
     }
     @media (min-width: 1400px) {
-        background-image: url(../src/images/contactBackground.png);
+        background-image: url(/images/contact/contactBackground.png);
     }
     background-repeat: no-repeat;
     background-position: center center;

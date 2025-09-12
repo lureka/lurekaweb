@@ -374,8 +374,8 @@ canvas {
 @media screen and (min-width: 768px) {
   .popup .avatar {
     float: left;
-    shape-outside: url(../src/images/cara-shape.png);
-    -webkit-shape-outside: url(../src/images/cara-shape.png);
+    shape-outside: url(/images/cara-shape.png);
+    -webkit-shape-outside: url(/images/cara-shape.png);
     shape-image-threshold: 0.5;
     shape-margin: 1.5em;
   }
@@ -383,7 +383,11 @@ canvas {
 .popup .gallery-2, .popup .gallery-4 {
   display: grid;
   gap: 1em;
-  grid-template-columns: 1fr 1fr;
+}
+@media screen and (min-width: 768px) {
+  .popup .gallery-2, .popup .gallery-4 {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .popup .gallery-2 img, .popup .gallery-4 img {
   width: 100%;
@@ -553,7 +557,7 @@ canvas {
 }
 
 body.contact {
-  background-image: url(../src/images/contactBackgroundXS.png);
+  background-image: url(/images/contact/contactBackgroundXS.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -567,12 +571,12 @@ body.contact {
 }
 @media (min-width: 768px) {
   body.contact {
-    background-image: url(../src/images/contactBackgroundS.png);
+    background-image: url(/images/contact/contactBackgroundS.png);
   }
 }
 @media (min-width: 1400px) {
   body.contact {
-    background-image: url(../src/images/contactBackground.png);
+    background-image: url(/images/contact/contactBackground.png);
   }
 }
 
