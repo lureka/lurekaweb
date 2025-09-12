@@ -140,7 +140,7 @@ scene.fog = new THREE.FogExp2(fogColor, 0.0025);
 renderer.setClearColor(fogColor);
 
 // Cargar el modelo 3D
-loader.load("./3d/modelo.glb", (gltf) => {
+loader.load("/3d/modelo.glb", (gltf) => {
     const ciudad = gltf.scene;
     scene.add(ciudad);
 
