@@ -557,6 +557,7 @@ canvas {
 }
 
 body.contact {
+  background-color: #f2f2f2;
   background-image: url(/images/contact/contactBackgroundXS.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -568,6 +569,7 @@ body.contact {
   align-items: center;
   justify-content: center;
   font-family: var(--font-family-base);
+  transition: background-image 0.3s ease-in-out;
 }
 @media (min-width: 768px) {
   body.contact {

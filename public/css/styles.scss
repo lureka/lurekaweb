@@ -614,6 +614,10 @@ canvas {
 // 5. CONTACT PAGE STYLES
 // 5-1. Contact page body
 body.contact {
+    // Fallback color that matches the background image tone
+    background-color: #f2f2f2;
+    
+    // Background images with smooth loading
     background-image: url(/images/contact/contactBackgroundXS.png);
     @media (min-width: 768px) {
         background-image: url(/images/contact/contactBackgroundS.png);
@@ -623,7 +627,7 @@ body.contact {
     }
     background-repeat: no-repeat;
     background-position: center center;
-    background-size:cover;
+    background-size: cover;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -631,6 +635,9 @@ body.contact {
     align-items: center;
     justify-content: center;
     font-family: var(--font-family-base);
+    
+    // Smooth transition when image loads
+    transition: background-image 0.3s ease-in-out;
 }
 
 // 5-2. Form container
