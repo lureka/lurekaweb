@@ -48,6 +48,7 @@
   --size-m: 1.5em;
   --font-family-base: "Raleway", serif;
   --font-family-title: "Exo", serif;
+  --font-bold: "Raleway-bold", serif;
 }
 
 html {
@@ -96,6 +97,10 @@ a {
 }
 a:active, a:focus, a:focus-visible, a:hover {
   border: none;
+}
+
+strong {
+  font-family: var(--font-bold);
 }
 
 ul {

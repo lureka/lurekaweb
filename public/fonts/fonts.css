@@ -7,6 +7,14 @@
 }
 
 @font-face {
+  font-family: 'Raleway-bold';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./raleway-bold.woff2') format('truetype');
+}
+
+@font-face {
   font-family: 'Exo';
   font-style: normal;
   font-weight: 700;

@@ -21,7 +21,3 @@ netlify deploy  --prod
 
 https://app.netlify.com/teams/lureka/sites
 https://app.netlify.com/projects/lureka/overview
-
-
-
-```

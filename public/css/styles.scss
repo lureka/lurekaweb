@@ -53,6 +53,7 @@
     --size-m:                  1.5em;
     --font-family-base:        "Raleway", serif;
     --font-family-title:       "Exo", serif;
+    --font-bold:        "Raleway-bold", serif;
 }
 
 // 1-2. Base styles
@@ -97,7 +98,7 @@ a {
         border: none;
     }
 }
-
+strong{font-family: var(--font-bold);}
 // 1-5. Lists
 ul {
     list-style-type: square;
