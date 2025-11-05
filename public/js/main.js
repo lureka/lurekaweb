@@ -1006,4 +1006,20 @@ window.addEventListener("mouseup", (event) => {
     }
 });
 
+// Smooth scroll animation for anchor links
+// Handles clicks on links that point to elements with IDs on the same page
+document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    
+    const targetId = anchor.getAttribute('href').substring(1);
+    if (!targetId) return;
+    
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+});
+
 window.addEventListener("mousemove", onMouseMove);

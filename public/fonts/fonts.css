@@ -21,3 +21,123 @@
   font-display: swap;
   src: url('./exo-bold.woff2') format('truetype');
 }
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('./icons/icomoon.eot?s985ui');
+  src:  url('./icons/icomoon.eot?s985ui#iefix') format('embedded-opentype'),
+    url('./icons/icomoon.ttf?s985ui') format('truetype'),
+    url('./icons/icomoon.woff?s985ui') format('woff'),
+    url('./icons/icomoon.svg?s985ui#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-HTML5-logo:before {
+  content: "\e91b";
+}
+.icon-Sass-logo:before {
+  content: "\e91c";
+}
+.icon-Wordpress-logo:before {
+  content: "\e912";
+}
+.icon-Sketch-logo:before {
+  content: "\e913";
+}
+.icon-Javascript-logo:before {
+  content: "\e914";
+}
+.icon-Groovy-logo:before {
+  content: "\e915";
+}
+.icon-Grails-logo:before {
+  content: "\e916";
+}
+.icon-Figma-logo:before {
+  content: "\e917";
+}
+.icon-Clip-Studio-Paint-logo:before {
+  content: "\e90f";
+}
+.icon-Node-JS-logo:before {
+  content: "\e910";
+}
+.icon-Blender-logo:before {
+  content: "\e911";
+}
+.icon-Cursor-logo:before {
+  content: "\e90e";
+}
+.icon-Suno-logo:before {
+  content: "\e902";
+}
+.icon-Freepik-logo:before {
+  content: "\e903";
+}
+.icon-DaVinci-logo:before {
+  content: "\e900";
+}
+.icon-Heygen-logo:before {
+  content: "\e901";
+}
+.icon-Midjourney-logo:before {
+  content: "\e904";
+}
+.icon-ChatGPT-logo:before {
+  content: "\e905";
+}
+.icon-mouse:before {
+  content: "\e906";
+}
+.icon-point:before {
+  content: "\e907";
+}
+.icon-hand-cursor:before {
+  content: "\e908";
+}
+.icon-icon-instagram:before {
+  content: "\e909";
+}
+.icon-icon-linkedin:before {
+  content: "\e90a";
+}
+.icon-icon-mail:before {
+  content: "\e90b";
+}
+.icon-hand-zoom:before {
+  content: "\e90c";
+}
+.icon-close:before {
+  content: "\e90d";
+}
+.icon-PS-logo:before {
+  content: "\e918";
+}
+.icon-AE-logo:before {
+  content: "\e919";
+}
+.icon-AI-logo:before {
+  content: "\e91a";
+}
+.icon-CSS-logo:before {
+  content: "\e91d";
+}
+.icon-lottieFiles-logo:before {
+  content: "\e91e";
+}

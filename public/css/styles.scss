@@ -14,18 +14,21 @@
  *    2-1. Main header
  *    2-2. Canvas 3D
  *    2-3. Main navigation
- * 
+ *    2-4. Footer
+
  * 3. POPUP COMPONENTS
  *    3-1. Background overlay
  *    3-2. Info popup
  *    3-3. Main popups
  *    3-4. Close buttons
+ *    3-5. Page-index
  * 
  * 4. INTERACTIVE ELEMENTS
  *    4-1. Button containers
  *    4-2. Primary buttons
  *    4-3. 3D tooltips
  *    4-4. Hover tooltips
+ *    4-5. Icons
  * 
  * 5. ACCESSIBILITY
  *    5-1. Skip links
@@ -49,6 +52,7 @@
     --color-gray:               #afafaf;
     --color-bg-blue:            #d5effc;
     --color-link:               #ff6600;
+    --color-white:              #fff;
     --size-l:                  2em;
     --size-m:                  1.5em;
     --font-family-base:        "Raleway", serif;
@@ -283,6 +287,26 @@ canvas {
     top: 0;
     left: 0;
 }
+// 2-4. Footer
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    padding: 1em;
+    background-color: rgba($color: #000, $alpha: 0.5);
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li a{
+            color: var(--color-white);
+        }
+    }
+}
+
 // ========================================
 // 3. POPUP COMPONENTS
 // ========================================
@@ -356,8 +380,8 @@ canvas {
     
     // Column layout
     .columns-wrapper {
-        padding-top: 2em;
-        margin-top: 2em;
+        padding-top: 1em;
+        // margin-top: 2em;
     }
     
     .columns2 {
@@ -466,6 +490,59 @@ canvas {
     
 
 }
+//     3-5. Page-index
+.page-index{
+    ul{
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap:.5em;
+        flex-wrap: wrap;
+        li{
+            padding: .2em 0;
+        }
+        a{
+            color: var(--color-white);
+            background-color: var(--color-text);
+            text-decoration: none;
+            padding: .5em 1em;
+            border-radius: .5em;
+            display: flex;
+            flex-direction: column;
+            @media (min-width: 768px) {
+                flex-direction: row;
+            }
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+            transition: all 0.3s ease;
+            &:hover, &:focus-visible{
+                transition: all 0.3s ease;
+                background-color: var(--color-link);
+            }
+        }
+    }
+}
+.software-list{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .3em;
+    li{
+        background-color: var(--color-text);
+        color: var(--color-white);
+        border-radius: .5em;
+        font-size: 1.2em;
+        padding: 0.2em;
+        width: 1.5em;
+        height: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 // ========================================
 // 4. INTERACTIVE ELEMENTS
 // ========================================
@@ -561,6 +638,65 @@ canvas {
     
     &[data-visible="true"], &.visible {
         display: block;
+    }
+}
+//4-5. Icons
+.share-list{
+    display: flex;
+    gap: 1.5em;
+    list-style: none;
+    padding:0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    li a{
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+        transform: scale(1);
+        transition: transform 0.3s ease;
+        &:hover, &:focus-visible{
+            transform: scale(1.1);
+        }
+    }
+}
+.icon{
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    margin: 0;
+}
+
+// Tooltip function for elements with aria-label and .tooltip class
+// Shows tooltip with the aria-label text on hover
+.tooltip[aria-label] {
+    position: relative;
+    
+    // Tooltip using ::after pseudo-element
+    &::after {
+        content: attr(aria-label);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-0.5em);
+        background-color: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 0.4em 0.6em;
+        border-radius: 0.35rem;
+        font-size: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        z-index: 100;
+        margin-bottom: 0.5em;
+    }
+    
+    // Show tooltip on hover
+    &:hover::after,
+    &:focus-visible::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
     }
 }
 // ========================================

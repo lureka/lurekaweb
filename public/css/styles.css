@@ -15,18 +15,21 @@
  *    2-1. Main header
  *    2-2. Canvas 3D
  *    2-3. Main navigation
- * 
+ *    2-4. Footer
+
  * 3. POPUP COMPONENTS
  *    3-1. Background overlay
  *    3-2. Info popup
  *    3-3. Main popups
  *    3-4. Close buttons
+ *    3-5. Page-index
  * 
  * 4. INTERACTIVE ELEMENTS
  *    4-1. Button containers
  *    4-2. Primary buttons
  *    4-3. 3D tooltips
  *    4-4. Hover tooltips
+ *    4-5. Icons
  * 
  * 5. ACCESSIBILITY
  *    5-1. Skip links
@@ -44,6 +47,7 @@
   --color-gray: #afafaf;
   --color-bg-blue: #d5effc;
   --color-link: #ff6600;
+  --color-white: #fff;
   --size-l: 2em;
   --size-m: 1.5em;
   --font-family-base: "Raleway", serif;
@@ -269,6 +273,25 @@ canvas {
   left: 0;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+footer ul li a {
+  color: var(--color-white);
+}
+
 .velo-popup {
   display: none;
   background-color: rgba(44, 12, 67, 0.5);
@@ -328,8 +351,7 @@ canvas {
   margin: 0 auto;
 }
 .popup .columns-wrapper {
-  padding-top: 2em;
-  margin-top: 2em;
+  padding-top: 1em;
 }
 .popup .columns2 {
   display: grid;
@@ -441,6 +463,60 @@ canvas {
   pointer-events: none;
 }
 
+.page-index ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+.page-index ul li {
+  padding: 0.2em 0;
+}
+.page-index ul a {
+  color: var(--color-white);
+  background-color: var(--color-text);
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  transition: all 0.3s ease;
+}
+@media (min-width: 768px) {
+  .page-index ul a {
+    flex-direction: row;
+  }
+}
+.page-index ul a:hover, .page-index ul a:focus-visible {
+  transition: all 0.3s ease;
+  background-color: var(--color-link);
+}
+
+.software-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3em;
+}
+.software-list li {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  border-radius: 0.5em;
+  font-size: 1.2em;
+  padding: 0.2em;
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -523,6 +599,59 @@ canvas {
 }
 .hover-tooltip[data-visible=true], .hover-tooltip.visible {
   display: block;
+}
+
+.share-list {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+.share-list li a {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+.share-list li a:hover, .share-list li a:focus-visible {
+  transform: scale(1.1);
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+  margin: 0;
+}
+
+.tooltip[aria-label] {
+  position: relative;
+}
+.tooltip[aria-label]::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-0.5em);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 0.4em 0.6em;
+  border-radius: 0.35rem;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+  margin-bottom: 0.5em;
+}
+.tooltip[aria-label]:hover::after, .tooltip[aria-label]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .skip-link {
