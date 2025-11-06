@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Sitio personal de Emilio Rodriguez Vila - Lureka">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Lureka web - Emilio Rodriguez Vila Personal Site</title>
     <link rel="stylesheet" href="/fonts/fonts.css">
 
-    <link rel="stylesheet" href="/css/styles.css">    
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- Prevent device orientation change -->
+    <script>
+        // Lock orientation to portrait
+        if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('portrait').catch(function(err) {
+                console.log('Orientation lock failed: ', err);
+            });
+        } else if (screen.lockOrientation) {
+            screen.lockOrientation('portrait');
+        } else if (screen.mozLockOrientation) {
+            screen.mozLockOrientation('portrait');
+        } else if (screen.msLockOrientation) {
+            screen.msLockOrientation('portrait');
+        }
+    </script>    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

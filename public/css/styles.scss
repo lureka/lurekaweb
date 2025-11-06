@@ -65,6 +65,10 @@ html {
     font-size: max(16px, 1vw);
     background-color: var(--color-bg);
     color: var(--color-text);
+    // Prevent zoom on iOS
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
