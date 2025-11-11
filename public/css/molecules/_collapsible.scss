@@ -3,9 +3,10 @@
   transition: all 1s ease;
   display: flex;
   align-items: center;
-  gap: .5em;
+  gap: 1em;
   padding-bottom: 1em;
   span{
+    color: var(--color-link);
     display: block;
     font-size: 0.8em;
     cursor: pointer;
@@ -34,7 +35,7 @@
   &.js-active {
     height: fit-content;
     overflow: initial;
-    margin-top: 1em;
+    margin: 1.5em 0;
     padding: 1.5em 2em;
     transition: all 1s ease;
   }
