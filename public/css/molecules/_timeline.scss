@@ -1,0 +1,74 @@
+/*
+ STYLES INDEX - TIMELINE
+ =========================
+ 
+ 1. TIMELINE WRAPPER
+*/
+
+// ========================================
+// 1. TIMELINE WRAPPER
+// ========================================
+
+// 1-1. Timeline wrapper base
+.timeline-wrapper {
+    display: grid;
+    position: relative;
+    padding: 2em 0;
+    max-width: 100%;
+
+    .timeline-item{
+        padding-top: 1em;
+        padding-bottom: 1em;
+        &:not(:last-child){border-bottom: 1px dashed var(--color-white);}
+        &::after{
+            content: '';
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            top: 0;
+            left: 2.8em;
+            width: 20px;
+            height: 100%;
+            background-color: var(--color-black);
+        }
+        &:first-child::after{
+            top: 2em;
+        }
+        &:last-child::after{
+            height: 2em;
+        }
+        h2{
+            margin:0;
+            font-family: var(--font-bold);
+        }
+        h3{margin:0;}
+    }
+    .timeline-header{
+        display: flex;
+        align-items: start;
+        gap: 1.5em;
+    }
+    .date{
+        background-color: var(--color-white);
+        color: var(--color-black);
+        width: 4.5em;
+        border-radius: 100%;
+        display:inline-flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5em;
+        font-size: 1.5em;
+        font-family: var(--font-bold);
+        border: 10px solid var(--color-black);
+        div + div{
+            border-top: 1px dashed var(--color-black);
+        }
+    }
+
+    // 1-2. Timeline item
+    .timeline-item {
+        position: relative;
+    }
+}

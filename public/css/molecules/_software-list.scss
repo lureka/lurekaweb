@@ -1,0 +1,53 @@
+/*
+ STYLES INDEX - SOFTWARE LIST
+ =========================
+ 
+ 1. SOFTWARE LIST
+    1-1. Software list base
+    1-2. Software list wrapper footer
+    1-2. Software list Iten active
+*/
+
+// ========================================
+// 1. SOFTWARE LIST
+// ========================================
+
+// 1-1. Software list base
+.software-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .3em;
+    
+    li {
+        background-color: var(--color-text);
+        color: var(--color-white);
+        border-radius: .5em;
+        font-size: 1.8em;
+        padding: 0.2em;
+        width: 1.5em;
+        height: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: help;
+        &.tooltip[aria-label]::after{font-size: .5em;}
+    }
+}
+
+// 1-2. Software list wrapper footer
+.software-list-wrapper-footer {
+    padding: 0;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    .software-list{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+

@@ -1,0 +1,53 @@
+/*
+ STYLES INDEX - TYPOGRAPHY
+ =========================
+ 
+ 1. TYPOGRAPHY
+    1-1. Headings
+    1-2. Links
+    1-3. Lists
+    1-4. Text utilities
+*/
+
+// ========================================
+// 1. TYPOGRAPHY
+// ========================================
+
+// 1-1. Headings
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-title);
+    font-weight: 700;
+    font-style: normal;
+}
+
+// 1-2. Links
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    &:active, &:focus, &:focus-visible, &:hover {
+        border: none;
+    }
+}
+
+strong {
+    font-family: var(--font-bold);
+}
+
+// 1-3. Lists
+ul {
+    list-style-type: square;
+    padding-left: 1.5em;
+}
+
+// 1-4. Text utilities
+.big-size {
+    font-size: var(--size-m);
+    @media screen and (min-width: 768px) {
+        font-size: var(--size-l);
+    }
+}
+
+.orange {
+    color: var(--color-link);
+}
+

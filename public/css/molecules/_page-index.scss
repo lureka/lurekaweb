@@ -1,0 +1,51 @@
+/*
+ STYLES INDEX - PAGE INDEX
+ =========================
+ 
+ 1. PAGE INDEX
+    1-1. Page index list
+*/
+
+// ========================================
+// 1. PAGE INDEX
+// ========================================
+
+// 1-1. Page index list
+.page-index {
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: .5em;
+        flex-wrap: wrap;
+        
+        li {
+            padding: .2em 0;
+        }
+        
+        a {
+            color: var(--color-white);
+            background-color: var(--color-text);
+            text-decoration: none;
+            padding: .5em 1em;
+            border-radius: .5em;
+            display: flex;
+            flex-direction: column;
+            
+            @media (min-width: 768px) {
+                flex-direction: row;
+            }
+            
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+            transition: all 0.3s ease;
+            
+            &:hover, &:focus-visible {
+                transition: all 0.3s ease;
+                background-color: var(--color-link);
+            }
+        }
+    }
+}
+

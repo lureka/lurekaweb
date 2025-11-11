@@ -1,0 +1,60 @@
+/*
+ STYLES INDEX - PORTFOLIO
+ =========================
+ 
+ 1. PORTFOLIO COMPONENTS
+    1-1. Portfolio wrapper
+    1-2. Portfolio item
+*/
+
+// ========================================
+// 1. PORTFOLIO COMPONENTS
+// ========================================
+
+// 1-1. Portfolio wrapper
+.portfolio-wrapper {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: 450px) {
+        grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
+    }
+    @media screen and (min-width: 1315px) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+// 1-2. Portfolio item
+.portfolio-item {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--color-white);
+    border-radius: 1em;
+    overflow: hidden;
+    color: var(--color-black);
+    
+    img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        aspect-ratio: 1/1;
+    }
+    
+    h2 {
+        padding: 1em 1em .5em 1em;
+        margin: 0;
+        font-family: var(--font-bold);
+        border-top: 1px solid var(--color-gray-light);
+    }
+    
+    p {
+        margin: 0 1em 1em 1em;
+    }
+    .buttons{
+        padding:1em;
+        border-top: 1px dashed var(--color-gray-light);
+        width: 100%;
+        border-radius: 0 0 1em 1em;
+    }
+}
+

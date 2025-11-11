@@ -105,7 +105,7 @@ const updateDivPositions = () => {
 
 // Función para animar el globo
 function animateBuilding(building) {
-    // console.log("Animando edificio:", building.name);
+    console.log("Animando edificio:", building.name);
     const initialPosition = building.position.y;
     const targetPosition = initialPosition + 1;
 
@@ -316,17 +316,21 @@ loader.load("/3d/modelo.glb", (gltf) => {
     attachMenuLinkHandlers();
     attachMainNavigationHandlers();
     
+    // Mostrar info-popup siempre al cargar la página
+    showInfoPopupOnce();
+    
     // En primera carga enfocamos el section, no el botón de cierre
     // Solo activar "Hola" si no venimos del formulario de contacto
-    const skipHola = sessionStorage.getItem('skipHola');
-    if (!skipHola) {
-        updateActiveBuildingClass("edificio-globo", false);
-    } else {
-        // Limpiar el flag para futuras visitas
-        sessionStorage.removeItem('skipHola');
-    }
+    // Sección "Hola" desactivada
+    // const skipHola = sessionStorage.getItem('skipHola');
+    // if (!skipHola) {
+    //     updateActiveBuildingClass("edificio-globo", false);
+    // } else {
+    //     // Limpiar el flag para futuras visitas
+    //     sessionStorage.removeItem('skipHola');
+    // }
 }, undefined, (error) => {
-    console.error("Error al cargar el modelo:", error);
+    // console.error("Error al cargar el modelo:", error);
 });
 
 
@@ -705,11 +709,11 @@ function closePopup() {
         lastFocusedTrigger.focus();
     }
 
-    // Muestra info-popup solo la primera vez que se cierra un popup
-    if (!hasShownInfoPopup) {
-        showInfoPopupOnce();
-        hasShownInfoPopup = true;
-    }
+    // Info-popup solo se muestra al cargar la página, no al cerrar secciones
+    // if (!hasShownInfoPopup) {
+    //     showInfoPopupOnce();
+    //     hasShownInfoPopup = true;
+    // }
 }
 
 function showInfoPopupOnce() {

@@ -1,0 +1,39 @@
+/*
+ STYLES INDEX - INDEX PAGE
+ =========================
+ 
+ 1. IMPORTS
+    1-1. Fonts
+    1-2. Global styles
+ 
+ 2. PAGE SPECIFIC STYLES
+    2-1. Body overrides
+    2-2. Link overrides
+*/
+
+// ========================================
+// 1. IMPORTS 
+// ========================================
+
+@charset "UTF-8";
+@import "../fonts/fonts.css";
+@import "_global";
+
+// ========================================
+// 2. PAGE SPECIFIC STYLES
+// ========================================
+
+// 2-1. Body overrides
+body {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-size: max(16px, .8vw);
+    color: var(--color-black);
+    scroll-behavior: smooth;
+}
+
+// 2-2. Link overrides
+
+strong {
+    font-family: var(--font-bold);
+}

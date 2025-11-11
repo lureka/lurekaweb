@@ -1,0 +1,41 @@
+/*
+ STYLES INDEX - VARIABLES
+ =========================
+ 
+ 1. CSS VARIABLES
+    1-1. Colors
+    1-2. Typography
+    1-3. Sizes
+*/
+
+// ========================================
+// 1. CSS VARIABLES
+// ========================================
+
+// 1-1. Colors
+:root {
+    --color-bg:                 #fff;
+    --color-text:               #343434;
+    --color-text-off:           #444;
+    --color-gray:               #afafaf;
+    --color-gray-light:         #d9d9d9;
+    --color-bg-blue:            #d5effc;
+    --color-link:               #ff9900;
+    --color-white:              #fffdf3;
+    --color-black:              #343434;
+}
+
+// 1-2. Typography
+:root {
+    --font-family-base:        "Raleway", serif;
+    --font-family-title:        "Raleway", serif;
+    // --font-family-title:       "Exo", serif;
+    --font-bold:        "Raleway-bold", serif;
+}
+
+// 1-3. Sizes
+:root {
+    --size-l:                  1em;
+    --size-m:                  1em;
+}
+

@@ -1,0 +1,50 @@
+/*
+ STYLES INDEX - HEADER
+ =========================
+ 
+ 1. HEADER COMPONENTS
+    1-1. Main header
+*/
+
+// ========================================
+// 1. HEADER COMPONENTS
+// ========================================
+
+// 1-1. Main header
+.main-header {
+    padding: 2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: calc(100% - 4em);
+    
+    h1 {
+        margin: 0;
+        font-weight: normal;
+        font-size: max(24px, 2vw);
+    }
+    
+    p {
+        margin: 0;
+    }
+    
+    img {
+        width: 150px;
+    }
+    
+    > div {
+        background-color: rgba($color: #fff, $alpha: 0.5);
+        padding: 1em;
+        border-radius: .5em;
+    }
+}
+
+.header {
+    position: relative;
+    z-index: 10;
+}
+

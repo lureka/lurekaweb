@@ -1,0 +1,302 @@
+/*
+ STYLES INDEX - NAVIGATION
+ =========================
+ 
+ 1. NAVIGATION COMPONENTS
+    1-1. Main navigation
+    1-2. Index navigation
+*/
+
+// ========================================
+// 1. NAVIGATION COMPONENTS
+// ========================================
+
+// 1-1. Main navigation
+.main-navigation {
+    position: relative;
+    
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--color-text);
+        font-size: 1.2em;
+        cursor: pointer;
+        padding: 0.5em;
+        border-radius: 0.25em;
+        height: 2.2em;
+        background-color: rgba(255, 255, 255, 0.2);
+        
+        // No cambiar cursor cuando estamos en estado inicial
+        body.initial-state & {
+            cursor: default;
+        }
+        
+        &:focus-visible {
+            outline: 3px solid var(--color-link);
+            outline-offset: 2px;
+        }
+        
+        .nav-toggle-icon {
+            display: block;
+            width: 1.5em;
+            height: 0.2em;
+            background: var(--color-text);
+            position: relative;
+            border-radius: 0.2em;
+            
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: var(--color-text);
+                transition: transform 0.3s ease;
+                left: 0;
+                border-radius: 0.2em;
+            }
+            
+            &::before {
+                transform: translateY(-0.5em);
+            }
+            
+            &::after {
+                transform: translateY(0.5em);
+            }
+        }
+        
+        &[aria-expanded="true"] .nav-toggle-icon {
+            background: transparent;
+            
+            &::before {
+                transform: rotate(45deg);
+            }
+            
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(2px);
+        border-radius: 0.5em;
+        padding: 1em;
+        flex-direction: column;
+        min-width: 270px;
+        list-style: none;
+        margin: 0;
+        gap: 0.5em;
+        
+        &[aria-hidden="false"] {
+            display: flex;
+        }
+        
+        a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            border-radius: 0.25em;
+            transition: background-color 0.2s ease;
+            display: block;
+            
+            &:hover,
+            &:focus-visible {
+                background-color: rgba(255, 255, 255, 0.2);
+                outline: none;
+            }
+            
+            &:focus-visible {
+                outline: 3px solid var(--color-link);
+                outline-offset: 2px;
+            }
+            
+            &.active {
+                background-color: var(--color-link);
+                color: #fff;
+            }
+        }
+    }
+}
+
+// 1-2. Index navigation
+.index-navigation {
+    position: relative;
+    
+    // Mobile: same style as main-navigation
+    @media (max-width: 767px) {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+        z-index: 1000;
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 0.5em;
+            border-radius: 0.25em;
+            height: 2.2em;
+            background-color: rgba(255, 255, 255, 0.2);
+            
+            &:focus-visible {
+                outline: 3px solid var(--color-link);
+                outline-offset: 2px;
+            }
+            
+            .nav-toggle-icon {
+                display: block;
+                width: 1.5em;
+                height: 0.2em;
+                background: var(--color-text);
+                position: relative;
+                border-radius: 0.2em;
+                
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: var(--color-text);
+                    transition: transform 0.3s ease;
+                    left: 0;
+                    border-radius: 0.2em;
+                }
+                
+                &::before {
+                    transform: translateY(-0.5em);
+                }
+                
+                &::after {
+                    transform: translateY(0.5em);
+                }
+            }
+            
+            &[aria-expanded="true"] .nav-toggle-icon {
+                background: transparent;
+                
+                &::before {
+                    transform: rotate(45deg);
+                }
+                
+                &::after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+        
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 0.5em;
+            padding: 1em;
+            flex-direction: column;
+            min-width: 270px;
+            list-style: none;
+            margin: 0;
+            gap: 0.5em;
+            
+            &[aria-hidden="false"] {
+                display: flex;
+            }
+            
+            a {
+                color: #fff;
+                text-decoration: none;
+                padding: 0.5em 1em;
+                border-radius: 0.25em;
+                transition: background-color 0.2s ease;
+                display: block;
+                
+                &:hover,
+                &:focus-visible {
+                    background-color: rgba(255, 255, 255, 0.2);
+                    outline: none;
+                }
+                
+                &:focus-visible {
+                    outline: 3px solid var(--color-link);
+                    outline-offset: 2px;
+                }
+                
+                &.active {
+                    background-color: var(--color-link);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    
+    // Desktop: horizontal fixed at top
+    @media (min-width: 768px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        
+        .nav-toggle {
+            display: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                margin: 0;
+            }
+            
+            a {
+                color: var(--color-black);
+                text-decoration: none;
+                padding: 1em;
+                transition: all 0.2s ease;
+                display: block;
+                font-weight: 500;
+                border-bottom: 8px solid transparent;
+                
+                &:hover,
+                &:focus-visible {
+                    color: var(--color-link);
+                    outline: none;
+                }
+                
+                &:focus-visible {
+                    outline: 3px solid var(--color-link);
+                    outline-offset: 2px;
+                }
+                
+                &.active {
+                    font-family: var(--font-bold);
+                    border-bottom: 8px solid var(--color-link);
+                }
+            }
+        }
+    }
+}
+

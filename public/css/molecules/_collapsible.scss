@@ -1,0 +1,41 @@
+.js-collapsible-header {
+  cursor: pointer;
+  transition: all 1s ease;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  padding-bottom: 1em;
+  span{
+    display: block;
+    font-size: 0.8em;
+    cursor: pointer;
+    transform: rotate(-45deg);
+    transition: all 1s ease;
+  }
+  &.js-active {
+    padding-bottom: 0;
+    span{
+      transform: rotate(0deg);
+      transition: all .5s ease;
+    }
+  }
+}
+.js-collapsible-content{
+  height: 0;
+  overflow: hidden;
+  padding: 0 2em;
+  transition: all 1s ease;
+  background-color: var(--color-white);
+  margin-top: 0em;
+  border-radius: 0.5em;
+  p:first-child {
+    margin-top: 0;
+  }
+  &.js-active {
+    height: fit-content;
+    overflow: initial;
+    margin-top: 1em;
+    padding: 1.5em 2em;
+    transition: all 1s ease;
+  }
+}

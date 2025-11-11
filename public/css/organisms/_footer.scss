@@ -1,0 +1,34 @@
+/*
+ STYLES INDEX - FOOTER
+ =========================
+ 
+ 1. FOOTER COMPONENTS
+    1-1. Footer base
+*/
+
+// ========================================
+// 1. FOOTER COMPONENTS
+// ========================================
+
+// 1-1. Footer base
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    padding: 1em;
+    background-color: rgba($color: #000, $alpha: 0.5);
+    
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        
+        li a {
+            color: var(--color-white);
+        }
+    }
+}
+

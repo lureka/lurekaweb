@@ -1,0 +1,64 @@
+/*
+ STYLES INDEX - COLUMNS
+ =========================
+ 
+ 1. COLUMN COMPONENTS
+    1-1. Columns wrapper
+    1-2. Columns 2 layout
+*/
+
+// ========================================
+// 1. COLUMN COMPONENTS
+// ========================================
+
+// 1-1. Columns wrapper
+.columns-wrapper {
+    padding-top: 1em;
+}
+
+// 1-2. Columns 2 layout
+.columns2 {
+    display: grid;
+    gap: 2em;
+    background-color: var(--color-bg);
+    padding: 2em;
+    border-radius: .5em;
+    
+    .columns2 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    > img {
+        display: block;
+        object-fit: cover;
+        
+        @media screen and (min-width: 768px) {
+            grid-column: 1 / 2;
+        }
+        
+        width: 100%;
+        border-radius: .7em;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    > div {
+        @media screen and (min-width: 768px) {
+            grid-column: 2 / 6;
+        }
+    }
+    
+    h2, h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    + .columns2 {
+        margin-top: 1em;
+    }
+}
+

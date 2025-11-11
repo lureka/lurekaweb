@@ -1,0 +1,19 @@
+/*
+ STYLES INDEX - RESET
+ =========================
+ 
+ 1. RESET STYLES
+    1-1. Box sizing
+*/
+
+// ========================================
+// 1. RESET STYLES
+// ========================================
+
+// 1-1. Box sizing
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+

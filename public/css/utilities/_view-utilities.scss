@@ -1,0 +1,29 @@
+/*
+ STYLES INDEX - VIEW UTILITIES
+ =========================
+ 
+ 1. VIEW UTILITIES
+    1-1. View screen
+    1-2. View mobile
+*/
+
+// ========================================
+// 1. VIEW UTILITIES
+// ========================================
+
+// 1-1. View screen
+.view-screen {
+    display: none;
+    @media screen and (min-width: 768px) {
+        display: inline-block;
+    }
+}
+
+// 1-2. View mobile
+.view-mobile {
+    display: inline-block;
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
