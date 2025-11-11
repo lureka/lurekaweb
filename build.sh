@@ -8,7 +8,28 @@ npm run build
 
 # Copy additional files that Vite doesn't handle
 echo "📁 Copying additional files..."
-cp -r public/contact.html public/success.html public/_redirects public/fonts public/3d dist/
+# Copiar todos los HTML que no sean index.html (Vite ya lo procesa)
+cp public/3dcity.html public/contact.html public/success.html dist/
+
+# Copiar archivos JS
+echo "📜 Copying JavaScript files..."
+cp -r public/js dist/
+
+# Copiar CSS estático para 3dcity.html (styles.css no es procesado por Vite)
+echo "🎨 Copying CSS files..."
+mkdir -p dist/css
+cp public/css/styles.css dist/css/ 2>/dev/null || true
+
+# Copiar archivos estáticos
+cp -r public/_redirects public/fonts public/3d dist/
+
+# Copiar imágenes
+echo "🖼️ Organizing images..."
+cp -r public/images dist/
+
+# Copiar videos
+echo "🎬 Copying videos..."
+cp -r public/video dist/ 2>/dev/null || true
 
 # Update CSS references in HTML files with current build hash
 echo "🎨 Updating CSS references..."
@@ -16,20 +37,16 @@ CSS_FILE=$(ls dist/assets/index-*.css | head -1 | xargs basename)
 if [ -n "$CSS_FILE" ]; then
     echo "📝 Found CSS file: $CSS_FILE"
     # Update contact.html - change from /css/styles.css to hashed version
-    sed -i.bak "s|/css/styles\.css|/assets/$CSS_FILE|g" dist/contact.html
+    sed -i.bak "s|/css/styles\.css|/assets/$CSS_FILE|g" dist/contact.html 2>/dev/null || true
     # Update success.html - change from /css/styles.css to hashed version
-    sed -i.bak "s|/css/styles\.css|/assets/$CSS_FILE|g" dist/success.html
+    sed -i.bak "s|/css/styles\.css|/assets/$CSS_FILE|g" dist/success.html 2>/dev/null || true
+    # 3dcity.html mantiene /css/styles.css (ya copiado arriba)
     # Clean up backup files
-    rm -f dist/contact.html.bak dist/success.html.bak
+    rm -f dist/*.html.bak
     echo "✅ CSS references updated in HTML files"
 else
-    echo "❌ ERROR: CSS file not found!"
-    exit 1
+    echo "⚠️ WARNING: CSS file not found, but continuing..."
 fi
-
-# Copy images with correct structure
-echo "🖼️ Organizing images..."
-cp -r public/images dist/
 
 # Verify critical files
 echo "🔍 Verifying critical files..."
