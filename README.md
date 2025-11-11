@@ -13,11 +13,13 @@ npm run dev
 
 # Build for production in the dist/ directory
 npm run build
+npm run build:netlify
 
 # Netlify (login with github)
 Push to main branch (Sourcetree) and deploy to netlify
 netlify deploy 
 netlify deploy  --prod
+
 
 Login to netlify with Github account:
 https://app.netlify.com/teams/lureka/sites

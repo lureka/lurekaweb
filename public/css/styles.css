@@ -520,6 +520,9 @@ footer ul li a {
   justify-content: center;
   cursor: help;
 }
+.software-list li:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
 
 .buttons {
   display: flex;

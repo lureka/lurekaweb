@@ -496,9 +496,15 @@ ul {
   align-items: center;
   justify-content: center;
   cursor: help;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: all 0.3s ease;
 }
 .software-list li.tooltip[aria-label]::after {
   font-size: 0.5em;
+}
+.software-list li:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .software-list-wrapper-footer {
