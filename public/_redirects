@@ -1,2 +1,6 @@
 # Redirects for form handling
 /success.html /success.html 200
+
+# IMPORTANTE: No redirigir assets, CSS, JS, imágenes, fuentes, etc.
+# Netlify sirve archivos reales antes de aplicar redirects con status 200
+# Por lo tanto, los assets se servirán correctamente si existen

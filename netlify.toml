@@ -13,11 +13,15 @@
   NODE_VERSION = "18"
 
 # Redirecciones para SPA (Single Page Application)
+# IMPORTANTE: Netlify con status 200 sin force sirve primero archivos reales
+# Los assets (CSS, JS, imágenes) se servirán automáticamente si existen
+# Solo se redirige a index.html si el archivo NO existe
+
+# Redirigir todo a index.html (solo si el archivo no existe)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  conditions = {Role = ["admin"], Country = ["US"]}
 
 # Redirecciones para formularios
 [[redirects]]
@@ -35,6 +39,21 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
 
 # Headers para archivos estáticos
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 [[headers]]
   for = "/3d/*"
   [headers.values]
