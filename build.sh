@@ -11,9 +11,12 @@ echo "📁 Copying additional files..."
 # Copiar todos los HTML que no sean index.html (Vite ya lo procesa)
 cp public/3dcity.html public/contact.html public/success.html dist/
 
-# Copiar archivos JS
+# Copiar archivos JS (excepto main.js que es procesado por Vite)
 echo "📜 Copying JavaScript files..."
-cp -r public/js dist/
+mkdir -p dist/js
+# Copiar solo los JS que no son procesados por Vite
+cp public/js/index.js public/js/collapsible.js dist/js/ 2>/dev/null || true
+# main.js es procesado por Vite y se genera en dist/js/main-[hash].js
 
 # Copiar CSS estático para 3dcity.html (styles.css no es procesado por Vite)
 echo "🎨 Copying CSS files..."
@@ -42,6 +45,23 @@ if [ -n "$CSS_FILE" ]; then
     echo "✅ CSS files ready (styles.css for contact/success/3dcity, hashed CSS for index)"
 else
     echo "⚠️ WARNING: CSS file not found, but continuing..."
+fi
+
+# Update JS reference in 3dcity.html (in dist/) to use the processed main.js with hash
+# Remove type="module" because the bundled file is not an ES module
+echo "🔧 Updating JavaScript references in dist/3dcity.html..."
+MAIN_JS_FILE=$(ls dist/js/main-*.js | head -1 | xargs basename)
+if [ -n "$MAIN_JS_FILE" ]; then
+    echo "📝 Found processed main.js: $MAIN_JS_FILE"
+    # Update dist/3dcity.html: replace the script tag to remove type="module" and update the path
+    # This only affects the production build in dist/, not the local public/ version
+    sed -i.bak 's|<script type="module" src="/js/main\.js" defer></script>|<script src="/js/'"$MAIN_JS_FILE"'" defer></script>|g' dist/3dcity.html 2>/dev/null || true
+    # Fallback: if the pattern doesn't match, try without type="module" check
+    sed -i.bak "s|src=\"/js/main\.js\"|src=\"/js/$MAIN_JS_FILE\"|g" dist/3dcity.html 2>/dev/null || true
+    rm -f dist/3dcity.html.bak
+    echo "✅ JavaScript reference updated in dist/3dcity.html (production only)"
+else
+    echo "⚠️ WARNING: Processed main.js not found!"
 fi
 
 # Verify critical files
