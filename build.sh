@@ -36,14 +36,10 @@ echo "🎨 Updating CSS references..."
 CSS_FILE=$(ls dist/assets/index-*.css | head -1 | xargs basename)
 if [ -n "$CSS_FILE" ]; then
     echo "📝 Found CSS file: $CSS_FILE"
-    # Update contact.html - change from /css/styles.css to hashed version
-    sed -i.bak "s|/css/styles\.css|/assets/$CSS_FILE|g" dist/contact.html 2>/dev/null || true
-    # Update success.html - change from /css/styles.css to hashed version
-    sed -i.bak "s|/css/styles\.css|/assets/$CSS_FILE|g" dist/success.html 2>/dev/null || true
+    # contact.html y success.html mantienen /css/styles.css (ya copiado arriba)
     # 3dcity.html mantiene /css/styles.css (ya copiado arriba)
-    # Clean up backup files
-    rm -f dist/*.html.bak
-    echo "✅ CSS references updated in HTML files"
+    # Solo actualizamos si hay otros archivos que necesiten el CSS con hash
+    echo "✅ CSS files ready (styles.css for contact/success/3dcity, hashed CSS for index)"
 else
     echo "⚠️ WARNING: CSS file not found, but continuing..."
 fi
