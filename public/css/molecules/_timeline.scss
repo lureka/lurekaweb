@@ -70,6 +70,7 @@
         font-family: var(--font-bold);
         border: 7px solid var(--color-black);
         margin-left: -0.8em;
+        min-height: 4.5em;
         @media (min-width: 768px) {
             font-size: 1.5em;
             border: 10px solid var(--color-black);

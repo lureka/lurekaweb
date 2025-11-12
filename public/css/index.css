@@ -883,6 +883,7 @@ ul {
   font-family: var(--font-bold);
   border: 7px solid var(--color-black);
   margin-left: -0.8em;
+  min-height: 4.5em;
 }
 @media (min-width: 768px) {
   .timeline-wrapper .date {
