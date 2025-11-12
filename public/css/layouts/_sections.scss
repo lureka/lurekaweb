@@ -138,6 +138,10 @@
 .section--3 {
     background: #f8a528;
     color: var(--color-text);
+    a{
+        color: var(--color-text);
+        text-decoration: underline;
+    }
     padding-top: 4em;
     .container {
         @media screen and (min-width: 1280px) {

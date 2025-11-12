@@ -26,10 +26,14 @@
             z-index: -1;
             bottom: 0;
             top: 0;
-            left: 2.8em;
-            width: 20px;
+            left: 1.2em;
             height: 100%;
+            width: 10px;
             background-color: var(--color-black);
+            @media (min-width: 768px) {
+                left: 2.8em;
+                width: 20px;
+            }
         }
         &:first-child::after{
             top: 2em;
@@ -46,7 +50,10 @@
     .timeline-header{
         display: flex;
         align-items: start;
-        gap: 1.5em;
+        gap: 1em;
+        @media (min-width: 768px) {
+            gap: 1.5em;
+        }
     }
     .date{
         background-color: var(--color-white);
@@ -59,9 +66,15 @@
         align-items: center;
         justify-content: center;
         padding: 0.5em;
-        font-size: 1.5em;
+        font-size: 1em;
         font-family: var(--font-bold);
-        border: 10px solid var(--color-black);
+        border: 7px solid var(--color-black);
+        margin-left: -0.8em;
+        @media (min-width: 768px) {
+            font-size: 1.5em;
+            border: 10px solid var(--color-black);
+            margin-left: 0;
+        }
         div + div{
             border-top: 1px dashed var(--color-black);
         }
