@@ -37,15 +37,19 @@
 
   function closeSection(header, content) {
     header.classList.remove('js-active');
+    header.setAttribute('aria-expanded', 'false');
     if (content) {
       content.classList.remove('js-active');
+      content.setAttribute('aria-hidden', 'true');
     }
   }
 
   function openSection(header, content) {
     header.classList.add('js-active');
+    header.setAttribute('aria-expanded', 'true');
     if (content) {
       content.classList.add('js-active');
+      content.setAttribute('aria-hidden', 'false');
     }
   }
 
@@ -54,6 +58,27 @@
     if (!content) {
       return;
     }
+
+    // Asegurar que el contenido tenga un ID si no lo tiene
+    if (!content.id) {
+      const headerId = header.id || `collapsible-header-${Math.random().toString(36).substr(2, 9)}`;
+      if (!header.id) {
+        header.id = headerId;
+      }
+      const contentId = `collapsible-content-${Math.random().toString(36).substr(2, 9)}`;
+      content.id = contentId;
+      header.setAttribute('aria-controls', contentId);
+    } else {
+      // Si el contenido ya tiene ID, asegurar que aria-controls apunte a él
+      if (!header.getAttribute('aria-controls')) {
+        header.setAttribute('aria-controls', content.id);
+      }
+    }
+
+    // Inicializar estado ARIA según el estado inicial
+    const isInitiallyActive = header.classList.contains('js-active');
+    header.setAttribute('aria-expanded', isInitiallyActive ? 'true' : 'false');
+    content.setAttribute('aria-hidden', isInitiallyActive ? 'false' : 'true');
 
     function toggle(open) {
       const container = header.closest('.js-collapsible');

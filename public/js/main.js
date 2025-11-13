@@ -443,6 +443,19 @@ function buildMainMenus() {
         
         contactoLi.appendChild(contactoA);
         navMenu.appendChild(contactoLi);
+
+        // Agregar opción "Web Lureka"
+        const webLurekaLi = document.createElement('li');
+        webLurekaLi.setAttribute('role', 'none');
+        
+        const webLurekaA = document.createElement('a');
+        webLurekaA.href = '/index.html';
+        webLurekaA.setAttribute('role', 'menuitem');
+        webLurekaA.textContent = 'Web Lureka';
+        webLurekaA.setAttribute('aria-label', 'Ir a página principal de Lureka');
+        
+        webLurekaLi.appendChild(webLurekaA);
+        navMenu.appendChild(webLurekaLi);
     }
 
     // Actualiza los nombres en los tooltip-3d
