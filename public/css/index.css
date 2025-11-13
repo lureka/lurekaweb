@@ -709,6 +709,11 @@ ul {
   margin-top: 0em;
   border-radius: 0.5em;
 }
+@media (max-width: 768px) {
+  .js-collapsible-content {
+    padding: 0 1em;
+  }
+}
 .js-collapsible-content p:first-child {
   margin-top: 0;
 }
@@ -718,6 +723,11 @@ ul {
   margin: 1.5em 0;
   padding: 1.5em 2em;
   transition: all 1s ease;
+}
+@media (max-width: 768px) {
+  .js-collapsible-content.js-active {
+    padding: 1em 1em;
+  }
 }
 .js-collapsible-content .js-collapsible-content.js-active {
   margin: 0;
