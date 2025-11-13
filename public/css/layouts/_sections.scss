@@ -138,7 +138,7 @@
 .section--3 {
     background: #f8a528;
     color: var(--color-text);
-    a{
+    a:not(.btn){
         color: var(--color-text);
         text-decoration: underline;
     }

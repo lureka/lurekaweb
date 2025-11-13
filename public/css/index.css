@@ -308,6 +308,9 @@ ul {
 
 .btn {
   display: inline-flex;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: space-between;
   background: var(--color-text);
   color: var(--color-white);
   padding: 0.5em 1em;
@@ -319,6 +322,7 @@ ul {
   line-height: 1.2em;
   font-family: var(--font-family-base);
   align-items: center;
+  text-decoration: none;
   justify-content: center;
 }
 .btn:hover, .btn:focus {
@@ -329,7 +333,30 @@ ul {
   outline: 3px solid var(--color-link);
   outline-offset: 2px;
 }
+.btn.secondary {
+  background: var(--color-white);
+  color: var(--color-text);
+}
+.btn.secondary:hover, .btn.secondary:focus {
+  background: var(--color-link);
+  color: var(--color-white);
+}
+.btn.download:hover .icon-download {
+  position: relative;
+  animation: download-animation 1s infinite;
+}
 
+@keyframes download-animation {
+  0% {
+    top: -6px;
+  }
+  50% {
+    top: 6px;
+  }
+  100% {
+    top: -6px;
+  }
+}
 /*
  STYLES INDEX - TOOLTIP
  =========================
@@ -1635,7 +1662,7 @@ body.initial-state .main-navigation .nav-toggle {
   color: var(--color-text);
   padding-top: 4em;
 }
-.section--3 a, .section--4 a {
+.section--3 a:not(.btn), .section--4 a:not(.btn) {
   color: var(--color-text);
   text-decoration: underline;
 }
