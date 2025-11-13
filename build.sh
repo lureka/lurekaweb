@@ -34,6 +34,10 @@ cp -r public/images dist/
 echo "🎬 Copying videos..."
 cp -r public/video dist/ 2>/dev/null || true
 
+# Copiar PDFs
+echo "📄 Copying PDF files..."
+cp -r public/pdf dist/ 2>/dev/null || true
+
 # Update CSS references in HTML files with current build hash
 echo "🎨 Updating CSS references..."
 CSS_FILE=$(ls dist/assets/index-*.css | head -1 | xargs basename)
