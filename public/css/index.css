@@ -341,10 +341,23 @@ ul {
   background: var(--color-white);
   color: var(--color-text);
   border: 1px solid var(--color-text);
+  transition: all 0.2s ease;
 }
 .btn.secondary:hover, .btn.secondary:focus {
+  transition: all 0.2s ease;
   background: var(--color-link);
+}
+.btn.secondary:hover span, .btn.secondary:focus span {
+  transition: all 0.2s ease;
+}
+.btn.secondary.video:hover span, .btn.secondary.video:focus span {
+  transition: all 0.2s ease;
+  display: block;
   color: var(--color-white);
+  background-color: var(--color-black);
+  border-radius: 50%;
+  border: 10px solid var(--color-black);
+  font-size: 0.7em;
 }
 .btn.download:hover .icon-download {
   position: relative;
@@ -515,6 +528,9 @@ ul {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.3em;
+}
+.software-list:last-child {
+  margin-bottom: 2em;
 }
 .software-list li {
   background-color: var(--color-white);
@@ -1299,7 +1315,7 @@ body.initial-state .main-navigation .nav-toggle {
   left: 0;
   width: 100svw;
   height: 100svh;
-  z-index: 5;
+  z-index: 101;
   align-items: center;
   justify-content: center;
   pointer-events: none;
@@ -1437,14 +1453,19 @@ body.initial-state .main-navigation .nav-toggle {
   z-index: 100;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 0.5em;
-  padding: 2em;
-  max-width: 90vw;
-  max-height: 90vh;
+  padding: 1em;
+  width: 100vw;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   pointer-events: auto;
+}
+@media screen and (min-width: 768px) {
+  .video-popup {
+    padding: 2em;
+    max-width: 90vw;
+  }
 }
 .video-popup.active {
   display: flex;
@@ -1457,8 +1478,8 @@ body.initial-state .main-navigation .nav-toggle {
 }
 .video-popup .close-video-popup {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 5px;
+  right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;

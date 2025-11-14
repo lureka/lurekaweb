@@ -147,3 +147,6 @@
 .icon-download:before {
   content: "\e920";
 }
+.icon-play:before {
+  content: "\e921";
+}

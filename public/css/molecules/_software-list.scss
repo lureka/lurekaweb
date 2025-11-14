@@ -20,7 +20,9 @@
     flex-wrap: wrap;
     align-items: center;
     gap: .3em;
-    
+    &:last-child{
+        margin-bottom: 2em;
+    }
     li {
         background-color: var(--color-white);
         color: var(--color-text);
