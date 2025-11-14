@@ -50,7 +50,12 @@
         }
     }
 }
-
+.section-width{
+    max-width: 65em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+}
 // 1-2. Section 1 - Index
 .section--1 {
     background: #4d6a6b;

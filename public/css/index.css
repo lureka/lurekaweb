@@ -1621,6 +1621,13 @@ body.initial-state .main-navigation .nav-toggle {
   }
 }
 
+.section-width {
+  max-width: 65em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+}
+
 .section--1 {
   background: #4d6a6b;
   min-height: initial;
