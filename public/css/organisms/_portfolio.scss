@@ -14,7 +14,7 @@
 // 1-1. Portfolio wrapper
 .portfolio-wrapper {
     display: grid;
-    gap: 1em;
+    gap: 2em;
     grid-template-columns: 1fr;
     @media screen and (min-width: 450px) {
         grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
@@ -55,6 +55,15 @@
         border-top: 1px dashed var(--color-gray-light);
         width: 100%;
         border-radius: 0 0 1em 1em;
+        .btn{
+            width: 100%;
+            @media screen and (min-width: 768px) {
+                width: auto;
+            }
+            display: flex;
+            gap: .8em;
+            text-align: center;
+        }
     }
 }
 
