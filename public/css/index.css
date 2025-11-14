@@ -705,6 +705,9 @@ ul {
 .js-collapsible-header:focus:not(:focus-visible) {
   outline: none;
 }
+.js-collapsible-header:hover span {
+  color: var(--color-text);
+}
 .js-collapsible-header span {
   color: var(--color-link);
   display: block;

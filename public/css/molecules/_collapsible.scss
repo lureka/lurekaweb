@@ -24,6 +24,11 @@
   &:focus:not(:focus-visible) {
     outline: none;
   }
+  &:hover{
+    span{
+      color: var(--color-text);
+    }
+  }
   span{
     color: var(--color-link);
     display: block;
