@@ -303,7 +303,7 @@ footer ul li a {
   left: 0;
   width: 100svw;
   height: 100svh;
-  z-index: 5;
+  z-index: 1000;
 }
 .velo-popup.active {
   display: flex;
@@ -801,5 +801,38 @@ body.contact {
   }
   .form-actions .btn, .form-actions .btn-primary {
     width: 100%;
+  }
+}
+.spinner {
+  width: 4em;
+  height: 4em;
+  animation: spin 1s linear infinite;
+  position: absolute;
+}
+.spinner::after, .spinner::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  background-color: #ff6600;
+  border-radius: 50%;
+}
+.spinner::before {
+  top: initial;
+  bottom: 0;
+  left: initial;
+  right: 0;
+  background-color: var(--color-white);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

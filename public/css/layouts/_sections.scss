@@ -165,7 +165,68 @@
     padding-top: 0;
     background: #dbd3c8;
 }
-
+.section--5 {
+    @extend .section--3;
+    background-color: #222222;
+    color: #fff;
+    padding: 1em;
+    @media screen and (min-width: 768px) {
+        min-height: 100vh;
+        justify-content: center;
+        padding: 2em;
+        display: grid;
+        grid-template-rows: auto 1fr;
+    }
+    // min-height: 100vh;
+    .sketchbook-wrapper {
+        @extend .portfolio-wrapper;
+        padding-bottom: 3em;
+        gap: .5em;
+        @media screen and (min-width: 620px) {
+           display: flex;
+           align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+        }
+        @media screen and (min-width: 1315px) {
+            grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+        }
+    }
+    .sketchbook-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0;
+        transition: all 1s ease;
+        border-radius: 1em;
+        cursor: pointer;
+        box-shadow: 0 0 0 rgba(#000, 0.5);
+        &:hover img{
+            transform: scale(1.2);
+            // z-index:2;
+            transition: all .3s ease;
+            box-shadow: 0 0 1em rgba(#000, 0.5);
+        }
+        .sketchbook-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            position: absolute;
+            padding: 1em;
+            background-color: rgba(#000, 0.85);
+            color: #fff;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: all .3s ease;
+            z-index: 1;
+        }
+    }
+}
 // 1-7. Parallax layers
 .parallax-background,
 .parallax-foreground {

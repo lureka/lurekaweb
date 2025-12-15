@@ -1157,7 +1157,7 @@ body.initial-state .main-navigation .nav-toggle {
     position: fixed;
     top: 1em;
     right: 1em;
-    z-index: 1000;
+    z-index: 100;
   }
   .index-navigation .nav-toggle {
     display: block;
@@ -1256,7 +1256,7 @@ body.initial-state .main-navigation .nav-toggle {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     padding: 0;
-    z-index: 1000;
+    z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   .index-navigation .nav-toggle {
@@ -1318,7 +1318,7 @@ body.initial-state .main-navigation .nav-toggle {
   left: 0;
   width: 100svw;
   height: 100svh;
-  z-index: 101;
+  z-index: 1000;
   align-items: center;
   justify-content: center;
   pointer-events: none;
@@ -1515,18 +1515,18 @@ body.initial-state .main-navigation .nav-toggle {
     1-1. Portfolio wrapper
     1-2. Portfolio item
 */
-.portfolio-wrapper {
+.portfolio-wrapper, .section--5 .sketchbook-wrapper {
   display: grid;
   gap: 2em;
   grid-template-columns: 1fr;
 }
 @media screen and (min-width: 450px) {
-  .portfolio-wrapper {
+  .portfolio-wrapper, .section--5 .sketchbook-wrapper {
     grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
   }
 }
 @media screen and (min-width: 1315px) {
-  .portfolio-wrapper {
+  .portfolio-wrapper, .section--5 .sketchbook-wrapper {
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   }
 }
@@ -1723,19 +1723,19 @@ body.initial-state .main-navigation .nav-toggle {
   padding: 0;
 }
 
-.section--3, .section--4 {
+.section--3, .section--5, .section--4 {
   background: var(--color-link);
   color: var(--color-text);
 }
-.section--3 a:not(.btn), .section--4 a:not(.btn) {
+.section--3 a:not(.btn), .section--5 a:not(.btn), .section--4 a:not(.btn) {
   color: var(--color-text);
   text-decoration: underline;
 }
-.section--3 .container, .section--4 .container {
+.section--3 .container, .section--5 .container, .section--4 .container {
   margin: 0 auto;
 }
 @media screen and (min-width: 1280px) {
-  .section--3 .container, .section--4 .container {
+  .section--3 .container, .section--5 .container, .section--4 .container {
     max-width: 65em;
   }
 }
@@ -1743,6 +1743,71 @@ body.initial-state .main-navigation .nav-toggle {
 .section--4 {
   padding-top: 0;
   background: #dbd3c8;
+}
+
+.section--5 {
+  background-color: #222222;
+  color: #fff;
+  padding: 1em;
+}
+@media screen and (min-width: 768px) {
+  .section--5 {
+    min-height: 100vh;
+    justify-content: center;
+    padding: 2em;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+}
+.section--5 .sketchbook-wrapper {
+  padding-bottom: 3em;
+  gap: 0.5em;
+}
+@media screen and (min-width: 620px) {
+  .section--5 .sketchbook-wrapper {
+    display: flex;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  }
+}
+@media screen and (min-width: 1315px) {
+  .section--5 .sketchbook-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  }
+}
+.section--5 .sketchbook-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  transition: all 1s ease;
+  border-radius: 1em;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+}
+.section--5 .sketchbook-item:hover img {
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+.section--5 .sketchbook-item .sketchbook-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  position: absolute;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.section--5 .sketchbook-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 
 .parallax-background,

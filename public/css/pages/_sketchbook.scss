@@ -1,0 +1,36 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    header{
+        grid-row: 1;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg);
+        padding: 0;
+        h1{font-size: 1.2rem}
+        .container{
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 0 1rem;
+            a{
+                width: 1.5em;
+                // height: 1.5em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+    main{
+        grid-row: 2;
+    }
+    footer{
+        grid-row: 3;
+    }
+}

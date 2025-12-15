@@ -24,7 +24,7 @@
     left: 0;
     width: 100svw;
     height: 100svh;
-    z-index: 101;
+    z-index: 1000;
     align-items: center;
     justify-content: center;
     pointer-events: none; // Allow events to pass through by default (for 3dcity.html)

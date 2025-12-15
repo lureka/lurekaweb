@@ -134,7 +134,7 @@
         position: fixed;
         top: 1em;
         right: 1em;
-        z-index: 1000;
+        z-index: 100;
         
         .nav-toggle {
             display: block;
@@ -250,7 +250,7 @@
         background-color: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         padding: 0;
-        z-index: 1000;
+        z-index: 100;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         
         .nav-toggle {

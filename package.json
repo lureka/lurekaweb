@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "BROWSER=open vite",
     "build": "vite build",
     "build:netlify": "./build.sh",
-    "preview": "vite preview"
+    "preview": "BROWSER=open vite preview"
   },
   "devDependencies": {
     "tailwindcss": "^4.1.4",

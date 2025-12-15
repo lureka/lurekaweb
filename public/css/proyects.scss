@@ -1,0 +1,232 @@
+/*
+ STYLES INDEX - INDEX PAGE
+ =========================
+ 
+ 1. IMPORTS
+    1-1. Fonts
+    1-2. Global styles
+ 
+ 2. PAGE SPECIFIC STYLES
+    2-1. Body overrides
+    2-2. Link overrides
+*/
+
+// ========================================
+// 1. IMPORTS 
+// ========================================
+
+@charset "UTF-8";
+@import 'base/reset';
+@import "../fonts/fonts.css";
+@import 'base/variables';
+@import 'base/typography';
+// @import 'organisms/navigation';
+@import 'organisms/footer';
+// @import 'base/base';
+// @import 'atoms/button';
+// @import 'molecules/form';
+// @import 'molecules/collapsible';
+// @import 'organisms/header';
+@import 'pages/sketchbook';
+
+// ========================================
+// 2. PAGE SPECIFIC STYLES
+// ========================================
+
+// 2-1. Body overrides 
+body {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-size: max(16px, .8vw);
+    color: var(--color-black);
+    scroll-behavior: smooth;
+    &.no-scroll{
+        overflow: hidden;
+    }
+}
+.header.index-navigation{
+    .container{
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding: 0 1rem;
+        align-items: center;
+    }
+    h1{
+        margin: 1rem;
+    }
+    a{
+        display: block;
+        // position: absolute;
+        // top: 1em;
+        // right: 1em;
+        width: 2em;
+        height: 2em;
+        margin: 1em;
+    }
+}
+main{
+    padding: 6rem 0;
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    color: var(--color-white);
+    background-color:var(--color-black);
+    .container{
+        max-width: 65em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2em;
+        padding: 1em;
+    }
+    .video-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        >div{
+            aspect-ratio: 1/1;
+            display: flex;
+            overflow: hidden;
+            align-items: flex-end;
+            &.ada_lovelace{background-color: #C4A33A;}
+            &.adele_goldberg{background-color: #003845;}
+            &.barbara_liskov{background-color: #7F7581;}
+            &.frances_allen{background-color: #987B69;}
+            &.grace_hopper{background-color: #4C5181;}
+            &.margaret_hamilton{background-color: #668FAD;}
+            &.nancy_lynch{background-color: #07747F;}
+            &.marian_croak{background-color: #004DA9;}
+            &.radia_perlman{background-color: #616161;}
+            &.rebecca_wirfs-brock{background-color: #DEA12F;}
+            &.shafi_goldwasser{background-color: #3768A7;}
+            &.sophie_wilson{background-color:#9c4c3d;}
+            &.js-with-video{
+                cursor: pointer;
+                    &:hover{
+                        img{
+                            transform: scale(1.1);
+                            transition: all 0.3s ease;
+                        }
+                    }
+                }
+            img{
+                transform: scale(1);
+                transition: all 0.3s ease;
+                width: 100%;
+            }
+            iframe{
+                display: none;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+        }
+        @media screen and (min-width: 1315px) {
+            grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+        }
+    }
+}
+
+// 2-2. Link overrides
+
+strong {
+    font-family: var(--font-bold);
+}
+.img-grid{
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+    img{
+        border-radius: .5em;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out;
+        z-index: 0;
+        &:hover{
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+            z-index: 10;
+        }
+    }
+}
+.velo-popup{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    &.active{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .video-popup{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .img-popup{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .img-bigger,
+    iframe{
+        position: relative;
+        display: block;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        max-width: 95svw;
+        max-height: 95svh;
+        border-radius: 1em;
+    }
+    .close-img-popup,
+    .close-video-popup {
+        position: absolute;
+        z-index: 5;
+        top: 2em;
+        right: 2em;
+        width: 4em;
+        height: 4em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 5px solid var(--color-white);
+        border-radius: 50%;
+        img{
+            max-margin: .5em;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+    }
+    .spinner{
+        z-index:1;
+    }
+    .next,
+    .prev{
+        position: absolute;
+        z-index: 3;
+        cursor: pointer;
+        width: 3em;
+        height: 3em;
+        background-color: var(--color-white);
+        border-radius: 50%;
+        border:.5em solid var(--color-white);
+        
+        &.disabled{
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+    .next{
+        right: 2em;
+        background-image: url('/images/next.svg');
+    }
+    .prev{
+        left: 2em;
+        background-image: url('/images/prev.svg');
+    }
+}

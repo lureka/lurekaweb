@@ -1,0 +1,390 @@
+/*
+ STYLES INDEX - INDEX PAGE
+ =========================
+
+ 1. IMPORTS
+    1-1. Fonts
+    1-2. Global styles
+
+ 2. PAGE SPECIFIC STYLES
+    2-1. Body overrides
+    2-2. Link overrides
+*/
+/*
+ STYLES INDEX - RESET
+ =========================
+
+ 1. RESET STYLES
+    1-1. Box sizing
+*/
+@import "../fonts/fonts.css";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+ STYLES INDEX - VARIABLES
+ =========================
+
+ 1. CSS VARIABLES
+    1-1. Colors
+    1-2. Typography
+    1-3. Sizes
+*/
+:root {
+  --color-bg: #fff;
+  --color-text: #343434;
+  --color-text-off: #444;
+  --color-gray: #afafaf;
+  --color-gray-light: #d9d9d9;
+  --color-bg-blue: #d5effc;
+  --color-link: #f8a528;
+  --color-white: #fffdf3;
+  --color-black: #343434;
+}
+
+:root {
+  --font-family-base: "Raleway", serif;
+  --font-family-title: "Raleway", serif;
+  --font-bold: "Raleway-bold", serif;
+}
+
+:root {
+  --size-l: 1em;
+  --size-m: 1em;
+}
+
+/*
+ STYLES INDEX - TYPOGRAPHY
+ =========================
+
+ 1. TYPOGRAPHY
+    1-1. Headings
+    1-2. Links
+    1-3. Lists
+    1-4. Text utilities
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title);
+  font-weight: 700;
+  font-style: normal;
+}
+
+h4 {
+  font-family: var(--font-bold);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+a:active, a:focus, a:focus-visible, a:hover {
+  border: none;
+}
+
+strong {
+  font-family: var(--font-bold);
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 1.5em;
+}
+
+.big-size {
+  font-size: var(--size-m);
+}
+@media screen and (min-width: 768px) {
+  .big-size {
+    font-size: var(--size-l);
+  }
+}
+
+.orange {
+  color: var(--color-link);
+}
+
+/*
+ STYLES INDEX - FOOTER
+ =========================
+
+ 1. FOOTER COMPONENTS
+    1-1. Footer base
+*/
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+footer ul li a {
+  color: var(--color-white);
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+body header {
+  grid-row: 1;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg);
+  padding: 0;
+}
+body header h1 {
+  font-size: 1.2rem;
+}
+body header .container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 1rem;
+}
+body header .container a {
+  width: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main {
+  grid-row: 2;
+}
+body footer {
+  grid-row: 3;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: max(16px, 0.8vw);
+  color: var(--color-black);
+  scroll-behavior: smooth;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+.header.index-navigation .container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 0 1rem;
+  align-items: center;
+}
+.header.index-navigation h1 {
+  margin: 1rem;
+}
+.header.index-navigation a {
+  display: block;
+  width: 2em;
+  height: 2em;
+  margin: 1em;
+}
+
+main {
+  padding: 6rem 0;
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+main .container {
+  max-width: 65em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  padding: 1em;
+}
+main .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+main .video-grid > div {
+  aspect-ratio: 1/1;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-end;
+}
+main .video-grid > div.ada_lovelace {
+  background-color: #C4A33A;
+}
+main .video-grid > div.adele_goldberg {
+  background-color: #003845;
+}
+main .video-grid > div.barbara_liskov {
+  background-color: #7F7581;
+}
+main .video-grid > div.frances_allen {
+  background-color: #987B69;
+}
+main .video-grid > div.grace_hopper {
+  background-color: #4C5181;
+}
+main .video-grid > div.margaret_hamilton {
+  background-color: #668FAD;
+}
+main .video-grid > div.nancy_lynch {
+  background-color: #07747F;
+}
+main .video-grid > div.marian_croak {
+  background-color: #004DA9;
+}
+main .video-grid > div.radia_perlman {
+  background-color: #616161;
+}
+main .video-grid > div.rebecca_wirfs-brock {
+  background-color: #DEA12F;
+}
+main .video-grid > div.shafi_goldwasser {
+  background-color: #3768A7;
+}
+main .video-grid > div.sophie_wilson {
+  background-color: #9c4c3d;
+}
+main .video-grid > div.js-with-video {
+  cursor: pointer;
+}
+main .video-grid > div.js-with-video:hover img {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+main .video-grid > div img {
+  transform: scale(1);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+main .video-grid > div iframe {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  main .video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+}
+@media screen and (min-width: 1315px) {
+  main .video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  }
+}
+
+strong {
+  font-family: var(--font-bold);
+}
+
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+}
+.img-grid img {
+  border-radius: 0.5em;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  z-index: 0;
+}
+.img-grid img:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.velo-popup {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.velo-popup.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.velo-popup .video-popup {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.velo-popup .img-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.velo-popup .img-bigger,
+.velo-popup iframe {
+  position: relative;
+  display: block;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  max-width: 95svw;
+  max-height: 95svh;
+  border-radius: 1em;
+}
+.velo-popup .close-img-popup,
+.velo-popup .close-video-popup {
+  position: absolute;
+  z-index: 5;
+  top: 2em;
+  right: 2em;
+  width: 4em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 5px solid var(--color-white);
+  border-radius: 50%;
+}
+.velo-popup .close-img-popup img,
+.velo-popup .close-video-popup img {
+  max-margin: 0.5em;
+  max-width: 100%;
+  max-height: 100%;
+}
+.velo-popup .spinner {
+  z-index: 1;
+}
+.velo-popup .next,
+.velo-popup .prev {
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+  width: 3em;
+  height: 3em;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  border: 0.5em solid var(--color-white);
+}
+.velo-popup .next.disabled,
+.velo-popup .prev.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.velo-popup .next {
+  right: 2em;
+  background-image: url("/images/next.svg");
+}
+.velo-popup .prev {
+  left: 2em;
+  background-image: url("/images/prev.svg");
+}

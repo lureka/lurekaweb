@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A hombros de gigantas</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/proyects.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <h1>A hombros de gigantas</h1>
+            <a href="/#section5"><img src="/images/close.svg" alt="Cerrar"></a>
+        </div>
+    </header>
+    <main>
+        <section class="section">
+            <div class="container">
+                <p>A este proyecto le tengo mucho cariño. Empezó como un brainstorming para decidir qué hacer con el christmas navideño de <a href="https://osoco.es/" target="_blank" rel="noopener noreferrer">Osoco</a> y terminó convirtiéndose en una <strong>iniciativa para visibilizar el trabajo de mujeres</strong> que han realizado <strong>aportaciones relevantes</strong> en el campo del <strong>software y las tecnologías de la información</strong>.</p>
+                <p>Repartimos tareas entre el equipo y, en una semana, ya había realizado los retratos de las doce “gigantas”. Algunos los empecé encajando con líneas y otros directamente con manchas de color. El proceso fue divertido, didáctico y, a la vez, agotador.</p>
+                <p>Realicé los retratos en Clip Studio Paint y puedes <strong>ver el proceso</strong> pulsando sobre cada imagen.</p>
+                <p>Visita y colabora con el proyecto en <a href="https://ahombrosdegigantas.xyz" target="_blank" rel="noopener noreferrer">ahombrosdegigantas.xyz</a></p>
+
+            </div>
+            <div class="video-grid">
+                
+                    
+                    <div class="portrait js-with-video ada_lovelace" >
+                        <img src="/images/gigantas/ts-ada_lovelace.png" alt="Ada Lovelace">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727220?h=1daf77aace"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>    
+                    <div class="portrait js-with-video adele_goldberg" >
+                        <img src="/images/gigantas/ts-adele_goldberg.png" alt="Adele Goldberg">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727258?h=a70ef08d92"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video barbara_liskov" >
+                        <img src="/images/gigantas/ts-barbara_liskov.png" alt="Barbara Liskov">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727279?h=93ee6d9214"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait frances_allen" >
+                        <img src="/images/gigantas/ts-frances_allen.png" alt="Frances Allen">
+                    </div>
+                    <div class="portrait js-with-video grace_hopper" >
+                        <img src="/images/gigantas/ts-grace_hopper.png" alt="Grace Hopper">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727307?h=59a4be5c35"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video margaret_hamilton" >
+                        <img src="/images/gigantas/ts-margaret_hamilton.png" alt="Margaret Hamilton">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727323?h=6d458825af"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video marian_croak" >
+                        <img src="/images/gigantas/ts-marian_croak.png" alt="Marian Croak">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727348?h=64bf83e8cd"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video nancy_lynch" >
+                        <img src="/images/gigantas/ts-nancy_lynch.png" alt="Nancy Lynch">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727374?h=32db54d1a8"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video radia_perlman" >
+                        <img src="/images/gigantas/ts-radia_perlman.png" alt="Radia Perlman">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727393?h=fa3ccbeaae"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video rebecca_wirfs-brock" >
+                        <img src="/images/gigantas/ts-rebecca_wirfs-brock.png" alt="Rebecca Wirfs-Brock">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727411?h=27dcaebef1"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video shafi_goldwasser" >
+                        <img src="/images/gigantas/ts-shafi_goldwasser.png" alt="Shafi Goldwasser">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727423?h=23b2c9790f"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+                    <div class="portrait js-with-video sophie_wilson" >
+                        <img src="/images/gigantas/ts-sophie_wilson.png" alt="Sophie Wilson">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/504727453?h=49c068cffd"  frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                    </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul class="share-list">
+            <li><a href="https://www.linkedin.com/in/emiliorodriguezvila-ux-ui-designer-accesibilidad-maquetador" target="_blank" rel="noopener noreferrer"> <img src="/images/icon-linkedin.svg" alt="Icon LinkedIn" class="icon"> LinkedIn</a></li>
+            <li><a href="https://www.instagram.com/lureka_es/" target="_blank" rel="noopener noreferrer"> <img src="/images/icon-instagram.svg" alt="Icon Instagram" class="icon"> Instagram</a></li>
+            <li><a href="/contact.html"> <img src="/images/icon-mail.svg" alt="Icon Mail" class="icon"> Contacto</a></li>
+        </ul>
+      </footer>
+      <div class="velo-popup">
+        <div class="video-popup" role="dialog" aria-modal="true" aria-labelledby="video-popup-title" tabindex="-1" aria-hidden="true">
+          <button type="button" class="close-video-popup js-close-video-popup" aria-label="Cerrar video"><img src="/images/close.svg" alt="Cerrar"></button>
+          <!-- AQUÍ VA EL VÍDEO -->
+           <div class="spinner"></div>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('click', function(e) {
+          const clickedElement = e.target.closest('.js-with-video');
+          if (clickedElement) {
+            const iframe = clickedElement.querySelector('iframe');
+            if (iframe) {
+              const videoPopup = document.querySelector('.video-popup');
+              const veloPopup = document.querySelector('.velo-popup');
+              const existingIframe = videoPopup.querySelector('iframe');
+              if (existingIframe) { existingIframe.remove();}
+              const clonedIframe = iframe.cloneNode(true);
+              videoPopup.appendChild(clonedIframe);
+              veloPopup.classList.add('active');
+              document.body.classList.add('no-scroll');
+            }
+          }
+        });
+        document.addEventListener('click', function(e) {
+          if (e.target.closest('.js-close-video-popup') || e.target.closest('.velo-popup')) {
+            const veloPopup = document.querySelector('.velo-popup');
+            veloPopup.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+          }
+        });
+      </script>
+</body>
+</html>

@@ -11,17 +11,27 @@ echo "📁 Copying additional files..."
 # Copiar todos los HTML que no sean index.html (Vite ya lo procesa)
 cp public/3dcity.html public/contact.html public/success.html dist/
 
+# Copy proyects HTML files
+echo "📂 Copying proyects files..."
+mkdir -p dist/proyects
+if [ -d "public/proyects" ]; then
+    cp -r public/proyects/* dist/proyects/ 2>/dev/null || true
+    echo "✅ Proyects files copied"
+else
+    echo "⚠️ WARNING: proyects directory not found, skipping..."
+fi
+
 # Copiar archivos JS (excepto main.js que es procesado por Vite)
 echo "📜 Copying JavaScript files..."
 mkdir -p dist/js
 # Copiar solo los JS que no son procesados por Vite
-cp public/js/index.js public/js/collapsible.js dist/js/ 2>/dev/null || true
+cp public/js/index.js public/js/collapsible.js public/js/image-popup.js dist/js/ 2>/dev/null || true
 # main.js es procesado por Vite y se genera en dist/js/main-[hash].js
 
-# Copiar CSS estático para 3dcity.html (styles.css no es procesado por Vite)
+# Copiar CSS estático para 3dcity.html y proyects (styles.css y proyects.css no son procesados por Vite)
 echo "🎨 Copying CSS files..."
 mkdir -p dist/css
-cp public/css/styles.css dist/css/ 2>/dev/null || true
+cp public/css/styles.css public/css/proyects.css dist/css/ 2>/dev/null || true
 
 # Copiar archivos estáticos
 cp -r public/_redirects public/fonts public/3d dist/
