@@ -139,14 +139,16 @@ strong {
         border-radius: .5em;
         object-fit: cover;
         aspect-ratio: 1/1;
-        cursor: pointer;
         transform: scale(1);
         transition: all 0.3s ease-in-out;
         z-index: 0;
-        &:hover{
-            transform: scale(1.1);
-            transition: all 0.3s ease-in-out;
-            z-index: 10;
+        @media screen and (min-width: 768px) {
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.1);
+                transition: all 0.3s ease-in-out;
+                z-index: 10;
+            }
         }
     }
 }

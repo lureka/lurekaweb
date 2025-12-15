@@ -1763,7 +1763,7 @@ body.initial-state .main-navigation .nav-toggle {
   padding-bottom: 3em;
   gap: 0.5em;
 }
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 768px) {
   .section--5 .sketchbook-wrapper {
     display: flex;
     align-items: center;
