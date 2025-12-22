@@ -527,7 +527,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.3em;
+  gap: 1em;
 }
 .software-list:last-child {
   margin-bottom: 2em;

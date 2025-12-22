@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lureka.es/sitemap.xml
+
+# No indexar páginas de éxito/confirmación
+Disallow: /success.html
+
+# Permitir todos los recursos estáticos
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
+Allow: /video/
+Allow: /pdf/
+Allow: /3d/
+
