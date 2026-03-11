@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Build script for Netlify deployment
 echo "🔨 Building project..."
