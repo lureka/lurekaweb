@@ -3,7 +3,7 @@
   base = "."
   
   # Comando de build personalizado
-  command = "npm install && npm run build:netlify"
+  command = "npm ci && npm run build:netlify"
   
   # Directorio de publicación
   publish = "dist"
