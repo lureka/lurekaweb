@@ -41,7 +41,7 @@
     
     <div class="form-container">
         <h1>Contacto</h1>
-        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="success.html" data-netlify-recaptcha="true" netlify>
+        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" data-netlify-recaptcha="true" netlify>
             <input type="hidden" name="form-name" value="contacto" />
             <p style="display: none;">
                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -58,6 +58,7 @@
               <label for="mensaje">Mensaje:</label>
               <textarea id="mensaje" name="mensaje" required></textarea>
             </div>
+            <div data-netlify-recaptcha="true"></div>
             <div class="form-actions">
                 <button type="button" class="btn" onclick="goBack()">Cancelar</button>
               <button type="submit" class="btn-primary">Enviar</button>
