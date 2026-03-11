@@ -10,7 +10,7 @@
 
 [build.environment]
   # Variables de entorno si las necesitas
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
 # Redirecciones para SPA (Single Page Application)
 # IMPORTANTE: Netlify con status 200 sin force sirve primero archivos reales
