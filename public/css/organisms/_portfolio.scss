@@ -13,12 +13,14 @@
 
 // 1-1. Portfolio wrapper
 .portfolio-wrapper {
-    display: grid;
-    gap: 2em;
+    display              : grid;
+    gap                  : 2em;
     grid-template-columns: 1fr;
+
     @media screen and (min-width: 450px) {
         grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
     }
+
     @media screen and (min-width: 1315px) {
         grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     }
@@ -26,44 +28,71 @@
 
 // 1-2. Portfolio item
 .portfolio-item {
-    display: grid;
+    display           : grid;
+    position          : relative;
     grid-template-rows: auto 1fr auto;
-    background-color: var(--color-white);
-    border-radius: 1em;
-    overflow: hidden;
-    color: var(--color-black);
-    
-    img {
-        width: 100%;
-        object-fit: cover;
-        object-position: top;
+    background-color  : var(--color-white);
+    border-radius     : 1em;
+    overflow          : hidden;
+    color             : var(--color-black);
+
+    .item-link {
+        position: absolute;
+        width   : 100%;
+        height  : 100%;
+        z-index : 1;
+
+    }
+
+    &:hover {
+        img {
+            transform : scale(1.2);
+            transition: all .5s;
+        }
+    }
+
+    picture {
         aspect-ratio: 1/1;
+        overflow    : hidden;
     }
-    
+
+    img {
+        width          : 100%;
+        height         : 100%;
+        object-fit     : cover;
+        object-position: top;
+        transform      : scale(1);
+        transition     : all .5s;
+
+    }
+
     h2 {
-        padding: 1em 1.5rem .5em 1.5rem;
-        margin: 0;
+        padding    : 1em 1.5rem .5em 1.5rem;
+        margin     : 0;
         font-family: var(--font-bold);
-        border-top: 1px solid var(--color-gray-light);
+        border-top : 1px solid var(--color-gray-light);
     }
-    
+
     p {
         margin: 0 1.5rem 1em 1.5rem;
     }
-    .buttons{
-        padding:1.5rem;
-        border-top: 1px dashed var(--color-gray-light);
-        width: 100%;
+
+    .buttons {
+        padding      : 1.5rem;
+        border-top   : 1px dashed var(--color-gray-light);
+        width        : 100%;
         border-radius: 0 0 1em 1em;
-        .btn{
+
+        .btn {
             width: 100%;
+
             @media screen and (min-width: 768px) {
                 width: auto;
             }
-            display: flex;
-            gap: .8em;
+
+            display   : flex;
+            gap       : .8em;
             text-align: center;
         }
     }
 }
-

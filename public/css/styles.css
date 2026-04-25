@@ -64,6 +64,11 @@ html {
   text-size-adjust: 100%;
 }
 
+@media screen and (min-width: 768px) {
+  body {
+    display: flex;
+  }
+}
 body {
   justify-content: center;
   margin: 0;
@@ -73,16 +78,17 @@ body {
   font-style: normal;
   line-height: 1.4;
 }
-@media screen and (min-width: 768px) {
-  body {
-    display: flex;
-  }
-}
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-title);
   font-weight: 700;
   font-style: normal;
+  align-items: center;
 }
 
 .big-size {
@@ -375,21 +381,24 @@ footer ul li a {
 .popup .columns2 > img {
   display: block;
   object-fit: cover;
-  width: 100%;
-  border-radius: 0.7em;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 @media screen and (min-width: 768px) {
   .popup .columns2 > img {
     grid-column: 1/2;
   }
 }
+.popup .columns2 > img {
+  width: 100%;
+  border-radius: 0.7em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 @media screen and (min-width: 768px) {
   .popup .columns2 > div {
     grid-column: 2/6;
   }
 }
-.popup .columns2 h2, .popup .columns2 h3 {
+.popup .columns2 h2,
+.popup .columns2 h3 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -410,16 +419,19 @@ footer ul li a {
     shape-margin: 1.5em;
   }
 }
-.popup .gallery-2, .popup .gallery-4 {
+.popup .gallery-2,
+.popup .gallery-4 {
   display: grid;
   gap: 1em;
 }
 @media screen and (min-width: 768px) {
-  .popup .gallery-2, .popup .gallery-4 {
+  .popup .gallery-2,
+  .popup .gallery-4 {
     grid-template-columns: 1fr 1fr;
   }
 }
-.popup .gallery-2 img, .popup .gallery-4 img {
+.popup .gallery-2 img,
+.popup .gallery-4 img {
   width: 100%;
   border-radius: 0.5em;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -453,13 +465,16 @@ footer ul li a {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.7);
   /* Visible focus ring (AAA) */
-  /* If icon is <img> or <svg> inside */
 }
 .popup .close-popup:focus-visible {
   outline: 3px solid var(--color-text);
   outline-offset: 2px;
 }
-.popup .close-popup img, .popup .close-popup svg {
+.popup .close-popup {
+  /* If icon is <img> or <svg> inside */
+}
+.popup .close-popup img,
+.popup .close-popup svg {
   width: 1em;
   height: 1em;
   display: block;
@@ -484,15 +499,17 @@ footer ul li a {
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-  transition: all 0.3s ease;
 }
 @media (min-width: 768px) {
   .page-index ul a {
     flex-direction: row;
   }
+}
+.page-index ul a {
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  transition: all 0.3s ease;
 }
 .page-index ul a:hover, .page-index ul a:focus-visible {
   transition: all 0.3s ease;
@@ -713,6 +730,18 @@ footer ul li a {
 body.contact {
   background-color: #f2f2f2;
   background-image: url(/images/contact/contactBackgroundXS.png);
+}
+@media (min-width: 768px) {
+  body.contact {
+    background-image: url(/images/contact/contactBackgroundS.png);
+  }
+}
+@media (min-width: 1400px) {
+  body.contact {
+    background-image: url(/images/contact/contactBackground.png);
+  }
+}
+body.contact {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -724,16 +753,6 @@ body.contact {
   justify-content: center;
   font-family: var(--font-family-base);
   transition: background-image 0.3s ease-in-out;
-}
-@media (min-width: 768px) {
-  body.contact {
-    background-image: url(/images/contact/contactBackgroundS.png);
-  }
-}
-@media (min-width: 1400px) {
-  body.contact {
-    background-image: url(/images/contact/contactBackground.png);
-  }
 }
 
 .form-container {

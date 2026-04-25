@@ -46,71 +46,92 @@
 
 // 1-1. Variables
 :root {
-    --color-bg:                 #fff;
-    --color-text:               #343434;
-    --color-text-off:           #444;
-    --color-gray:               #afafaf;
-    --color-bg-blue:            #d5effc;
-    --color-link:               #ff6600;
-    --color-white:              #fff;
-    --size-l:                  2em;
-    --size-m:                  1.5em;
-    --font-family-base:        "Raleway", serif;
-    --font-family-title:       "Exo", serif;
-    --font-bold:        "Raleway-bold", serif;
+    --color-bg         : #fff;
+    --color-text       : #343434;
+    --color-text-off   : #444;
+    --color-gray       : #afafaf;
+    --color-bg-blue    : #d5effc;
+    --color-link       : #ff6600;
+    --color-white      : #fff;
+    --size-l           : 2em;
+    --size-m           : 1.5em;
+    --font-family-base : "Raleway", serif;
+    --font-family-title: "Exo", serif;
+    --font-bold        : "Raleway-bold", serif;
 }
 
 // 1-2. Base styles
 html {
-    font-size: max(16px, 1vw);
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    font-size               : max(16px, 1vw);
+    background-color        : var(--color-bg);
+    color                   : var(--color-text);
     // Prevent zoom on iOS
     -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    -ms-text-size-adjust    : 100%;
+    text-size-adjust        : 100%;
 }
 
 body {
     @media screen and (min-width: 768px) {
         display: flex;
     }
-    justify-content: center;
-    margin: 0;
-    font-family: var(--font-family-base);
+
+    justify-content    : center;
+    margin             : 0;
+    font-family        : var(--font-family-base);
     font-optical-sizing: auto;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1.4;
+    font-weight        : normal;
+    font-style         : normal;
+    line-height        : 1.4;
 }
 
 // 1-3. Typography
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-family-title);
     font-weight: 700;
-    font-style: normal;
+    font-style : normal;
+    align-items: center;
 }
-.big-size{
+
+.big-size {
     font-size: var(--size-m);
+
     @media screen and (min-width: 768px) {
         font-size: var(--size-l);
     }
 
 }
-.orange{color: var(--color-link);}
+
+.orange {
+    color: var(--color-link);
+}
+
 // 1-4. Links
 a {
-    color: var(--color-link);
+    color          : var(--color-link);
     text-decoration: none;
-    &:active, &:focus, &:focus-visible, &:hover {
+
+    &:active,
+    &:focus,
+    &:focus-visible,
+    &:hover {
         border: none;
     }
 }
-strong{font-family: var(--font-bold);}
+
+strong {
+    font-family: var(--font-bold);
+}
+
 // 1-5. Lists
 ul {
     list-style-type: square;
-    padding-left: 1.5em;
+    padding-left   : 1.5em;
 }
 
 // 1-6. Images
@@ -118,47 +139,55 @@ img,
 video {
     max-width: 100%;
 }
+
 // ========================================
 // 2. MAIN LAYOUT
 // ========================================
 
 // 2-1. Main header
 .main-header {
-    padding: 2em;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    display: flex;
+    padding        : 2em;
+    position       : fixed;
+    top            : 0;
+    left           : 0;
+    z-index        : 2;
+    display        : flex;
     justify-content: space-between;
-    align-items: baseline;
-    width: calc(100% - 4em);
-    
+    align-items    : baseline;
+    width          : calc(100% - 4em);
+
     h1 {
-        margin: 0;
+        margin     : 0;
         font-weight: normal;
-        font-size: max(24px, 2vw);
+        font-size  : max(24px, 2vw);
     }
-    p{
+
+    p {
         margin: 0;
     }
+
     img {
         width: 150px;
     }
-    > div{
+
+    >div {
         background-color: rgba($color: #fff, $alpha: 0.5);
-        padding: 1em;
-        border-radius: .5em;
+        padding         : 1em;
+        border-radius   : .5em;
     }
 }
-.view-screen{
+
+.view-screen {
     display: none;
+
     @media screen and (min-width: 768px) {
         display: inline-block;
     }
 }
-.view-mobile{
+
+.view-mobile {
     display: inline-block;
+
     @media screen and (min-width: 768px) {
         display: none;
     }
@@ -167,105 +196,107 @@ video {
 // 2-3. Main navigation
 .main-navigation {
     position: relative;
-    
+
     .nav-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--color-text);
-        font-size: 1.2em;
-        cursor: pointer;
-        padding: 0.5em;
-        border-radius: 0.25em;
-        height: 2.2em;
+        display         : block;
+        background      : none;
+        border          : none;
+        color           : var(--color-text);
+        font-size       : 1.2em;
+        cursor          : pointer;
+        padding         : 0.5em;
+        border-radius   : 0.25em;
+        height          : 2.2em;
         background-color: rgba(255, 255, 255, 0.2);
+
         &:focus-visible {
-            outline: 3px solid var(--color-link);
+            outline       : 3px solid var(--color-link);
             outline-offset: 2px;
         }
-        
+
         .nav-toggle-icon {
-            display: block;
-            width: 1.5em;
-            height: 0.2em;
-            background: var(--color-text);
-            position: relative;
+            display      : block;
+            width        : 1.5em;
+            height       : 0.2em;
+            background   : var(--color-text);
+            position     : relative;
             border-radius: 0.2em;
+
             &::before,
             &::after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: var(--color-text);
-                transition: transform 0.3s ease;
-                left: 0;
+                content      : '';
+                position     : absolute;
+                width        : 100%;
+                height       : 100%;
+                background   : var(--color-text);
+                transition   : transform 0.3s ease;
+                left         : 0;
                 border-radius: 0.2em;
             }
-            
+
             &::before {
                 transform: translateY(-0.5em);
             }
-            
+
             &::after {
                 transform: translateY(0.5em);
             }
         }
-        
+
         &[aria-expanded="true"] .nav-toggle-icon {
             background: transparent;
-            
+
             &::before {
                 transform: rotate(45deg);
             }
-            
+
             &::after {
                 transform: rotate(-45deg);
             }
         }
     }
-    
+
     .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
+        display         : none;
+        position        : absolute;
+        top             : 100%;
+        right           : 0;
         background-color: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(2px);
-        border-radius: 0.5em;
-        padding: 1em;
-        flex-direction: column;
-        min-width: 270px;
-        list-style: none;
-        margin: 0;
-        gap: 0.5em;
-        
+        backdrop-filter : blur(2px);
+        border-radius   : 0.5em;
+        padding         : 1em;
+        flex-direction  : column;
+        min-width       : 270px;
+        list-style      : none;
+        margin          : 0;
+        gap             : 0.5em;
+
         &[aria-hidden="false"] {
             display: flex;
         }
-        
+
         a {
-            color: #fff;
+            color          : #fff;
             text-decoration: none;
-            padding: 0.5em 1em;
-            border-radius: 0.25em;
-            transition: background-color 0.2s ease;
-            display: block;
-            
+            padding        : 0.5em 1em;
+            border-radius  : 0.25em;
+            transition     : background-color 0.2s ease;
+            display        : block;
+
             &:hover,
             &:focus-visible {
                 background-color: rgba(255, 255, 255, 0.2);
-                outline: none;
+                outline         : none;
             }
-            
+
             &:focus-visible {
-                outline: 3px solid var(--color-link);
+                outline       : 3px solid var(--color-link);
                 outline-offset: 2px;
             }
-            
+
             &.active {
                 background-color: var(--color-link);
-                color: #fff;
+                color           : #fff;
             }
         }
     }
@@ -273,39 +304,42 @@ video {
 
 // Screen reader only text
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    position   : absolute;
+    width      : 1px;
+    height     : 1px;
+    padding    : 0;
+    margin     : -1px;
+    overflow   : hidden;
+    clip       : rect(0, 0, 0, 0);
     white-space: nowrap;
-    border: 0;
+    border     : 0;
 }
 
 // 2-2. Canvas 3D
 canvas {
     position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
+    z-index : -1;
+    top     : 0;
+    left    : 0;
 }
+
 // 2-4. Footer
-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    text-align: center;
-    padding: 1em;
+footer {
+    position        : fixed;
+    bottom          : 0;
+    left            : 0;
+    width           : 100%;
+    z-index         : 1;
+    text-align      : center;
+    padding         : 1em;
     background-color: rgba($color: #000, $alpha: 0.5);
-    ul{
-        padding: 0;
-        margin: 0;
+
+    ul {
+        padding   : 0;
+        margin    : 0;
         list-style: none;
-        li a{
+
+        li a {
             color: var(--color-white);
         }
     }
@@ -317,15 +351,15 @@ footer{
 
 // 3-1. Background overlay
 .velo-popup {
-    display: none;
+    display         : none;
     background-color: rgba($color: #2c0c43, $alpha: 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100svw;
-    height: 100svh;
-    z-index: 1000;
-    
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+    width           : 100svw;
+    height          : 100svh;
+    z-index         : 1000;
+
     &.active {
         display: flex;
     }
@@ -333,309 +367,343 @@ footer{
 
 // 3-2. Info popup
 .info-popup {
-    vertical-align: middle;
-    display: none;
-    padding: 2em 1em;
+    vertical-align  : middle;
+    display         : none;
+    padding         : 2em 1em;
     background-color: var(--color-bg);
-    border-radius: 10px;
-    z-index: 1000;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    left: calc(50% - 160px);
-    top: calc(50% - 2.5em);
-    
+    border-radius   : 10px;
+    z-index         : 1000;
+    position        : fixed;
+    justify-content : center;
+    align-items     : center;
+    left            : calc(50% - 160px);
+    top             : calc(50% - 2.5em);
+
     img {
         vertical-align: middle;
-        width: 2em;
-        height: 2em;
+        width         : 2em;
+        height        : 2em;
     }
 }
+
 // 3-3. Main popups
 .popup {
-    position: relative;
-    z-index: 1001;
+    position        : relative;
+    z-index         : 1001;
     background-color: rgba(255, 255, 255, 0.85);
-    border-radius: .5em;
-    padding: 4vw;
-    margin: 4vw;
-    display: none;
-    max-width: 1280px;
-    
+    border-radius   : .5em;
+    padding         : 4vw;
+    margin          : 4vw;
+    display         : none;
+    max-width       : 1280px;
+
     &.active {
         display: block;
-        cursor: default;
+        cursor : default;
     }
-    
+
     // Titles
     h1 {
-        margin-top: 0;
+        margin-top   : 0;
         margin-bottom: .3em;
-        font-size: max(60px, 5vw);
-        line-height: 1;
+        font-size    : max(60px, 5vw);
+        line-height  : 1;
     }
-    
+
     // Logo
     .logo {
-        width: 100%;
+        width    : 100%;
         max-width: 10em;
-        margin: 0 auto;
+        margin   : 0 auto;
     }
-    
+
     // Column layout
     .columns-wrapper {
-        padding-top: 1em;
+        padding-top  : 1em;
         // margin-top: 2em;
     }
-    
+
     .columns2 {
-        display: grid;
-        gap: 2em;
+        display         : grid;
+        gap             : 2em;
         background-color: var(--color-bg);
-        padding: 2em;
-        border-radius: .5em;
+        padding         : 2em;
+        border-radius   : .5em;
+
         .columns2 {
-            padding-left: 0;
+            padding-left : 0;
             padding-right: 0;
         }
+
         @media screen and (min-width: 768px) {
             grid-template-columns: repeat(5, 1fr);
         }
-        > img {
-            display: block;
+
+        >img {
+            display   : block;
             object-fit: cover;
+
             @media screen and (min-width: 768px) {
                 grid-column: 1 / 2;
             }
-            width: 100%;
+
+            width        : 100%;
             border-radius: .7em;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            box-shadow   : 0 0 5px rgba(0, 0, 0, 0.1);
         }
-        > div{
+
+        >div {
             @media screen and (min-width: 768px) {
                 grid-column: 2 / 6;
             }
         }
-        h2, h3{
-            margin-top: 0;
+
+        h2,
+        h3 {
+            margin-top   : 0;
             margin-bottom: 0;
         }
-        + .columns2{
+
+        +.columns2 {
             margin-top: 1em;
         }
     }
+
     .avatar {
-        margin: 0 1rem 1rem 0;
-        border-radius: 50%;
+        margin          : 0 1rem 1rem 0;
+        border-radius   : 50%;
         background-color: var(--color-bg-blue);
-        @media screen and (min-width: 768px) {   
-            float: left;
-            shape-outside: url(/images/cara-shape.png);
+
+        @media screen and (min-width: 768px) {
+            float                : left;
+            shape-outside        : url(/images/cara-shape.png);
             -webkit-shape-outside: url(/images/cara-shape.png);
             shape-image-threshold: 0.5;
-            shape-margin: 1.5em;
+            shape-margin         : 1.5em;
         }
     }
+
     // Gallery layout
-    .gallery-2, .gallery-4 {
+    .gallery-2,
+    .gallery-4 {
         display: grid;
-        gap: 1em;
+        gap    : 1em;
+
         @media screen and (min-width: 768px) {
             grid-template-columns: 1fr 1fr;
         }
+
         img {
-            width: 100%;
+            width        : 100%;
             border-radius: .5em;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
+            box-shadow   : 0 0 5px rgba(0, 0, 0, 0.1);
+            object-fit   : cover;
         }
     }
+
     .gallery-4 {
         grid-template-columns: repeat(2, 1fr);
+
         @media screen and (min-width: 768px) {
             grid-template-columns: repeat(4, 1fr);
         }
     }
+
     // 3-4. Close buttons
     .close-popup {
-        position: sticky;
-        top: 1rem;
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
+        position        : sticky;
+        top             : 1rem;
+        margin-left     : auto;
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        cursor          : pointer;
         background-color: transparent;
-        border: none;
-        font-size: 1.2em;
-        z-index: 100;        
+        border          : none;
+        font-size       : 1.2em;
+        z-index         : 100;
         /* Increases clickable area for accessibility (≈44px) */
-        min-width: 2rem;
-        min-height: 2rem;
-        font-size: 1.2rem;
-        padding: 1rem;
-        border-radius: 50%;
+        min-width       : 2rem;
+        min-height      : 2rem;
+        font-size       : 1.2rem;
+        padding         : 1rem;
+        border-radius   : 50%;
         background-color: rgba(255, 255, 255, 0.7);
-        
+
         /* Visible focus ring (AAA) */
         &:focus-visible {
-            outline: 3px solid var(--color-text);
+            outline       : 3px solid var(--color-text);
             outline-offset: 2px;
         }
-        
+
         /* If icon is <img> or <svg> inside */
-        img, svg {
-            width: 1em;
-            height: 1em;
-            display: block;
+        img,
+        svg {
+            width         : 1em;
+            height        : 1em;
+            display       : block;
             pointer-events: none;
         }
     }
-    
+
 
 }
+
 //     3-5. Page-index
-.page-index{
-    ul{
+.page-index {
+    ul {
         list-style: none;
-        padding: 0;
-        display: flex;
-        gap:.5em;
-        flex-wrap: wrap;
-        li{
+        padding   : 0;
+        display   : flex;
+        gap       : .5em;
+        flex-wrap : wrap;
+
+        li {
             padding: .2em 0;
         }
-        a{
-            color: var(--color-white);
+
+        a {
+            color           : var(--color-white);
             background-color: var(--color-text);
-            text-decoration: none;
-            padding: .5em 1em;
-            border-radius: .5em;
-            display: flex;
-            flex-direction: column;
+            text-decoration : none;
+            padding         : .5em 1em;
+            border-radius   : .5em;
+            display         : flex;
+            flex-direction  : column;
+
             @media (min-width: 768px) {
                 flex-direction: row;
             }
-            align-items: center;
+
+            align-items    : center;
             justify-content: space-between;
-            gap: 1em;
-            transition: all 0.3s ease;
-            &:hover, &:focus-visible{
-                transition: all 0.3s ease;
+            gap            : 1em;
+            transition     : all 0.3s ease;
+
+            &:hover,
+            &:focus-visible {
+                transition      : all 0.3s ease;
                 background-color: var(--color-link);
             }
         }
     }
 }
-.software-list{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
+
+.software-list {
+    padding    : 0;
+    margin     : 0;
+    display    : flex;
+    flex-wrap  : wrap;
     align-items: center;
-    gap: 1em;
-    li{
+    gap        : 1em;
+
+    li {
         background-color: var(--color-white);
-        color: var(--color-text);
-        border: 1px solid var(--color-gray);
-        border-radius: .5em;
-        font-size: 1.2em;
-        padding: 0.2em;
-        width: 1.5em;
-        height: 1.5em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: help;
-        &:hover{
+        color           : var(--color-text);
+        border          : 1px solid var(--color-gray);
+        border-radius   : .5em;
+        font-size       : 1.2em;
+        padding         : 0.2em;
+        width           : 1.5em;
+        height          : 1.5em;
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        cursor          : help;
+
+        &:hover {
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
         }
     }
 }
+
 // ========================================
 // 4. INTERACTIVE ELEMENTS
 // ========================================
 
 // 4-1. Button containers
 .buttons {
-    display: flex;
-    align-items: center;
+    display        : flex;
+    align-items    : center;
     justify-content: center;
-    padding-top: 1em;
+    padding-top    : 1em;
 }
 
 // 4-2. Primary buttons
 .btn {
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--color-text);
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 100px;
+    padding         : 0.75rem 1.5rem;
+    border          : 1px solid var(--color-text);
+    border-radius   : 0.25rem;
+    font-size       : 1rem;
+    font-weight     : 500;
+    cursor          : pointer;
+    transition      : all 0.2s ease;
+    min-width       : 100px;
     background-color: var(--color-white);
+
     &:focus {
-        outline: none;
+        outline   : none;
         box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
     }
 }
+
 .btn-primary {
     @extend .btn;
-    border: 1px solid var(--color-text);
-    color: var(--color-white);
+    border          : 1px solid var(--color-text);
+    color           : var(--color-white);
     background-color: var(--color-text);
 }
+
 // 4-3. 3D tooltips
 .tooltip-3d {
-    position: absolute;
-    transform: translate(-50%, -200%);
-    width: 2em;
-    height: 2em;
-    cursor: pointer;
+    position        : absolute;
+    transform       : translate(-50%, -200%);
+    width           : 2em;
+    height          : 2em;
+    cursor          : pointer;
     background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
+    border          : none;
+    padding         : 0;
+    margin          : 0;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    justify-content : center;
+
     &:focus {
         outline: none;
     }
-    
+
     &:focus-visible {
-        outline: 3px solid var(--color-link);
+        outline       : 3px solid var(--color-link);
         outline-offset: 2px;
-        border-radius: .25rem;
+        border-radius : .25rem;
     }
-    
+
     img {
-        width: 100%;
-        height: 100%;
+        width     : 100%;
+        height    : 100%;
         object-fit: contain;
     }
-    
+
     .building-name {
-        display: none !important;
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--color-text);
+        display         : none !important;
+        font-size       : 0.75rem;
+        font-weight     : 600;
+        color           : var(--color-text);
         background-color: rgba(255, 255, 255, 0.5);
-        padding: 0.25em 0.5em;
-        border-radius: 0.5em;
-        white-space: nowrap;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        pointer-events: none;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 0.5em;
+        padding         : 0.25em 0.5em;
+        border-radius   : 0.5em;
+        white-space     : nowrap;
+        box-shadow      : 0 2px 8px rgba(0, 0, 0, 0.15);
+        pointer-events  : none;
+        position        : absolute;
+        top             : 100%;
+        left            : 50%;
+        transform       : translateX(-50%);
+        margin-top      : 0.5em;
     }
-    
+
     // Mostrar nombre solo en móvil
     @media (max-width: 768px) {
         .building-name {
@@ -646,109 +714,116 @@ footer{
 
 // 4-4. Hover tooltips
 .hover-tooltip {
-    position: fixed;
-    z-index: 20;
-    pointer-events: none;
-    display: none;
-    background-color: rgba(0,0,0,.85);
-    color: #fff;
-    font-size: 12px;
-    padding: .4em .6em;
-    border-radius: .35rem;
-    transform: translate(8px, -8px);
-    
-    &[data-visible="true"], &.visible {
+    position        : fixed;
+    z-index         : 20;
+    pointer-events  : none;
+    display         : none;
+    background-color: rgba(0, 0, 0, .85);
+    color           : #fff;
+    font-size       : 12px;
+    padding         : .4em .6em;
+    border-radius   : .35rem;
+    transform       : translate(8px, -8px);
+
+    &[data-visible="true"],
+    &.visible {
         display: block;
     }
 }
+
 //4-5. Icons
-.share-list{
-    display: flex;
-    gap: 1.5em;
-    list-style: none;
-    padding:0;
-    margin: 0;
-    align-items: center;
+.share-list {
+    display        : flex;
+    gap            : 1.5em;
+    list-style     : none;
+    padding        : 0;
+    margin         : 0;
+    align-items    : center;
     justify-content: center;
-    li a{
-        display: flex;
+
+    li a {
+        display    : flex;
         align-items: center;
-        gap: 0.3em;
-        transform: scale(1);
-        transition: transform 0.3s ease;
-        &:hover, &:focus-visible{
+        gap        : 0.3em;
+        transform  : scale(1);
+        transition : transform 0.3s ease;
+
+        &:hover,
+        &:focus-visible {
             transform: scale(1.1);
         }
     }
 }
-.icon{
-    width: 1.5em;
-    height: 1.5em;
+
+.icon {
+    width  : 1.5em;
+    height : 1.5em;
     display: inline-block;
-    margin: 0;
+    margin : 0;
 }
 
 // Tooltip function for elements with aria-label and .tooltip class
 // Shows tooltip with the aria-label text on hover
 .tooltip[aria-label] {
     position: relative;
-    
+
     // Tooltip using ::after pseudo-element
     &::after {
-        content: attr(aria-label);
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-0.5em);
+        content         : attr(aria-label);
+        position        : absolute;
+        bottom          : 100%;
+        left            : 50%;
+        transform       : translateX(-50%) translateY(-0.5em);
         background-color: rgba(0, 0, 0, 0.85);
-        color: #fff;
-        padding: 0.4em 0.6em;
-        border-radius: 0.35rem;
-        font-size: 12px;
-        white-space: nowrap;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-        z-index: 100;
-        margin-bottom: 0.5em;
+        color           : #fff;
+        padding         : 0.4em 0.6em;
+        border-radius   : 0.35rem;
+        font-size       : 12px;
+        white-space     : nowrap;
+        pointer-events  : none;
+        opacity         : 0;
+        transition      : opacity 0.2s ease, transform 0.2s ease;
+        z-index         : 100;
+        margin-bottom   : 0.5em;
     }
-    
+
     // Show tooltip on hover
     &:hover::after,
     &:focus-visible::after {
-        opacity: 1;
+        opacity  : 1;
         transform: translateX(-50%) translateY(0);
     }
 }
+
 // ========================================
 // 5. ACCESSIBILITY
 // ========================================
 
 // 5-1. Skip links
 .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #fff;
-    padding: .5em 1em;
-    z-index: 100;
+    position       : absolute;
+    top            : -40px;
+    left           : 0;
+    background     : #fff;
+    padding        : .5em 1em;
+    z-index        : 100;
     text-decoration: none;
-    
+
     /* Hidden visually but still accessible */
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
+    clip       : rect(1px, 1px, 1px, 1px);
+    clip-path  : inset(50%);
+    height     : 1px;
+    width      : 1px;
+    overflow   : hidden;
     white-space: nowrap;
 }
 
 .skip-link:focus {
-    clip: auto;
+    clip     : auto;
     clip-path: none;
-    height: auto;
-    width: auto;
-    top: 0;
+    height   : auto;
+    width    : auto;
+    top      : 0;
 }
 
 // ========================================
@@ -759,13 +834,14 @@ footer{
 .edificio-faro {
     .pilares {
         background-color: var(--color-bg);
-        border-radius: .5em;
-        padding: 2em;
+        border-radius   : .5em;
+        padding         : 2em;
     }
+
     h2 {
         padding-top: 1em;
-        margin-top: 2em;
-        border-top: 1px solid var(--color-gray);
+        margin-top : 2em;
+        border-top : 1px solid var(--color-gray);
     }
 }
 
@@ -774,26 +850,29 @@ footer{
 body.contact {
     // Fallback color that matches the background image tone
     background-color: #f2f2f2;
-    
+
     // Background images with smooth loading
     background-image: url(/images/contact/contactBackgroundXS.png);
+
     @media (min-width: 768px) {
         background-image: url(/images/contact/contactBackgroundS.png);
     }
+
     @media (min-width: 1400px) {
         background-image: url(/images/contact/contactBackground.png);
     }
-    background-repeat: no-repeat;
+
+    background-repeat  : no-repeat;
     background-position: center center;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-family-base);
-    
+    background-size    : cover;
+    margin             : 0;
+    padding            : 0;
+    min-height         : 100vh;
+    display            : flex;
+    align-items        : center;
+    justify-content    : center;
+    font-family        : var(--font-family-base);
+
     // Smooth transition when image loads
     transition: background-image 0.3s ease-in-out;
 }
@@ -801,107 +880,116 @@ body.contact {
 // 5-2. Form container
 .form-container {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: 1rem;
-    
+    padding         : 2rem;
+    border-radius   : 0.5rem;
+    box-shadow      : 0 4px 6px rgba(0, 0, 0, 0.1);
+    width           : 100%;
+    max-width       : 500px;
+    margin          : 1rem;
+
     h1 {
         text-align: center;
-        margin: 0 0 1rem;
+        margin    : 0 0 1rem;
     }
 }
 
 // 5-3. Form groups
 .form-group {
     margin-bottom: 1.5rem;
-    
+
     label {
-        display: block;
+        display      : block;
         margin-bottom: 0.5rem;
-        font-family: var(--font-family-title);
-        font-weight: 600;
+        font-family  : var(--font-family-title);
+        font-weight  : 600;
     }
-    
+
     input,
     textarea {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #ddd;
+        width        : 100%;
+        padding      : 0.75rem;
+        border       : 1px solid #ddd;
         border-radius: 0.25rem;
-        font-size: 1rem;
-        font-family: var(--font-family-base);
-        box-sizing: border-box;
-        transition: border-color 0.2s ease;
-        
+        font-size    : 1rem;
+        font-family  : var(--font-family-base);
+        box-sizing   : border-box;
+        transition   : border-color 0.2s ease;
+
         &:focus {
-            outline: none;
+            outline        : none;
             // border-color: var(--color-link);
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+            box-shadow     : 0 0 0 2px rgba(59, 130, 246, 0.1);
         }
-        
+
         &:required:invalid {
             border-color: #e53e3e;
         }
     }
-    
+
     textarea {
         min-height: 120px;
-        resize: vertical;
+        resize    : vertical;
     }
 }
 
 // 5-4. Form actions
 .form-actions {
-    display: flex;
-    gap: 1rem;
+    display        : flex;
+    gap            : 1rem;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top     : 2rem;
 }
 
 // 5-5. Responsive design
 @media (max-width: 768px) {
     .form-container {
-        margin: 0.5rem;
+        margin : 0.5rem;
         padding: 1.5rem;
     }
-    
+
     .form-actions {
         flex-direction: column;
-        
+
         .btn {
             width: 100%;
         }
     }
 }
 
-.spinner{
-    width: 4em;
-    height: 4em;
+.spinner {
+    width    : 4em;
+    height   : 4em;
     animation: spin 1s linear infinite;
-    position:absolute;
-    &::after, &::before{
-        display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1em;
-        height: 1em;
+    position : absolute;
+
+    &::after,
+    &::before {
+        display         : block;
+        content         : '';
+        position        : absolute;
+        top             : 0;
+        left            : 0;
+        width           : 1em;
+        height          : 1em;
         background-color: #ff6600;
-        border-radius: 50%;
+        border-radius   : 50%;
     }
-    &::before{
-        top: initial;
-        bottom: 0;
-        left: initial;
-        right: 0;
+
+    &::before {
+        top             : initial;
+        bottom          : 0;
+        left            : initial;
+        right           : 0;
         background-color: var(--color-white);
     }
 }
+
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
