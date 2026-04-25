@@ -1,10 +1,11 @@
 # Three.js Journey
 
 ## Setup
+
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
 
-``` bash
+```bash
 # Install dependencies (only the first time)
 npm install
 
@@ -16,10 +17,11 @@ npm run build:netlify
 
 # Netlify (login with github)
 Push to main branch (Sourcetree) and deploy to netlify
-netlify deploy 
+netlify deploy
 netlify deploy  --prod
 
 
 Login to netlify with Github account:
 https://app.netlify.com/teams/lureka/sites
 https://app.netlify.com/projects/lureka/overview
+```

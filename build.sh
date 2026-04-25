@@ -32,7 +32,7 @@ cp public/js/index.js public/js/collapsible.js public/js/image-popup.js dist/js/
 # Copiar CSS estático para 3dcity.html y proyects (styles.css y proyects.css no son procesados por Vite)
 echo "🎨 Copying CSS files..."
 mkdir -p dist/css
-cp public/css/styles.css public/css/proyects.css dist/css/ 2>/dev/null || true
+cp public/css/styles.css public/css/proyects.css public/css/index.css dist/css/ 2>/dev/null || true
 
 # Copiar archivos estáticos
 cp -r public/_redirects public/fonts public/3d dist/
