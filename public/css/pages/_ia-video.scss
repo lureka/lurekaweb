@@ -58,15 +58,16 @@ body.ia-video {
             }
 
             &::after {
-                opacity    : 0;
-                transition : all .3s;
-                color      : #fff;
-                z-index    : 2;
-                position   : absolute;
-                left       : calc(50% - 1.5rem);
-                font-family: "icomoon" !important;
-                content    : "\e921";
-                font-size  : 3em;
+                opacity       : 0;
+                transition    : all .3s;
+                color         : #fff;
+                z-index       : 2;
+                position      : absolute;
+                left          : calc(50% - 1.5rem);
+                font-family   : "icomoon" !important;
+                content       : "\e921";
+                font-size     : 3em;
+                pointer-events: none;
             }
 
             img {
