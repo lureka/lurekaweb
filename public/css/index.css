@@ -1925,7 +1925,14 @@ body.ia-video .ia-intro {
 }
 body.ia-video .imgbuttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+@media screen and (min-width: 768px) {
+  body.ia-video .imgbuttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+body.ia-video .imgbuttons {
   gap: 1em;
   list-style-type: none;
   padding: 0;
