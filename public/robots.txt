@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://lureka.es/sitemap.xml
+Sitemap: https://lureka.com/sitemap.xml
 
 # No indexar páginas de éxito/confirmación
 Disallow: /success.html
