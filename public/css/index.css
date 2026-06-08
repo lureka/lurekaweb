@@ -1695,7 +1695,7 @@ body.initial-state .main-navigation .nav-toggle {
 .section--1 .container .content-txt .hero-p-h1 {
   padding-top: 0;
   margin-top: 0;
-  font-size: max(20px, 1.5vw);
+  font-size: max(25px, 1.4vw);
 }
 .section--1 .container > div {
   display: grid;
@@ -1705,7 +1705,8 @@ body.initial-state .main-navigation .nav-toggle {
   margin-bottom: 0;
 }
 .section--1 .container > div strong {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  font-family: var(--font-family-title);
 }
 .section--1 .container > div small {
   font-size: 0.5em;
