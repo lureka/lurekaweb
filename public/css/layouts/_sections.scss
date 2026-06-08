@@ -62,7 +62,7 @@
     margin-bottom: 2em;
 }
 
-// 1-2. Section 1 - Index
+// 1-2. Section 1 - Index Hero
 .section--1 {
     background    : #4d6a6b;
     min-height    : initial;
@@ -75,11 +75,21 @@
 
         .content-txt {
             padding: 1.5em;
+
+            .hero-p-h1 {
+                padding-top: 0;
+                margin-top : 0;
+                font-size  : max(20px, 1.5vw);
+            }
         }
 
         >div {
             display: grid;
             margin : 0 auto;
+
+            h1 {
+                margin-bottom: 0;
+            }
 
             strong {
                 font-size: 1.5em;
