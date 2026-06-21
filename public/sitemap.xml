@@ -7,7 +7,7 @@
   <!-- Página principal -->
   <url>
     <loc>https://lureka.com/</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- Portfolio 3D -->
   <url>
     <loc>https://lureka.com/3dcity.html</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -23,7 +23,7 @@
   <!-- Contacto -->
   <url>
     <loc>https://lureka.com/contact.html</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -31,29 +31,64 @@
   <!-- Proyectos -->
   <url>
     <loc>https://lureka.com/proyects/a-hombros-de-gigantas.html</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
+    <loc>https://lureka.com/proyects/avanis.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://lureka.com/proyects/contestia.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://lureka.com/proyects/digital.html</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://lureka.com/proyects/dynaclassroom.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://lureka.com/proyects/ia-video.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://lureka.com/proyects/luz.html</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://lureka.com/proyects/papel.html</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://lureka.com/proyects/santander-shopping.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   
