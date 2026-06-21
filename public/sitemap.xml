@@ -35,20 +35,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <url>
-    <loc>https://lureka.com/proyects/avanis.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://lureka.com/proyects/contestia.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://lureka.com/proyects/digital.html</loc>
@@ -57,12 +43,6 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://lureka.com/proyects/dynaclassroom.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://lureka.com/proyects/ia-video.html</loc>
@@ -72,21 +52,7 @@
   </url>
   
   <url>
-    <loc>https://lureka.com/proyects/luz.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
     <loc>https://lureka.com/proyects/papel.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://lureka.com/proyects/santander-shopping.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
