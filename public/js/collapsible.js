@@ -41,6 +41,7 @@
     if (content) {
       content.classList.remove('js-active');
       content.setAttribute('aria-hidden', 'true');
+      content.setAttribute('inert', '');
     }
   }
 
@@ -50,6 +51,7 @@
     if (content) {
       content.classList.add('js-active');
       content.setAttribute('aria-hidden', 'false');
+      content.removeAttribute('inert');
     }
   }
 
@@ -79,6 +81,11 @@
     const isInitiallyActive = header.classList.contains('js-active');
     header.setAttribute('aria-expanded', isInitiallyActive ? 'true' : 'false');
     content.setAttribute('aria-hidden', isInitiallyActive ? 'false' : 'true');
+    if (!isInitiallyActive) {
+      content.setAttribute('inert', '');
+    } else {
+      content.removeAttribute('inert');
+    }
 
     function toggle(open) {
       const container = header.closest('.js-collapsible');
