@@ -4,6 +4,9 @@ Allow: /
 # Sitemap
 Sitemap: https://lureka.com/sitemap.xml
 
+# Contexto para agentes de IA / LLMs
+# https://lureka.com/llms.txt
+
 # No indexar páginas de éxito/confirmación
 Disallow: /success.html
 

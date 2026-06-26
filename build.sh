@@ -34,9 +34,9 @@ echo "🎨 Copying CSS files..."
 mkdir -p dist/css
 cp public/css/styles.css public/css/proyects.css public/css/index.css dist/css/ 2>/dev/null || true
 
-# Copiar archivos SEO críticos (sitemap y robots)
+# Copiar archivos SEO críticos (sitemap, robots y llms.txt)
 echo "🔍 Copying SEO files..."
-cp public/sitemap.xml public/robots.txt dist/
+cp public/sitemap.xml public/robots.txt public/llms.txt dist/
 
 # Copiar archivos estáticos
 cp -r public/_redirects public/fonts public/3d dist/

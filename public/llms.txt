@@ -1,0 +1,70 @@
+# Lureka — Emilio Rodriguez Vila
+
+> Portfolio personal de Emilio Rodriguez Vila (alias Lureka), diseñador web senior con más de 25 años de experiencia especializado en UX, UI, accesibilidad web WCAG, maquetación frontend y diseño visual. Con sede en Madrid, España. Actualmente co-fundador de Gaexia y consultor de IA.
+
+## Sobre Emilio Rodriguez Vila
+
+Emilio Rodriguez Vila es diseñador UX/UI senior con sede en Madrid. Lleva más de 25 años activo en el sector digital, habiendo trabajado con clientes como Banco Santander, BBVA, Decathlon, ONLAE, INE, Red.es, Globalia y Panda Software, entre otros. Su perfil combina diseño de experiencia de usuario, accesibilidad web (WCAG AA), maquetación frontend (HTML, CSS/SCSS, React) e ilustración digital. A partir de 2023 incorpora IA generativa a su flujo de trabajo creativo y productivo.
+
+- **Nombre completo:** Emilio Rodriguez Vila
+- **Alias/marca:** Lureka
+- **Ubicación:** Madrid, España
+- **LinkedIn:** [linkedin.com/in/emiliorodriguezvila-ux-ui-designer-accesibilidad-maquetador](https://www.linkedin.com/in/emiliorodriguezvila-ux-ui-designer-accesibilidad-maquetador)
+- **Instagram:** [instagram.com/lureka_com](https://www.instagram.com/lureka_com/)
+- **Contacto:** [lureka.com/contact.html](https://lureka.com/contact.html)
+
+## Experiencia profesional
+
+- **2025 – hoy | Gaexia** — Co-fundador, responsable de proyectos y consultor de IA. Agencia de diseño y desarrollo web especializada en pymes y startups. Clientes: Agroinnova. Herramientas: Claude Code, Cursor, ChatGPT, N8N, Figma, HTML/CSS/SCSS, WordPress.
+- **2018 – 2025 | Osoco** — Especialista Senior en UX, UI, accesibilidad web e ilustración (7 años). Ciclo completo: conceptualización, UX, UI, maquetación y producción. Clientes: Banco Santander, BBVA, Nexplore, Contestia, Dynaclassroom. Herramientas: Figma, HTML/CSS/SCSS, Grails, React, Photoshop, Illustrator, After Effects, Lottie Files.
+- **2011 – 2018 | Freelance** — Especialista Senior en UX, UI, accesibilidad web e ilustración (7 años). Clientes: BBVA, Decathlon, Panda Software, Globalia, Parclick, Bkool, Beyourcar. WordPress + WooCommerce, branding, fotografía de producto, visitas virtuales.
+- **2000 – 2010 | Grupo Telefónica** — UX, UI, desarrollo front-end y jefatura de proyectos (10 años). Clientes públicos: INE, Red.es, ONLAE, Alcampo, Gobierno de La Rioja, Puerto de Valencia, Gobierno de Cantabria.
+
+## Formación académica
+
+- **2025 – cursando | Máster en IA Generativa** — Universidad Isabel I - BIG School
+- **2025 | Máster Online en IA Generativa para Creativos** — Founderz Business School. PFC: proyecto Agroinnova (revista digital; branding, vídeo promocional con storyboard, locución, postproducción y auditoría de ética en uso de IA).
+- **2009 – 2010 | Experto en Accesibilidad y Usabilidad de Contenidos Web** — Universidad de Alcalá. Especialización en WCAG y validación de accesibilidad AA para proyectos públicos subvencionados.
+- **1995 – 1999 | Infografía en Arquitectura** — E.T.S.A.M., Universidad Politécnica de Madrid. PFC: propuesta de ampliación del Museo del Prado.
+
+## Habilidades y herramientas
+
+- **Diseño UX/UI:** Figma, Sketch, wireframing, prototipado, design systems, arquitectura de información
+- **Ilustración y gráficos:** Adobe Photoshop, Adobe Illustrator, Clip Studio Paint, Blender (modelado 3D)
+- **Animación y vídeo:** Adobe After Effects, Lottie Files, DaVinci Resolve, HeyGen, Suno
+- **Frontend:** HTML5, CSS3, SCSS/Sass, JavaScript, React, Node.js, WordPress + WooCommerce, Grails
+- **IA generativa:** Claude Code, Cursor, ChatGPT, Midjourney, DALL·E 3, Freepik AI, HeyGen, Suno, N8N
+- **Especialidades:** Accesibilidad web WCAG AA, maquetación accesible, animación web ligera (Lottie), producción de vídeo con IA, three.js/WebGL
+
+## Páginas principales
+
+- [Inicio](https://lureka.com/): Presentación, resumen del portfolio, trayectoria profesional completa y formación académica de Emilio Rodriguez Vila.
+- [Contacto](https://lureka.com/contact.html): Formulario de contacto para propuestas de proyecto de diseño UX/UI, accesibilidad o frontend.
+- [CV en PDF (español)](https://lureka.com/pdf/ERV_CV.pdf): Currículum completo descargable.
+- [CV en PDF (inglés)](https://lureka.com/pdf/ERV_CV-EN.pdf): Resume downloadable in English.
+
+## Proyectos de diseño y desarrollo
+
+- [3D Lureka City](https://lureka.com/3dcity.html): Portfolio interactivo en 3D construido con Three.js y Blender. Experiencia visual/WebGL — no legible por agentes de solo texto; el contenido descriptivo equivalente está en la página de Inicio.
+- [Videos publicitarios con IA](https://lureka.com/proyects/ia-video.html): Producción de vídeo publicitario con IA generativa: storyboard, locución, avatares realistas (HeyGen), bandas sonoras (Suno) y postproducción completa.
+- [Página pública de Contestia](https://lureka.com/proyects/contestia.html): UI, maquetación e ilustraciones animadas tipo slow-motion en Lottie Files + Adobe After Effects para una plataforma de gestión. Animaciones complejas con pesos de pocos KB.
+- [Dynaclassroom](https://lureka.com/proyects/dynaclassroom.html): Proyecto educativo de Osoco. Responsable de branding completo, logomarca, estrategia visual, landing pública, vídeos, ilustración de personajes y modelado 3D.
+- [Avanis — Banco Santander](https://lureka.com/proyects/avanis.html): Diseño y desarrollo conjunto para Banco Santander con plazos muy ajustados, participando en decisiones de ambos equipos.
+- [Santander Shopping](https://lureka.com/proyects/santander-shopping.html): Sección de marketplace dentro de la app de Banco Santander. Traducción de diseños Figma a componentes React.
+
+## Sketchbook e ilustración
+
+- [A hombros de gigantas](https://lureka.com/proyects/a-hombros-de-gigantas.html): 12 retratos digitales de mujeres referentes en software y tecnología (Ada Lovelace, Grace Hopper, Margaret Hamilton, Adele Goldberg…), creados en Clip Studio Paint para una iniciativa de visibilización. Proyecto también en [ahombrosdegigantas.xyz](https://ahombrosdegigantas.xyz).
+- [Pintura digital](https://lureka.com/proyects/digital.html): Galería de pintura digital y retratos.
+- [Papel](https://lureka.com/proyects/papel.html): Dibujos a lápiz y técnicas tradicionales sobre papel.
+- [Luz](https://lureka.com/proyects/luz.html): Galería fotográfica con juegos de luz y sombra.
+
+## Nota técnica para agentes
+
+Este sitio es estático (sin backend ni CMS). El contenido textual principal vive en la página de Inicio (`/`). Las páginas de `/proyects/` amplían proyectos concretos. La experiencia "3D Lureka City" usa WebGL/Three.js y no contiene texto extraíble; su contenido descriptivo equivalente está en la página de Inicio.
+
+## Optional
+
+- [LinkedIn](https://www.linkedin.com/in/emiliorodriguezvila-ux-ui-designer-accesibilidad-maquetador): Perfil profesional y experiencia detallada.
+- [Instagram](https://www.instagram.com/lureka_com/): Trabajo visual y behind the scenes.
+- [Domestika](https://www.domestika.org/es/lureka/courses): Cursos de formación completados.
