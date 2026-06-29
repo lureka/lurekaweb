@@ -15,15 +15,27 @@ body.contact {
     // Fallback color that matches the background image tone
     background-color: #f2f2f2;
     
-    // Background images with smooth loading
+    // Background images with smooth loading — png fallback first, then webp for modern browsers
     background-image: url(/images/contact/contactBackgroundXS.png);
-    
+    background-image: image-set(
+        url(/images/contact/contactBackgroundXS.webp) type('image/webp'),
+        url(/images/contact/contactBackgroundXS.png) type('image/png')
+    );
+
     @media (min-width: 768px) {
         background-image: url(/images/contact/contactBackgroundS.png);
+        background-image: image-set(
+            url(/images/contact/contactBackgroundS.webp) type('image/webp'),
+            url(/images/contact/contactBackgroundS.png) type('image/png')
+        );
     }
-    
+
     @media (min-width: 1400px) {
         background-image: url(/images/contact/contactBackground.png);
+        background-image: image-set(
+            url(/images/contact/contactBackground.webp) type('image/webp'),
+            url(/images/contact/contactBackground.png) type('image/png')
+        );
     }
     
     background-repeat: no-repeat;

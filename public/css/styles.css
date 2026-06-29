@@ -45,9 +45,11 @@
   --color-text: #343434;
   --color-text-off: #444;
   --color-gray: #afafaf;
+  --color-gray-light: #d9d9d9;
   --color-bg-blue: #d5effc;
-  --color-link: #ff6600;
-  --color-white: #fff;
+  --color-link: #f8a528;
+  --color-white: #fffdf3;
+  --color-black: #343434;
   --size-l: 2em;
   --size-m: 1.5em;
   --font-family-base: "Raleway", serif;
@@ -730,15 +732,18 @@ footer ul li a {
 body.contact {
   background-color: #f2f2f2;
   background-image: url(/images/contact/contactBackgroundXS.png);
+  background-image: image-set(url(/images/contact/contactBackgroundXS.webp) type('image/webp'), url(/images/contact/contactBackgroundXS.png) type('image/png'));
 }
 @media (min-width: 768px) {
   body.contact {
     background-image: url(/images/contact/contactBackgroundS.png);
+    background-image: image-set(url(/images/contact/contactBackgroundS.webp) type('image/webp'), url(/images/contact/contactBackgroundS.png) type('image/png'));
   }
 }
 @media (min-width: 1400px) {
   body.contact {
     background-image: url(/images/contact/contactBackground.png);
+    background-image: image-set(url(/images/contact/contactBackground.webp) type('image/webp'), url(/images/contact/contactBackground.png) type('image/png'));
   }
 }
 body.contact {

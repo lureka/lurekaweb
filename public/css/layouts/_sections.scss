@@ -41,6 +41,7 @@
     }
 
     .container {
+        width   : 100%;
         position: relative;
         z-index : 1;
 
@@ -220,11 +221,12 @@
     padding         : 1em;
 
     @media screen and (min-width: 768px) {
-        min-height        : 100vh;
-        justify-content   : center;
-        padding           : 2em;
-        display           : grid;
-        grid-template-rows: auto 1fr;
+        min-height           : 100vh;
+        justify-content      : center;
+        padding              : 2em;
+        display              : grid;
+        grid-template-rows   : auto 1fr;
+        grid-template-columns: 1fr;
     }
 
     // min-height: 100vh;

@@ -45,7 +45,8 @@ Emilio Rodriguez Vila es diseñador UX/UI senior con sede en Madrid. Lleva más 
 
 ## Proyectos de diseño y desarrollo
 
-- [3D Lureka City](https://lureka.com/3dcity.html): Portfolio interactivo en 3D construido con Three.js y Blender. Experiencia visual/WebGL — no legible por agentes de solo texto; el contenido descriptivo equivalente está en la página de Inicio.
+- [3D Lureka City](https://lureka.com/3dcity.html): Portfolio interactivo en 3D construido con Three.js y Blender. Experiencia visual/WebGL — no legible por agentes de solo texto; el contenido descriptivo equivalente está en [3D Lureka City - el proyecto](https://lureka.com/proyects/cv-3dcity.html).
+- [3D Lureka City - el proyecto](https://lureka.com/proyects/cv-3dcity.html): Página de texto previa a la experiencia 3D, con la descripción del proyecto: ciudad 3D animada construida edificio a edificio (Formación, Osoco, Telefónica, Freelance, Lab), desarrollada con Three.js y Blender.
 - [Videos publicitarios con IA](https://lureka.com/proyects/ia-video.html): Producción de vídeo publicitario con IA generativa: storyboard, locución, avatares realistas (HeyGen), bandas sonoras (Suno) y postproducción completa.
 - [Página pública de Contestia](https://lureka.com/proyects/contestia.html): UI, maquetación e ilustraciones animadas tipo slow-motion en Lottie Files + Adobe After Effects para una plataforma de gestión. Animaciones complejas con pesos de pocos KB.
 - [Dynaclassroom](https://lureka.com/proyects/dynaclassroom.html): Proyecto educativo de Osoco. Responsable de branding completo, logomarca, estrategia visual, landing pública, vídeos, ilustración de personajes y modelado 3D.
@@ -61,7 +62,7 @@ Emilio Rodriguez Vila es diseñador UX/UI senior con sede en Madrid. Lleva más 
 
 ## Nota técnica para agentes
 
-Este sitio es estático (sin backend ni CMS). El contenido textual principal vive en la página de Inicio (`/`). Las páginas de `/proyects/` amplían proyectos concretos. La experiencia "3D Lureka City" usa WebGL/Three.js y no contiene texto extraíble; su contenido descriptivo equivalente está en la página de Inicio.
+Este sitio es estático (sin backend ni CMS). El contenido textual principal vive en la página de Inicio (`/`). Las páginas de `/proyects/` amplían proyectos concretos. La experiencia "3D Lureka City" (`/3dcity.html`) usa WebGL/Three.js y no contiene texto extraíble; su contenido descriptivo equivalente está en `/proyects/cv-3dcity.html`.
 
 ## Optional
 

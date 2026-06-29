@@ -1657,6 +1657,7 @@ body.initial-state .main-navigation .nav-toggle {
   margin: 4vw auto;
 }
 .section .container {
+  width: 100%;
   position: relative;
   z-index: 1;
 }
@@ -1828,6 +1829,7 @@ body.initial-state .main-navigation .nav-toggle {
     padding: 2em;
     display: grid;
     grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
   }
 }
 .section--5 .sketchbook-wrapper {
@@ -1918,8 +1920,13 @@ canvas {
 }
 
 /*
- STYLES INDEX - IA VIDEO PAGE
+ STYLES INDEX - CASE STUDY SECTIONS
  =========================
+
+ Shared layout for portfolio detail pages (proyects/*.html): ia-video.html
+ plus the project case-study pages (contestia, avanis, dynaclassroom,
+ santander-shopping). Scoped to body.case-study so any /proyects/*.html
+ page can opt in just by adding that class to <body>.
 
  1. LAYOUT
     1-1. Container width
@@ -1930,33 +1937,57 @@ canvas {
  2. CONTENT
     2-1. Images
     2-2. Lists
+
+ Note: .imgbuttons and .color-list below are specific to ia-video.html's
+ video-casting content and are unused by the other case-study pages, but
+ are harmless to leave shared here.
 */
-body.ia-video .ia-intro {
+body.case-study .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.85em;
+  color: var(--color-gray);
+  margin-bottom: 0.5em;
+  transition: color 0.2s;
+}
+body.case-study .back-link img {
+  width: 1em;
+  height: 1em;
+  opacity: 0.6;
+}
+body.case-study .back-link:hover, body.case-study .back-link:focus-visible {
+  color: var(--color-link);
+}
+body.case-study .back-link:hover img, body.case-study .back-link:focus-visible img {
+  opacity: 1;
+}
+body.case-study .ia-intro {
   background-color: #f5f2ee;
   padding: 3em 0 0;
   border-bottom: 1px dashed #ccc;
 }
 @media screen and (min-width: 768px) {
-  body.ia-video .ia-intro {
+  body.case-study .ia-intro {
     padding: 4em 0 0;
   }
 }
-body.ia-video .imgbuttons {
+body.case-study .imgbuttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 @media screen and (min-width: 768px) {
-  body.ia-video .imgbuttons {
+  body.case-study .imgbuttons {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-body.ia-video .imgbuttons {
+body.case-study .imgbuttons {
   gap: 1em;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-body.ia-video .imgbuttons li {
+body.case-study .imgbuttons li {
   position: relative;
   display: flex;
   align-items: center;
@@ -1965,15 +1996,15 @@ body.ia-video .imgbuttons li {
   border-radius: 1em;
   cursor: pointer;
 }
-body.ia-video .imgbuttons li:hover img {
+body.case-study .imgbuttons li:hover img {
   opacity: 0.5;
   transition: all 0.3s;
 }
-body.ia-video .imgbuttons li:hover::after {
+body.case-study .imgbuttons li:hover::after {
   opacity: 1;
   transition: all 0.3s;
 }
-body.ia-video .imgbuttons li::after {
+body.case-study .imgbuttons li::after {
   opacity: 0;
   transition: all 0.3s;
   color: #fff;
@@ -1985,12 +2016,12 @@ body.ia-video .imgbuttons li::after {
   font-size: 3em;
   pointer-events: none;
 }
-body.ia-video .imgbuttons li img {
+body.case-study .imgbuttons li img {
   border-radius: 1em;
   position: relative;
   transition: all 0.3s;
 }
-body.ia-video .color-list {
+body.case-study .color-list {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -1999,90 +2030,102 @@ body.ia-video .color-list {
   margin: 0;
   padding: 0;
 }
-body.ia-video .color-list li {
+body.case-study .color-list li {
   text-align: center;
 }
-body.ia-video .container {
+body.case-study .container {
   max-width: 1280px;
 }
-body.ia-video .container h3 {
+body.case-study .container h3 {
   font-size: 2em;
   line-height: 1em;
 }
-body.ia-video .ia-section {
+body.case-study .ia-section {
   padding-top: 2.5em;
   padding-bottom: 2.5em;
 }
 @media screen and (min-width: 768px) {
-  body.ia-video .ia-section {
+  body.case-study .ia-section {
     padding-top: 3.5em;
     padding-bottom: 3.5em;
   }
 }
-body.ia-video .ia-section--odd {
+body.case-study .ia-section--odd {
   background-color: #f5f2ee;
 }
-body.ia-video .ia-section--even {
+body.case-study .ia-section--even {
   background-color: #eeeeee;
 }
+body.case-study .container--left .container picture,
+body.case-study .container--right .container picture {
+  padding: 1em;
+  background: var(--color-white);
+  border-radius: 5px;
+  transform: rotate(-0.5deg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 @media screen and (min-width: 768px) {
-  body.ia-video .container--left .container,
-  body.ia-video .container--right .container {
+  body.case-study .container--left .container,
+  body.case-study .container--right .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 3em;
   }
-  body.ia-video .container--left .container h3,
-  body.ia-video .container--right .container h3 {
+  body.case-study .container--left .container h3,
+  body.case-study .container--right .container h3 {
     grid-column: 1/-1;
   }
-  body.ia-video .container--left .container .container--img,
-  body.ia-video .container--left .container .container--txt,
-  body.ia-video .container--right .container .container--img,
-  body.ia-video .container--right .container .container--txt {
+  body.case-study .container--left .container .container--img,
+  body.case-study .container--left .container .container--txt,
+  body.case-study .container--right .container .container--img,
+  body.case-study .container--right .container .container--txt {
     align-self: start;
   }
 }
 @media screen and (min-width: 768px) {
-  body.ia-video .container--left .container {
+  body.case-study .container--left .container {
     grid-template-areas: "title title" "img   txt";
   }
-  body.ia-video .container--left .container h3 {
+  body.case-study .container--left .container h3 {
     grid-area: title;
   }
-  body.ia-video .container--left .container .container--img {
+  body.case-study .container--left .container .container--img {
     grid-area: img;
   }
-  body.ia-video .container--left .container .container--txt {
+  body.case-study .container--left .container .container--txt {
     grid-area: txt;
   }
 }
 @media screen and (min-width: 768px) {
-  body.ia-video .container--right .container {
+  body.case-study .container--right .container {
     grid-template-areas: "title title" "txt   img";
   }
-  body.ia-video .container--right .container h3 {
+  body.case-study .container--right .container h3 {
     grid-area: title;
   }
-  body.ia-video .container--right .container .container--img {
+  body.case-study .container--right .container .container--img {
     grid-area: img;
   }
-  body.ia-video .container--right .container .container--txt {
+  body.case-study .container--right .container .container--txt {
     grid-area: txt;
   }
 }
-body.ia-video .container--img picture {
+body.case-study .container--img {
+  display: grid;
+  gap: 1em;
+}
+body.case-study .container--img picture {
   margin: 0;
 }
-body.ia-video .container--img img {
+body.case-study .container--img img {
   width: 100%;
   height: auto;
   display: block;
 }
-body.ia-video ol {
+body.case-study ol {
   padding-left: 1.5em;
 }
-body.ia-video ol li {
+body.case-study ol li {
   margin-bottom: 0.75em;
 }
 

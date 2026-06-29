@@ -43,14 +43,10 @@ export default defineConfig({
     }
   },
   server: {
-    // Open in system default browser instead of Cursor's integrated browser
-    // Using 'open' command on macOS to force system browser
-    open: process.env.BROWSER || true,
-    // Use system default browser
+    open: !!process.env.BROWSER,
     strictPort: false
   },
   preview: {
-    // Also configure preview to use system browser
-    open: process.env.BROWSER || true
+    open: !!process.env.BROWSER
   }
 });

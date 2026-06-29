@@ -1,6 +1,11 @@
 /*
- STYLES INDEX - IA VIDEO PAGE
+ STYLES INDEX - CASE STUDY SECTIONS
  =========================
+
+ Shared layout for portfolio detail pages (proyects/*.html): ia-video.html
+ plus the project case-study pages (contestia, avanis, dynaclassroom,
+ santander-shopping). Scoped to body.case-study so any /proyects/*.html
+ page can opt in just by adding that class to <body>.
 
  1. LAYOUT
     1-1. Container width
@@ -11,13 +16,42 @@
  2. CONTENT
     2-1. Images
     2-2. Lists
+
+ Note: .imgbuttons and .color-list below are specific to ia-video.html's
+ video-casting content and are unused by the other case-study pages, but
+ are harmless to leave shared here.
 */
 
 // ========================================
 // 1. LAYOUT
 // ========================================
 
-body.ia-video {
+body.case-study {
+    .back-link {
+        display      : inline-flex;
+        align-items  : center;
+        gap          : .4em;
+        font-size    : .85em;
+        color        : var(--color-gray);
+        margin-bottom: .5em;
+        transition   : color .2s;
+
+        img {
+            width  : 1em;
+            height : 1em;
+            opacity: .6;
+        }
+
+        &:hover,
+        &:focus-visible {
+            color: var(--color-link);
+
+            img {
+                opacity: 1;
+            }
+        }
+    }
+
     .ia-intro {
         background-color: #f5f2ee;
         padding         : 3em 0 0;
@@ -134,6 +168,14 @@ body.ia-video {
     .container--left,
     .container--right {
         .container {
+            picture {
+                padding      : 1em;
+                background   : var(--color-white);
+                border-radius: 5px;
+                transform    : rotate(-0.5deg);
+                box-shadow   : 0 0 10px rgba(0, 0, 0, .1);
+            }
+
             @media screen and (min-width: 768px) {
                 display              : grid;
                 grid-template-columns: 1fr 1fr;
@@ -197,6 +239,9 @@ body.ia-video {
 
     // 2-1. Images
     .container--img {
+        display: grid;
+        gap    : 1em;
+
         picture {
             margin: 0;
         }
